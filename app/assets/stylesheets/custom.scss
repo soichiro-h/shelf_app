@@ -1,0 +1,37 @@
+/*　いらん？→　@import "bootstrap-sprockets";*/
+@import "bootstrap";
+
+
+/*=========================
+      color theme
+=========================*/
+
+$Gainsboro      : #E4E4E4;
+$BlueBayoux     : #64707B;
+$SteelGrey      : #41464B;
+$SummerSky      : #26B1DB;
+$Cerise         : #E13D6D;
+$ErrorAmaranth  : #ED404C;
+
+
+
+/*=========================
+      Universal
+=========================*/
+
+body{
+  font-family: 'Roboto',sans-serif ;
+}
+
+
+/*=========================
+      Navigation
+=========================*/
+
+.logo{
+  color: $SummerSky;
+}
+
+
+
+

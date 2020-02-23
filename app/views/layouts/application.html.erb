@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ShelfApp</title>
-    <%= csrf_meta_tags %>
+  
 
+  <head>
+    <title>Shelf</title>
+    <%= csrf_meta_tags %>
+    
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
 
   <body>
+    
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand"><i class="fas fa-book logo"></i><%= link_to"Shelf", root_path %></span>
+      
+      
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">新規登録</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to"ログイン", login_path, class: "nav-link active" %>
+        </li>
+      </ul>
+      
+    </nav>
+    
+    
     <%= yield %>
   </body>
+
+  <!-- footer -->  
+  
 </html>
