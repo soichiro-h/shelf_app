@@ -8,6 +8,7 @@
     
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,20 +18,44 @@
   <body>
     
     <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand"><i class="fas fa-book logo"></i><%= link_to"Shelf", root_path %></span>
+      <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i><%= link_to"Shelf", root_path, id: "logo" %></span>
       
       
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" href="#">新規登録</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to"ログイン", login_path, class: "nav-link active" %>
-        </li>
+          
+          <% if user_signed_in? %>
+          
+            <li class="nav-item">
+              <%= link_to"プロフィール", profile_path, class: "nav-link" %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to"タグ", root_path, class: "nav-link" %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link" %>
+            </li>
+          
+          <% else %>
+        
+            <li class="nav-item">
+            <%= link_to"新規登録", signup_path, class: "nav-link" %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to"ログイン", login_path, class: "nav-link" %>
+            </li>
+        
+          <% end %>
+        
       </ul>
       
     </nav>
     
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     
     <%= yield %>
   </body>

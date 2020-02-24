@@ -13,13 +13,16 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password:
+  username: sou
+  password: password
   host: localhost
 
 development:
   <<: *default
   database: shelf_app_development
+  username: sou
+  password: password
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +30,9 @@ development:
 test:
   <<: *default
   database: shelf_app_test
+  username: sou
+  password: password
+  host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,5 +56,5 @@ test:
 production:
   <<: *default
   database: shelf_app_production
-  username: shelf_app
-  password: <%= ENV['SHELF_APP_DATABASE_PASSWORD'] %>
+  username: sou
+  password: password
