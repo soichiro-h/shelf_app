@@ -9,16 +9,16 @@
 
 $Lavender       : #F9FBFE;
 $Gainsboro      : #E4E4E4;
-$BlueBayoux     : #64707B;
+$Bayoux         : #64707B;
 $SteelGrey      : #41464B;
 $SummerSky      : #26B1DB;
-$Cerise         : #E13D6D;
-$ErrorAmaranth  : #ED404C;
+$CerisePink     : #E13D6D;
+$Error          : #ED404C;
 
 
 
 /*=========================
-      Universal
+        Universal
 =========================*/
 
 body{
@@ -26,6 +26,21 @@ body{
   font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   background-color: $Lavender;
 }
+
+
+/*=========================
+          Button
+=========================*/
+
+
+/* profile */
+.btn_bayoux{
+  width: 36px ;
+  height: 32px ;
+  color: $Bayoux ;
+}
+
+
 
 
 /*=========================
@@ -81,7 +96,7 @@ body{
 }
 .email{
   font-size: 14px;
-  color: $BlueBayoux ;
+  color: $Bayoux ;
   font-weight: bold;
   margin-top: -40px;
 }
@@ -108,42 +123,21 @@ body{
   }
 }
 
-.edit_prf{
-  width: 36px ;
-  height: 32px ;
-  color: $BlueBayoux ;
-  
-}
 
-#edit_prf_name_email{
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  display: none;
-}
-
-#edit_prf_comment{
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  visibility: hidden;
-}
 
 /*num-book 4桁表示するには、min-widthを115pxにする必要あり*/
 
-.fst_wrapper{
+.edit_wrapper{
   position: relative;
+  .edit_prf{
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        display: none;
+      }
   &:hover{
-    #edit_prf_name_email{
+    .edit_prf{
       display: block;
-    }
-  }
-}
-.snd_wrapper{
-  position: relative;
-  &:hover{
-    #edit_prf_comment{
-      visibility: visible;
     }
   }
 }

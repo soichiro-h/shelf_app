@@ -1,7 +1,7 @@
 
 <div class="container card">
   
-  <div class="row fst_wrapper">
+  <div class="row edit_wrapper">
     <div class="col-4">
       <%= image_tag 'city.png', class:"prf-img" %>
     </div>
@@ -12,13 +12,13 @@
       </div>
     </div>
     
-    <i><%= link_to "", profile_edit_path, id: "edit_prf_name_email", class: "nav-link fas fa-edit fa-2x edit_prf" %></i>
+    <i><%= link_to "", profile_edit_path,  class: "nav-link fas fa-edit fa-2x btn_bayoux edit_prf" %></i>
     
   </div>
   
   <div class="line"></div>
   
-  <div class="row justify-content-center snd_wrapper">
+  <div class="row justify-content-center edit_wrapper">
     <div class="col-5 introduce-comment">
         <p>ここ最近、AI関連の本ばかり読んでます</br>
         よろしくお願いします</br>
@@ -27,7 +27,7 @@
     </div>
     
     
-      <i><%= link_to "", profile_edit_path, id: "edit_prf_comment", class: "nav-link fas fa-edit fa-2x edit_prf" %></i>
+      <i><%= link_to "", profile_edit_path, class: "nav-link fas fa-edit fa-2x btn_bayoux edit_prf" %></i>
     
     
   </div>
