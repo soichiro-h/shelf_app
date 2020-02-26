@@ -1,0 +1,50 @@
+<h1>タグ</h1>
+
+<div class="container">
+  
+  <div class="">
+    
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_tag">
+    ＋
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="create_tag" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">タイトル</h5>
+            
+          </div>
+          <div class="modal-body">
+            
+            <form role="form" action="/tag-new" method="post">
+            <input type="hidden" name="user_id" value="<%= @user.id %>">
+            <input type="text" name="new_tag_title" value = "" size="40">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+            <button type="submit" class="btn btn-primary" >追加</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <form action="/tag" method="post">
+      
+      <input type="hidden" name="user_id" value="<%= @user.id %>">
+      
+        <% @tags.each do |t| %>
+          <div class="">
+            <input type="text" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="40">
+            <i><%= link_to "", "/tag/#{t.id}", class: "fas fa-times btn_bayoux delete_tag", method: :delete, data: { confirm: "削除しますか？" }  %></i>
+          </div>
+        <% end %>
+    
+      <input type="submit" value=""></button>
+    </form>
+  </div>
+</div>
