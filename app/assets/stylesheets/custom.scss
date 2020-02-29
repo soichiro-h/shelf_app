@@ -36,14 +36,13 @@ body{
     font-weight: normal;
   }
 }
-h2{
+
+.default_title{
   font-family: 'Kosugi Maru', ;
   color: $SteelGrey ;
 }
-h5{
-  font-family: 'Kosugi Maru', ;
-  color: $SteelGrey;
-}
+
+
 .alert{
   display: none;
 }
