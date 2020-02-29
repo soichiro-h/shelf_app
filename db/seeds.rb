@@ -41,3 +41,38 @@ Tag.create!(tag_title: "少女コミック",
             
 Tag.create!(tag_title: "雑誌",
             user_id: "1")
+
+            
+2.times do |n|
+  
+Tag.create!(tag_title: "小説#{n+1}",
+            user_id: "1")
+            
+Tag.create!(tag_title: "ビジネス#{n+1}",
+            user_id: "1")
+
+Tag.create!(tag_title: "自己啓発#{n+1}",
+            user_id: "1")
+            
+Tag.create!(tag_title: "英語#{n+1}",
+            user_id: "1")
+
+Tag.create!(tag_title: "フランス語#{n+1}",
+            user_id: "1")
+            
+Tag.create!(tag_title: "お気に入り#{n+1}",
+            user_id: "1")
+
+Tag.create!(tag_title: "絶対役立つ#{n+1}",
+            user_id: "1")
+            
+Tag.create!(tag_title: "男性コミック#{n+1}",
+            user_id: "1")
+
+Tag.create!(tag_title: "少女コミック#{n+1}",
+            user_id: "1")
+            
+Tag.create!(tag_title: "雑誌#{n+1}",
+            user_id: "1")
+  
+end

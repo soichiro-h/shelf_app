@@ -11,9 +11,9 @@ $Lavender       : #F9FBFE;
 $Gainsboro      : #E4E4E4;
 $Bayoux         : #64707B;
 $SteelGrey      : #41464B;
-$SummerSky      : #26B1DB;
+$SkyBlue        : #26B1DB;
 $CerisePink     : #E13D6D;
-$Error          : #ED404C;
+$Alert          : #ED404C;
 
 
 
@@ -27,6 +27,26 @@ body{
   background-color: $Lavender;
 }
 
+.page_title_card{
+  padding: 15px 20px;
+  background: white;
+  h2{
+    margin: 0;
+    font-size: 25px;
+    font-weight: normal;
+  }
+}
+h2{
+  font-family: 'Kosugi Maru', ;
+  color: $SteelGrey ;
+}
+h5{
+  font-family: 'Kosugi Maru', ;
+  color: $SteelGrey;
+}
+.alert{
+  display: none;
+}
 
 /*=========================
           Button
@@ -40,7 +60,25 @@ body{
   color: $Bayoux ;
 }
 
+.btn_skyblue{
+  color: white ;
+  background-color: $SkyBlue ;
+}
 
+.btn{
+  &:hover{
+    opacity: .8;
+    color: white;
+  }
+  &:focus-visible{
+    opacity: .5;
+    outline: none;
+  }
+}
+
+.btn_icon{
+  
+}
 
 
 /*=========================
@@ -48,7 +86,7 @@ body{
 =========================*/
 
 #logo_icon{
-  color: $SummerSky;
+  color: $SkyBlue;
   margin-right: 3px ;
   font-size: 24px;
 }
@@ -118,7 +156,7 @@ body{
   line-height: 160px ;
   min-width: 105px ;
   i{
-    color: $SummerSky;
+    color: $SkyBlue;
     margin-right: 7px ;
   }
 }
@@ -146,6 +184,149 @@ body{
   margin:0 auto;
 }
 
+/*=========================
+          Tags
+=========================*/
+
+.card_tag{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+  border-style: none;
+  outline: none;
+}
+
+.page_title_card h2 i{
+  color: $Bayoux; 
+}
+
+#btn_plus_tag{
+  margin: 10px 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white ;
+  background-color: $SkyBlue ;
+  border: none;
+  outline: none;
+  
+}
+.popup_new_tag input[type="text"]{
+  margin-left: 15px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+   &:focus{
+    outline: none;
+  }
+}
+
+#tags {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+					transform: translate(-50%,-50%);
+					
+  .tag li {
+	display: inline-block;
+  }
+  .tag .tag_wrapper {
+	line-height: 44px;
+	position: relative;
+	display: inline-block;
+	width: 180px;
+	height: 44px;
+	margin: 0 50px 10px 10px;
+	padding: 0 20px 0 23px;
+	-webkit-transition: color 0.2s;
+	        transition: color 0.2s;
+	text-decoration: none;
+	border-radius: 0 3px 3px 0;
+	background: $SteelGrey ;
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+    &::before, &::after {
+    background: $Lavender;/*背景色*/
+    }
+    &::before {
+  	position: absolute;
+  	top: 19px;
+  	left: 6px;
+  	width: 8px;
+  	height: 8px;
+  	content: '';
+  	border-radius: 10px;
+  	background: $Lavender ;
+  	z-index: 2;
+    }
+    &::after {
+  	position: absolute;
+  	top: -1px;
+  	left: -6px;
+  	width: 0;
+  	height: 0;
+  	content: '';
+  	border-style: solid;
+  	border-width: 23px 12px 23px 0;
+  	border-color: transparent $SteelGrey  transparent transparent;
+  	border-radius: 4px;
+    }
+    &:hover {
+    opacity: 0.8;
+    }
+    &:hover:after {
+	  /* border-color: transparent #555555 transparent transparent; */
+    }
+   
+    .delete_tag{
+        color: white;
+        position: absolute;
+        right: -20px;
+        bottom: 8px;
+        display: none;
+        &:hover{
+          color: $Alert;
+          text-decoration: none;
+        }
+    }
+     &:hover{
+        .delete_tag{
+          display: block;
+        }
+    }
+    
+  }
+}
+
+.tag_form{
+ position: relative;
+}
+#tags{
+  margin-top: 100px;
+  transform: translateY(100%) !important;
+  transform: translateX(-50%) !important;
+}
+
+.tag_wrapper input[type="text"]{
+  font-size: 14px;
+  color: white;
+  background: $SteelGrey ;
+  height: 42px ;
+  border: none;
+  outline: none ;
+  line-height: 42px;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    cursor: default;
+  }
+}
 
 /*=========================
       Miscellaneous
