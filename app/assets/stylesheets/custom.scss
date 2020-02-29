@@ -53,10 +53,19 @@ body{
 
 
 /* profile */
+/* Tags */
 .btn_bayoux{
   width: 36px ;
   height: 32px ;
   color: $Bayoux ;
+}
+
+.btn_text{
+  color: $SteelGrey;
+  &:hover{
+    color: $SteelGrey;
+    background: $Gainsboro;
+  }
 }
 
 .btn_skyblue{
@@ -65,6 +74,8 @@ body{
 }
 
 .btn{
+  font-size: 14px;
+  outline: none !important;
   &:hover{
     opacity: .8;
     color: white;
@@ -77,6 +88,40 @@ body{
 
 .btn_icon{
   
+}
+
+
+/*=========================
+          Form
+=========================*/
+
+.field{
+  position: relative;
+}
+
+.standard_form{
+  padding: 5px 10px;
+  border: solid 1px $Bayoux;
+  border-radius: 5px;
+  outline: none;
+  background-color: white !important;
+  width: 250px;
+  &:hover{
+    border: solid 1px black;
+  }
+  &:focus{
+    border: solid 2px $Bayoux;
+    margin: -1px 0;
+  }
+}
+.standard_form_label{
+  font-size: 12px;
+  padding: 0 5px;
+  color:$Bayoux;
+  background: white;
+  position: absolute;
+  top: 15px;
+  left: 10px;
 }
 
 
@@ -99,8 +144,35 @@ body{
   }
 
 .navbar{
-  background-color: $Lavender !important; 
+  background: $Lavender !important; 
 }
+.nav-white{
+  background: white !important;
+}
+
+.btn_nav{
+  font-family: 'Kosugi Maru', ;
+  margin: 0 0 0 0px;
+  padding: 7px 15px;
+  border-radius: 10px;
+}
+#btn_to_login{
+}
+
+#btn_to_signup{
+  margin-right: -3px;
+}
+
+
+
+/*=========================
+       Home
+=========================*/
+
+
+
+
+
 
 /*=========================
        Profile
@@ -324,6 +396,35 @@ body{
   }
   &:hover{
     cursor: default;
+  }
+}
+
+/*=========================
+          Login
+=========================*/
+
+
+#login_page .row{
+  margin-bottom: 15px;
+}
+
+#login_page .standard_form{
+  background: white;
+}
+
+#btn_login{
+  margin-top: 15px;
+  width: 250px;
+  outline: none;
+}
+
+.wrapper_login_sub{
+  margin-top: 50px;
+  a{
+    color: $SteelGrey;
+    &:hover{
+      text-decoration: none;
+    }
   }
 }
 

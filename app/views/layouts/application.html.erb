@@ -16,12 +16,29 @@
   </head>
   
 
-  <body>
-    
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i><%= link_to"Shelf", root_path, id: "logo" %></span>
-      
-      
+  <% unless user_signed_in? %>
+    <body style="background: white;" >
+  <% else %>
+    <body>
+  <% end %>
+  
+  
+  <% unless user_signed_in? %>
+    <nav class="navbar navbar-light nav-white">
+  <% else %>
+    <nav class="navbar navbar-light">
+  <% end %>
+  
+        <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i>
+        <%= link_to"Shelf", 
+        if user_signed_in?
+          profile_path
+        else
+          root_path
+        end,
+        id: "logo" %>
+        </span>
+        
       <ul class="nav justify-content-end">
         <li class="nav-item">
           
@@ -39,16 +56,19 @@
               <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link" %>
             </li>
           
-          <% else %>
-        
+          <% elsif current_page?(root_path) %>
+          
             <li class="nav-item">
-            <%= link_to"新規登録", signup_path, class: "nav-link" %>
+              <%= link_to"ログイン", login_path, id: "btn_to_login", class: "nav-link btn_text btn_nav" %>
             </li>
             
             <li class="nav-item">
-              <%= link_to"ログイン", login_path, class: "nav-link" %>
+              
+              <%= link_to"新規登録", signup_path, id: "btn_to_signup", class: "nav-link btn btn_skyblue btn_nav" %>
             </li>
-        
+          
+          <% else %>
+
           <% end %>
         
       </ul>
