@@ -20,10 +20,14 @@
   
   <div class="row justify-content-center edit_wrapper">
     <div class="col-5 introduce-comment">
+      <% if @user.introduce_comment %>
+        <%= @user.introduce_comment %>
+      <% elsif @user.introduce_comment == "" %>
         <p>ここ最近、AI関連の本ばかり読んでます</br>
         よろしくお願いします</br>
         まみむめも〜</br></p>
-    
+      <% end %>
+  
     </div>
     
     

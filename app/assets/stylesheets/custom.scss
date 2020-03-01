@@ -27,17 +27,10 @@ body{
   background-color: $Lavender;
 }
 
-.page_title_card{
-  padding: 15px 20px;
-  background: white;
-  h2{
-    margin: 0;
-    font-size: 25px;
-    font-weight: normal;
-  }
-}
+
 
 .default_title{
+  margin: 0;
   font-family: 'Kosugi Maru', ;
   color: $SteelGrey ;
 }
@@ -47,17 +40,27 @@ body{
   display: none;
 }
 
+.line{
+  border-top: solid 1px $Gainsboro ;
+  width: 200px ;
+  margin:0 auto;
+}
+
 /*=========================
           Button
 =========================*/
 
-
-/* profile */
-/* Tags */
-.btn_bayoux{
-  width: 36px ;
-  height: 32px ;
-  color: $Bayoux ;
+.btn{
+  font-size: 14px;
+  outline: none !important;
+  &:hover{
+    opacity: .8;
+    color: white;
+  }
+  &:focus-visible{
+    opacity: .5;
+    outline: none;
+  }
 }
 
 .btn_text{
@@ -73,18 +76,14 @@ body{
   background-color: $SkyBlue ;
 }
 
-.btn{
-  font-size: 14px;
-  outline: none !important;
-  &:hover{
-    opacity: .8;
-    color: white;
-  }
-  &:focus-visible{
-    opacity: .5;
-    outline: none;
-  }
+/* profile */
+/* Tags */
+.btn_bayoux{
+  width: 36px ;
+  height: 32px ;
+  color: $Bayoux ;
 }
+
 
 .btn_icon{
   
@@ -100,18 +99,23 @@ body{
 }
 
 .standard_form{
+  color: $SteelGrey;
   padding: 5px 10px;
   border: solid 1px $Bayoux;
   border-radius: 5px;
   outline: none;
-  background-color: white !important;
-  width: 250px;
+  background: white !important;
+  width: 280px;
   &:hover{
     border: solid 1px black;
   }
   &:focus{
     border: solid 2px $Bayoux;
     margin: -1px 0;
+  }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    color: $SteelGrey !important;
   }
 }
 .standard_form_label{
@@ -124,6 +128,22 @@ body{
   left: 10px;
 }
 
+.btn_form_submit{
+  margin-top: 15px;
+  width: 280px;
+  outline: none;
+}
+
+.wrapper_form_aux{
+  margin-top: 50px;
+  color: $SteelGrey;
+  a{
+    color: $SteelGrey;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
 
 /*=========================
       Navigation
@@ -152,10 +172,10 @@ body{
 
 .btn_nav{
   font-family: 'Kosugi Maru', ;
-  margin: 0 0 0 0px;
   padding: 7px 15px;
   border-radius: 10px;
 }
+
 #btn_to_login{
 }
 
@@ -166,12 +186,50 @@ body{
 
 
 /*=========================
-       Home
+           Home
 =========================*/
 
 
+/*=========================
+          Signup
+=========================*/
+
+#signup_page{
+  .row{
+    margin-top: 15px;
+  }
+  div:nth-child(2){
+    margin-top: 24px;
+  }
+}
 
 
+/*=========================
+          Login
+=========================*/
+
+
+#login_page .row{
+  margin-top: 15px;
+}
+
+#login_page .standard_form{
+  background: white;
+}
+
+
+/*=========================
+          Forget
+=========================*/
+
+#forget_page{
+  .row{
+    margin-top: 15px;
+  }
+  div:nth-child(2){
+    margin-top: 24px;
+  }
+}
 
 
 /*=========================
@@ -249,11 +307,6 @@ body{
   }
 }
 
-.line{
-  border-top: solid 1px $Gainsboro ;
-  width: 200px ;
-  margin:0 auto;
-}
 
 /*=========================
           Tags
@@ -265,12 +318,17 @@ body{
   outline: none;
 }
 
-.page_title_card h2 i{
+.page_title_card{
+  padding: 15px 20px;
+  background: white;
+}
+
+.page_title_card h4 i{
   color: $Bayoux; 
 }
 
 #btn_plus_tag{
-  margin: 10px 0 0 40px;
+  margin: 8px 0 0 40px;
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -282,13 +340,17 @@ body{
   outline: none;
   
 }
-.popup_new_tag input[type="text"]{
+.popup_new_tag .new_tag_title{
   margin-left: 15px;
   height: 30px;
   line-height: 30px;
   border: none;
-   &:focus{
+  &:focus{
     outline: none;
+  }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    color: $SteelGrey !important;
   }
 }
 
@@ -365,25 +427,25 @@ body{
           text-decoration: none;
         }
     }
-     &:hover{
+    &:hover{
         .delete_tag{
           display: block;
         }
     }
-    
   }
 }
 
 .tag_form{
  position: relative;
 }
+
 #tags{
   margin-top: 100px;
   transform: translateY(100%) !important;
   transform: translateX(-50%) !important;
 }
 
-.tag_wrapper input[type="text"]{
+.tag_field{
   font-size: 14px;
   color: white;
   background: $SteelGrey ;
@@ -399,34 +461,6 @@ body{
   }
 }
 
-/*=========================
-          Login
-=========================*/
-
-
-#login_page .row{
-  margin-bottom: 15px;
-}
-
-#login_page .standard_form{
-  background: white;
-}
-
-#btn_login{
-  margin-top: 15px;
-  width: 250px;
-  outline: none;
-}
-
-.wrapper_login_sub{
-  margin-top: 50px;
-  a{
-    color: $SteelGrey;
-    &:hover{
-      text-decoration: none;
-    }
-  }
-}
 
 /*=========================
       Miscellaneous

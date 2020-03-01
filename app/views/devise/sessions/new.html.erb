@@ -10,7 +10,7 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>　<!-- user_session_path でも行けた-->
     <div class="field">
       <%= f.label :メールアドレス, class: "standard_form_label" %><br />
-      <%= f.email_field :email, class: "standard_form" , autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, class: "standard_form" , autocomplete: "email" %>
     </div>
   </div>
 
@@ -24,12 +24,12 @@
 
   <div class="row justify-content-center">
     <div class="actions">
-      <%= f.submit "ログイン", id:"btn_login", class: "btn_skyblue btn" %>
+      <%= f.submit "ログイン", class: "btn_form_submit btn_skyblue btn" %>
     </div>
   <% end %>
   </div>
 
-  <div class="wrapper_login_sub">
+  <div class="wrapper_form_aux">
 
     <div class="row justify-content-center">
       <%= link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name) %><br />

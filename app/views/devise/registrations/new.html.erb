@@ -1,29 +1,60 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div id="signup_page" class="container">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row justify-content-center">
+    <h4 class=default_title>新規登録する</h4>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  
+  <div class="row justify-content-center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+  </div>  
+    
+  <div class="row justify-content-center">  
+    <div class="field">
+      <%= f.label :ニックネーム, class: "standard_form_label" %><br />
+      <%= f.text_field :nickname, class: "standard_form", placeholder: "例:　シェルフくん" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  
+  <div class="row justify-content-center">
+    <div class="field">
+      <%= f.label :メールアドレス, class: "standard_form_label" %><br />
+      <%= f.email_field :email, class: "standard_form", autocomplete: "email", placeholder: "例:　mail@shelf.com" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  
+  <div class="row justify-content-center">
+    <div class="field">
+      <%= f.label :パスワード, class: "standard_form_label" %><br />
+      <%= f.password_field :password, class: "standard_form", autocomplete: "new-password", placeholder: "例:　6文字以上の半角英数字" %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  
+  <div class="row justify-content-center">
+    <div class="field">
+      <%= f.label :パスワード（確認用）, class: "standard_form_label" %><br />
+      <%= f.password_field :password_confirmation, class: "standard_form", autocomplete: "new-password", placeholder: "" %>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="actions">
+      <%= f.submit "登録する", class: "btn_form_submit btn_skyblue btn" %>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="wrapper_form_aux">
+  
+    <div class="row justify-content-center">
+      <div class="line"></div>
+    </div>
+  
+    <div class="row justify-content-center">
+      <%= link_to "ログインはこちら", new_session_path(resource_name) %><br />
+    </div>
+    
+  </div>
+    
+</div>
