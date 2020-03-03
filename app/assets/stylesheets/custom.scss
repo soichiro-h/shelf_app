@@ -35,6 +35,16 @@ body{
   color: $SteelGrey ;
 }
 
+.notice{
+  position: absolute;
+  top: 62px;
+  color: white;
+  background: $SkyBlue;
+  padding: 20px 40px;
+  z-index: 3;
+  border-radius: 5px;
+  display: block
+}
 
 .alert{
   display: none;

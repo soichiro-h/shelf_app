@@ -22,7 +22,6 @@
     <body>
   <% end %>
   
-  
   <% unless user_signed_in? %>
     <nav class="navbar navbar-light nav-white">
   <% else %>
@@ -75,7 +74,17 @@
       
     </nav>
     
-    <p class="notice"><%= notice %></p>
+  
+      
+    <% if notice %>
+      <div class="container">
+        <div class="row justify-content-center">
+            <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+        
+    
+    
     <p class="alert"><%= alert %></p>
     
     <%= yield %>

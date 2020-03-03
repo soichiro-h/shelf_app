@@ -18,3 +18,8 @@
 //= require popper
 //= require bootstrap
 //= require bootstrap-sprockets
+
+
+$(function(){
+  setTimeout("$('.notice').fadeOut('slow')", 1500) 
+})

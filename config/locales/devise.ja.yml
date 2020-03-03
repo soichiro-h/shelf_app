@@ -35,7 +35,7 @@ ja:
       send_paranoid_instructions: 'ご登録のメールアドレスが保存されている場合、アカウントの確認方法をメールでご連絡します'
       confirmed: 'アカウントが確認されました。ログインしています'
     registrations:
-      signed_up: 'ようこそ！ アカウントが登録されました'
+      signed_up: 'アカウントが登録されました！'
       inactive_signed_up: 'アカウントが登録されましたが、ログインできませんでした。理由：%{reason}'
       updated: 'アカウントが更新されました'
       destroyed: 'ご利用ありがとうございました。アカウントが削除されました。またのご利用をお待ちしています'
