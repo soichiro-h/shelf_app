@@ -3,7 +3,11 @@
   
   <div class="row edit_wrapper">
     <div class="col-4">
-      <%= image_tag 'city.png', class:"prf-img" %>
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class:"prf-img" %> 
+      <% else %>
+        <%= image_tag 'city.png', class:"prf-img" %>
+      <% end %>
     </div>
     <div class="col-8">
       <div class="row name_email_wrapper">
@@ -12,7 +16,7 @@
       </div>
     </div>
     
-    <i><%= link_to "", profile_edit_path,  class: "nav-link fas fa-edit fa-2x btn_bayoux edit_prf" %></i>
+    <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
     
   </div>
   
@@ -31,7 +35,7 @@
     </div>
     
     
-      <i><%= link_to "", profile_edit_path, class: "nav-link fas fa-edit fa-2x btn_bayoux edit_prf" %></i>
+      <i><%= link_to "", profile_edit_path, class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
     
     
   </div>

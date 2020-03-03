@@ -40,6 +40,12 @@ body{
   display: none;
 }
 
+.card{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+  border-style: none;
+  max-width: 720px ;
+}
+
 .line{
   border-top: solid 1px $Gainsboro ;
   width: 200px ;
@@ -76,17 +82,29 @@ body{
   background-color: $SkyBlue ;
 }
 
+.btn_bayoux{
+  color: white ;
+  background-color: $Bayoux ;
+}
+
+
 /* profile */
 /* Tags */
-.btn_bayoux{
+.btn_bayouxx{
   width: 36px ;
   height: 32px ;
   color: $Bayoux ;
 }
 
 
-.btn_icon{
-  
+.btn_icon_bayoux{
+  color: $Bayoux;
+  &:hover{
+    color: $Bayoux;;
+    text-decoration: none;
+    opacity: .7;
+    
+    }
 }
 
 
@@ -128,6 +146,11 @@ body{
   left: 10px;
 }
 
+
+.img_uploader{
+  outline: none;
+}
+
 .btn_form_submit{
   margin-top: 15px;
   width: 280px;
@@ -142,6 +165,12 @@ body{
     &:hover{
       text-decoration: none;
     }
+  }
+}
+.wrapper_bottom_btns{
+  width: 280px;
+  .btn{
+    margin-left: 10px;
   }
 }
 
@@ -236,22 +265,17 @@ body{
        Profile
 =========================*/
 
-.card{
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
-  border-style: none;
-  max-width: 720px ;
-}
 
 .prf-img{
   border-radius:100px ;
-  margin: 40px 0 0 40px;
+  margin: 40px 0 0 60px;
   width: 150px;
   height: 150px;
 }
 
 .name_email_wrapper{
   height: 200px ;
-  margin: 10px 0 0 20px;
+  margin: 10px 0 0 25px;
   min-width: 255px ;
 }
 
@@ -259,7 +283,7 @@ body{
   font-size: 16px ; 
   color: $SteelGrey ;
   font-weight: bold;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 .email{
   font-size: 14px;
@@ -295,11 +319,13 @@ body{
 .edit_wrapper{
   position: relative;
   .edit_prf{
-        position: absolute;
-        right: 40px;
-        bottom: 40px;
-        display: none;
-      }
+      width: 36px ;
+      height: 32px ;
+      position: absolute;
+      right: 80px;
+      bottom: 40px;
+      display: none;
+  }
   &:hover{
     .edit_prf{
       display: block;
@@ -307,6 +333,33 @@ body{
   }
 }
 
+/*=========================
+       Profile Edit
+=========================*/
+#prof_edit_page{
+  .row{
+    margin-top: 15px;
+  }
+ padding: 25px 0;
+}
+
+.current_avatar{
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  margin-left: -19px;
+}
+
+.wrapper_uploader_prof_edit{
+  .field{
+    color: $SteelGrey;
+    font-size: 12px;
+    margin-left: -40px;
+  }
+  p{
+    margin: 0 0 5px 15px;
+  }
+}
 
 /*=========================
           Tags
@@ -381,7 +434,7 @@ body{
 	        transition: color 0.2s;
 	text-decoration: none;
 	border-radius: 0 3px 3px 0;
-	background: $SteelGrey ;
+	background: $SkyBlue;
 	box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
     &::before, &::after {
     background: $Lavender;/*背景色*/
@@ -406,7 +459,7 @@ body{
   	content: '';
   	border-style: solid;
   	border-width: 23px 12px 23px 0;
-  	border-color: transparent $SteelGrey  transparent transparent;
+  	border-color: transparent $SkyBlue  transparent transparent;
   	border-radius: 4px;
     }
     &:hover {
@@ -446,13 +499,16 @@ body{
 }
 
 .tag_field{
-  font-size: 14px;
+  font-family: 'Kosugi Maru', ;
+  font-size: 16px;
+  font-weight: bold;
   color: white;
-  background: $SteelGrey ;
-  height: 42px ;
+  text-shadow: 1px 1px 2px $SteelGrey;
+  background: $SkyBlue;
+  height: 44px ;
   border: none;
   outline: none ;
-  line-height: 42px;
+  line-height: 44px;
   &:focus{
     outline: none;
   }

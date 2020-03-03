@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :tags
+  
+  mount_uploader :avatar, AvatarUploader
+  
 end

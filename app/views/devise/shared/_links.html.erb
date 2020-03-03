@@ -23,3 +23,6 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end %>
 <% end %>
+
+<!-- アカウント削除用リンク -->
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
