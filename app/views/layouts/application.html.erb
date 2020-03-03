@@ -22,6 +22,38 @@
     <body>
   <% end %>
   
+  <div class="layer" onclick="closeMenu()">
+  </div>
+  
+  <% if user_signed_in? %>
+    <div class="menu_side_area">
+      
+      <div class="icon_close_menu" onclick="closeMenu()">
+        <i class="fas fa-times fa-2x"></i>
+      </div>
+      
+      <ul class="menu_list">
+        
+        <li class="">
+          <%= link_to"シェルフをみる", "/#", class: "nav-link btn_text_white" %>
+        </li>
+        
+        <li class="">
+          <%= link_to"プロフィール", profile_path, class: "nav-link btn_text_white" %>
+        </li>
+        
+        <li class="">
+          <%= link_to"タグ", tags_path, class: "nav-link btn_text_white" %>
+        </li>
+        
+        <li class="">
+          <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link btn_text_white" %>
+        </li>
+      </ul>
+    
+    </div>
+  <% end %>
+  
   <% unless user_signed_in? %>
     <nav class="navbar navbar-light nav-white">
   <% else %>
@@ -42,18 +74,14 @@
         <li class="nav-item">
           
           <% if user_signed_in? %>
-          
-            <li class="nav-item">
-              <%= link_to"プロフィール", profile_path, class: "nav-link" %>
-            </li>
+        
+            <div class="nav-item icon_open_menu" onclick="openMenu()">  
+              <i class="fas fa-ellipsis-h fa-2x"></i>
+            </div>
+
             
-            <li class="nav-item">
-              <%= link_to"タグ", tags_path, class: "nav-link" %>
-            </li>
             
-            <li class="nav-item">
-              <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link" %>
-            </li>
+   
           
           <% elsif current_page?(root_path) %>
           
@@ -69,12 +97,9 @@
           <% else %>
 
           <% end %>
-        
       </ul>
-      
     </nav>
     
-  
       
     <% if notice %>
       <div class="container">
@@ -88,6 +113,7 @@
     <p class="alert"><%= alert %></p>
     
     <%= yield %>
+  
   
   </body>
 

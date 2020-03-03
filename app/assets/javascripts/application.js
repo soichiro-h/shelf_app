@@ -21,5 +21,42 @@
 
 
 $(function(){
-  setTimeout("$('.notice').fadeOut('slow')", 1500) 
+  setTimeout("$('.notice').fadeOut('slow')", 1500);
 })
+
+
+
+
+
+
+$(function(){
+  setTimeout("$('#btn1').css('background', '#f00')", 1500);
+})
+
+var openMenu = function(){
+  $('.menu_side_area').css('transform', 'translate(0)');
+  $('.layer').css('opacity', '1');
+  $('.layer').css('visibility', 'visible');
+}
+
+var closeMenu = function(){
+  $('.menu_side_area').css('transform', 'translate(300px)')
+  $('.layer').css('opacity', '0');
+  $('.layer').css('visibility', 'hidden');
+}
+
+var btnClick = function(){
+  $('#btn2').css('background', '#f00');
+}
+
+var updateTags = function(){
+  document.tags.submit();
+}
+
+$(document).on('click',function(e) {
+   if(!$(e.target).closest('.tag_wrapper').length) {
+     document.tags.submit();
+   } else {
+    
+   }
+});
