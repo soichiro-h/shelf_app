@@ -260,25 +260,28 @@ body{
 }
 
 .icon_close_menu{
-  margin-left: 230px;
+  margin-left: 225px;
   margin-top: -42px;
   color: $Bayoux;
   width : 22px;
   &:hover{
     cursor: pointer;
   }
+  i{
+    font-size: 22px;
+  }
 }
 .menu_side_area{
   padding-top: 62px;
   position: fixed;
-  width: 280px;
+  width: 270px;
   height: 100%;
   top: 0;
   right: 0;
   background: $SteelGrey;
   z-index: 10;
   visibility: visible;
-  transform: translate(280px);
+  transform: translate(270px);
   transition: all .4s;
 }
 
