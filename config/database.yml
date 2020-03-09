@@ -56,5 +56,5 @@ test:
 production:
   <<: *default
   database: shelf_app_production
-  username: sou
-  password: password
+  username: soichiro
+  password: P@ssw0rd

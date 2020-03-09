@@ -1,0 +1,234 @@
+@charset "utf-8";
+
+/*=======================================================
+                Bootstrap Media Queries
+========================================================*/
+
+
+/* iOS background Image 対策*/
+
+
+
+/* <xl> Large Devices (Desktops & Laptops) */
+
+@media screen and (min-width :1200px) {
+
+    /* OK */
+}
+
+/* <lg> Medium Devices (Landscape Tablets & Laptops) */
+@media screen and (min-width :992px) and (max-width :1199px) {
+
+    /* OK */
+}
+
+/* <md> small Devices (Portrait Tablets & small desktops) */
+@media screen and (min-width :768px) and (max-width :991px) {
+
+    /* About */
+
+    #about-bg-diagonal {
+        height: 350px;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    #about-content-box {
+        height: 350px;
+        margin-top: 30px;
+        padding-right: 70px;
+    }
+
+}
+
+/* <sm> Extara small Devices (Landscape Phones & Portrait Tablets) */
+@media screen and (min-width :481px) and (max-width :767px) {
+
+    /*button*/
+    .btn-general {
+        padding: 6px 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* Home */
+
+    #home-heading h3 {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    /* About */
+
+    #about-bg-diagonal {
+        height: 350px;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    #about-content-box {
+        height: 350px;
+        margin-top: 50px;
+        padding-right: 70px;
+    }
+
+
+    /* Testimonial */
+
+    .testimonial blockquote::before {
+        top: 0;
+        left: 50px;
+    }
+
+    .testimonial blockquote::after {
+        content: "\201D";
+        right: 50px;
+        bottom: 20px;
+    }
+
+    .testimonial blockquote {
+        padding: 6px 90px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+}
+
+/* <xs> Extara small Devices (Smaller Devices) */
+@media screen and (max-width :480px) {
+
+    /*button*/
+    .btn-general {
+        padding: 6px 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* Navigation */
+
+    .navbar-brand {
+        margin-left: -30px;
+    }
+
+    .navbar-toggler {
+        margin-right: -30px
+    }
+
+    #dez-menu {
+        margin-left: -30px;
+    }
+
+    /* Home */
+
+    #home-heading h3 {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    /* Service */
+    .service-item-desc p {
+        overflow: auto;
+    }
+
+    /* About */
+
+    #about-bg-diagonal {
+        height: 350px;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    #about-content-box {
+        height: 450px;
+        margin-top: 30px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* Testimonial */
+
+    .testimonial blockquote::before {
+        top: 0;
+        left: 20px;
+    }
+
+    .testimonial blockquote::after {
+        content: "\201D";
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .testimonial blockquote {
+        padding: 6px 60px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+}
+
+/* Extara small Devices (Smaller Devices) */
+@media screen and (max-width :320px) {
+
+    /*button*/
+    .btn-general {
+        padding: 6px 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* Navigation */
+
+    .navbar-brand {
+        margin-left: -30px;
+    }
+
+    .navbar-toggler {
+        margin-right: -30px
+    }
+
+    #dez-menu {
+        margin-left: -30px;
+    }
+
+    /* Home */
+
+    #home-heading h3 {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+
+    /* About */
+
+    #about-bg-diagonal {
+        height: 350px;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    #about-content-box {
+        height: 480px;
+        margin-top: 30px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* Testimonial */
+
+    .testimonial blockquote::before {
+        top: 0;
+        left: 20px;
+    }
+
+    .testimonial blockquote::after {
+        content: "\201D";
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .testimonial blockquote {
+        padding: 6px 60px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+}
+ 

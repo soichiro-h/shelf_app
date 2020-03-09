@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 //= require popper
@@ -53,10 +52,11 @@ var updateTags = function(){
   document.tags.submit();
 }
 
-$(document).on('click',function(e) {
+$(document).on('click touchstart',function(e) {
    if(!$(e.target).closest('.tag_wrapper').length) {
      document.tags.submit();
    } else {
     
    }
 });
+

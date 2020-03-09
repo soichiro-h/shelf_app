@@ -76,6 +76,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     excon (0.72.0)
     execjs (2.7.0)
@@ -131,7 +135,7 @@ GEM
     multi_json (1.14.1)
     mysql2 (0.5.3)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     popper_js (1.16.0)
@@ -205,9 +209,6 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (= 4.2.2)
   devise
+  dotenv-rails
   fog-aws
   jbuilder (~> 2.5)
   jquery-rails
@@ -244,7 +246,6 @@ DEPENDENCIES
   sass-rails (~> 5.0.6)
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
   tzinfo-data
   uglifier (= 3.2.0)
   web-console (>= 3.3.0)
