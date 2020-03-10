@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]    #application_controller に書かないと動作しなかった
+  #before_action :configure_sign_up_params, only: [:create]    #application_controller に書かないと動作しなかった
   # before_action :configure_account_update_params, only: [:update]
+  #before_action :add_default_tags only: [:create] 
+ 
+  #デフォルトtag の生成
+  
+  def add_default_tags
+  end
  
   # GET /resource/sign_up
   # def new

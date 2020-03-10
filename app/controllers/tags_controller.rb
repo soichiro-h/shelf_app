@@ -3,7 +3,6 @@ class TagsController < ApplicationController
   def index
     @user = current_user
     @tags = @user.tags
-    current_user
   end
   
   def create

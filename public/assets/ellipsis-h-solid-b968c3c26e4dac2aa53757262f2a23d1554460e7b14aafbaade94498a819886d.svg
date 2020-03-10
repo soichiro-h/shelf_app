@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="496" height="144" viewBox="0 0 496 144">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #41464b;
+      }
+    </style>
+  </defs>
+  <path id="ellipsis-h-solid" class="cls-1" d="M328,256a72,72,0,1,1-72-72A71.955,71.955,0,0,1,328,256Zm104-72a72,72,0,1,0,72,72A71.955,71.955,0,0,0,432,184ZM80,184a72,72,0,1,0,72,72A71.955,71.955,0,0,0,80,184Z" transform="translate(-8 -184)"/>
+</svg>

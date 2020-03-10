@@ -19,6 +19,13 @@
 //= require bootstrap-sprockets
 
 
+
+
+/*=========================
+        Universal
+=========================*/
+
+
 $(function(){
   setTimeout("$('.notice').fadeOut('slow')", 1500);
 })
@@ -31,6 +38,11 @@ $(function(){
 $(function(){
   setTimeout("$('#btn1').css('background', '#f00')", 1500);
 })
+
+/*=========================
+          Menu
+=========================*/
+
 
 var openMenu = function(){
   $('.menu_side_area').css('transform', 'translate(0)');
@@ -48,6 +60,11 @@ var btnClick = function(){
   $('#btn2').css('background', '#f00');
 }
 
+
+/*=========================
+          Tags
+=========================*/
+
 var updateTags = function(){
   document.tags.submit();
 }
@@ -60,3 +77,11 @@ $(document).on('click touchstart',function(e) {
    }
 });
 
+
+/*=========================
+        Book_new
+=========================*/
+
+//　戻る
+
+//　エンターキー無効

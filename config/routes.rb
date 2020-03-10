@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   post '/tag-new', to: 'tags#create'
   delete '/tag/:id', to: 'tags#destroy'
   
+  get '/books', to: 'books#index'
+  post '/book-new', to: 'books#new'
+  post '/books', to: 'books#create'
+  get '/details', to: 'books#show'
+  get '/details-edit', to: 'books#edit'
 
   devise_for :users, :controllers => { :registrations => :registrations }
   devise_scope :user do

@@ -22,6 +22,8 @@
     <body>
   <% end %>
   
+  <div id="page_container">
+  
   <div class="layer" onclick="closeMenu()">
   </div>
   
@@ -35,7 +37,7 @@
       <ul class="menu_list">
         
         <li class="">
-          <%= link_to"シェルフをみる", "/#", class: "nav-link btn_text_white" %>
+          <%= link_to"シェルフをみる", books_path, class: "nav-link btn_text_white" %>
         </li>
         
         <li class="">
@@ -114,6 +116,7 @@
     
     <%= yield %>
   
+  </div>
   
   </body>
 

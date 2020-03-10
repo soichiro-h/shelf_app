@@ -29,7 +29,9 @@ body{
   height: 100%;
 }
 
+#page_container{
 
+}
 
 .default_title{
   margin: 0;
@@ -55,7 +57,7 @@ body{
 .card{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
   border-style: none;
-  max-width: 720px ;
+  max-width: 450px ;
 }
 
 .line{
@@ -126,6 +128,12 @@ body{
     }
 }
 
+.btn-plus{
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+}
 
 /*=========================
           Form
@@ -142,7 +150,7 @@ body{
   border-radius: 5px;
   outline: none;
   background: white !important;
-  width: 280px;
+  width: 380px;
   &:hover{
     border: solid 1px black;
   }
@@ -165,6 +173,29 @@ body{
   left: 10px;
 }
 
+.underlined_form{
+  color: $SteelGrey;
+  padding: 3px 10px;
+  text-decoration: underline $SteelGrey;
+  border: none;
+  outline: none;
+  background: white !important;
+  width: 280px;
+  &:hover{
+    text-decoration: underline black;
+  }
+  &:focus{
+    text-decoration: underline black;
+  }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    color: $SteelGrey !important;
+  }
+}
+
+.form_notitle{
+  display: none;
+}
 
 .img_uploader{
   outline: none;
@@ -172,7 +203,7 @@ body{
 
 .btn_form_submit{
   margin-top: 15px;
-  width: 280px;
+  width: 380px;
   outline: none;
 }
 
@@ -187,7 +218,7 @@ body{
   }
 }
 .wrapper_bottom_btns{
-  width: 280px;
+  width: 380px;
   .btn{
     margin-left: 10px;
   }
@@ -353,7 +384,6 @@ body{
        Profile
 =========================*/
 
-
 .prf-img{
   border-radius:100px ;
   margin: 40px 0 0 60px;
@@ -421,6 +451,24 @@ body{
   }
 }
 
+.wrapper_banner{
+  width: 450px;
+  padding-top: 50px;
+}
+
+.banner_to_shelf{
+  padding: 15px 20px;
+  background: white;
+  color: $SteelGrey!important;
+  font-family: 'Kosugi Maru', !important;
+  font-size: 16px;
+  &:hover{
+      color: $SteelGrey;
+      text-decoration: none!important;
+      background: $Gainsboro;
+    }
+}
+
 /*=========================
        Profile Edit
 =========================*/
@@ -469,16 +517,7 @@ body{
 }
 
 #btn_plus_tag{
-  margin: 8px 0 0 40px;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 25px;
-  font-weight: bold;
-  color: white ;
-  background-color: $SkyBlue ;
-  border: none;
-  outline: none;
+  margin-left: 20px;
   
 }
 .popup_new_tag .new_tag_title{
@@ -607,6 +646,122 @@ body{
 
 #submit_form_tags{
   display: none;
+}
+
+/*=========================
+          Books
+=========================*/
+
+#sort_icons{
+  margin: 30px 0;
+    i{
+      color: $Bayoux;
+    }
+  }
+
+
+.card_books{
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+  border-style: none;
+  width: 350px; 
+  height: 110px;
+  margin-top: 7px;
+  padding: 7px;
+}
+
+.title_card_books{
+  font-family: 'Kosugi Maru', ;
+  font-size: 14px;
+  color: $SteelGrey;
+  margin-top: 16px;
+}
+
+.memo_card_books{
+  font-size: 12px;
+  color: $Bayoux;
+  margin: 7px 0 0 0;
+  line-height: 18px;
+  max-height: 54px;
+  overflow: hidden;
+}
+
+.price_card_books{
+  font-size: 10px;
+  margin: 16px 0 0 10px;
+}
+
+.image_card_books{
+  width: 65px;
+  height: 90px;
+  margin-top: 7px;
+}
+
+.icons_card_books{
+  i{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+  i:first-child{
+    right: 33px;
+  }
+}
+
+.icon_inactive{
+  color: $Gainsboro;
+}
+
+.icon_fav_active{
+  color: $CerisePink;
+}
+
+.icon_own_active{
+  color: $SkyBlue;
+}
+
+
+/*=========================
+        Book new
+=========================*/
+
+#book_new_page{
+  .row{
+    margin-top: 10px;
+  }
+}
+
+.book_image{
+  width: 90px;
+  height: 120px;
+}
+
+
+
+#book_title{
+  width: 150px;
+}
+
+#book_price{
+  margin-right: 20px;
+}
+
+.price_label{
+  position: absolute;
+  left: -15px;
+  top: 2px;
+}
+.price_field{
+  position: absolute;
+  left: 0px;
+  width: 80px;
+}
+
+#book_proper_title{
+  margin-left: 15px;
+}
+#book_author{
+  margin-left: 15px;
 }
 
 /*=========================

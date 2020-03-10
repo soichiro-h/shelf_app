@@ -1,0 +1,93 @@
+<div class="container">  
+
+  <div class="row justify-content-center">
+        
+        <button type="button" id="btn_plus_book" class="" data-toggle="modal" data-target="#create_book">
+          <%= image_tag 'plus.png', class:"btn-plus" %>
+          </button>
+    
+        <div class="modal fade" id="create_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title default_title" id="exampleModalLabel">タイトル</h5>
+                
+              </div>
+              <div class="modal-body popup_new_tag">
+                
+                <form role="form" action="/book-new" method="post">
+                <input type="hidden" name="user_id" value="<%= @user.id %>">
+                <input type="text" class="new_book_title" name="new_book_title" placeholder="追加する本のタイトルを入力" size="40">
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+                <button type="submit" class="btn btn_skyblue" >検索</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
+  </div>
+  
+  <div id="sort_icons" class="row justify-content-end">
+    <i id="sort_icon_tag" class="fas fa-tags"></i>
+    <i id="sort_icon_sort" class="fas fa-sort-amount-down"></i>
+    <i id="sort_icon_thumb" class="fas fa-th"></i>
+  </div>
+  
+  <div class="row justify-content-center">
+    
+    <% @books.each.with_index(1) do |b, i| %>
+    
+      <div id="books" class="container">
+        
+        <div class="row justify-content-center">
+          
+          <div class="row card_books">
+            <div class="col-3">
+              <% if b.image? %>
+                <%= image_tag t.image.url, class:"image_card_books" %> 
+              <% else %>
+                <%= image_tag 'book_sample.jpeg', class:"image_card_books" %>
+              <% end %>
+            
+            </div>
+            
+            <div class="col-6">
+              <h6 class="title_card_books"><%= b.title %></h6>
+              <p class="memo_card_books"><%= b.memo %></p>
+            </div>
+            
+            <div class="col-3">
+              <% if b.price%>
+                <p class="price_card_books">¥ <%= b.price %></p>
+              <% end %>
+              <div class="row icons_card_books">
+            
+                <% if b.own %>
+                  <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+                <% else %>
+                  <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+                <% end %>
+                
+                <% if b.favorite %>
+                  <i class="fas fa-heart fa-lg icon_fav_active"></i>
+                <% else %>
+                  <i class="fas fa-heart fa-lg icon_inactive"></i>
+                <% end %>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+  
+  
+  
+  
+  
+</div>

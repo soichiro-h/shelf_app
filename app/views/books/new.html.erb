@@ -1,0 +1,99 @@
+<div id="book_new_page" class="container card">
+
+  <%= form_for(@book) do |f| %>
+  
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  
+  <div class="row">
+    <div class="col-3">  
+      <!--image-->
+      <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
+    </div>
+    
+    <div class="col-9">  
+      <div class="row justify-content-between">
+        <div class="col-5">
+          <!--title-->
+          <div class="field">
+            <%= f.label :title, class:"form_notitle" %>
+            <%= f.text_field :title, value:"#{params[:new_book_title]}", class:"underlined_form" %>
+          </div>
+        </div>
+        
+        <div class="col-4">
+          <!--price-->
+          <div class="field">
+            <%= f.label :￥, class:"price_label" %>
+            <%= f.text_field :price, class:"price_field underlined_form" %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row justify-content-start">
+        <!--proper_title-->
+        <%= f.label :proper_title, class:"form_notitle" %>
+        <%= f.text_field :proper_title, placeholder:"proper_title", class:"underlined_form" %>
+      </div>
+      
+      <div class="row justify-content-start">
+        <!--author-->
+        <%= f.label :author, class:"form_notitle" %>
+        <%= f.text_field :author, placeholder:"author", class:"underlined_form" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <!--file-->
+    <%= f.file_field :image, class: "img_uploader" %>
+    <p>※画像を変更する場合はファイルを選択してください</p>
+  </div>
+  
+  <div class="row justify-content-center">
+    <!--memo-->
+    <div class="field">
+      <%= f.label :メモ, class:"standard_form_label" %><br />
+      <%= f.text_area :memo, class:"standard_form" %>
+    </div>
+  </div>  
+  
+  <div class="row justify-content-center">
+    <!--summary-->
+    <div class="field">
+      <%= f.label :要約, class:"standard_form_label" %><br />
+      <%= f.text_area :summary, class:"standard_form" %>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <!--related_videos-->
+    <div class="field">
+      <%= f.label :関連動画, class:"standard_form_label" %><br />
+      <%= f.text_area :related_videos, class:"standard_form" %>
+    </div>
+  </div>
+  
+  <div class="row justify-content-start">
+    <!--tags-->
+    <h5>タグ</h5>
+  </div>  
+  
+  <div class="row justify-content-start">
+    <!--own-->
+    <%= f.label :入手済み %>
+    <%= f.check_box :own %>
+    
+    <!--fav-->
+    <%= f.label :お気に入り %>
+    <%= f.check_box :favorite %>
+  </div>
+  
+  <div class="row justify-content-end">
+    <!--submit-->
+    <button type="button" class="btn btn-secondary" onclick="" >戻る</button>
+    <%= f.submit "保存", class: "btn btn_skyblue" %>
+  </div>
+  
+  <% end %>
+  
+</div>
