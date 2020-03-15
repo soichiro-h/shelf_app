@@ -5,11 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   #before_action :add_default_tags only: [:create] 
  
-  #デフォルトtag の生成
-  
-  def add_default_tags
-  end
- 
   # GET /resource/sign_up
   # def new
   #   super

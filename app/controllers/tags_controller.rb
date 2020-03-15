@@ -1,13 +1,17 @@
 class TagsController < ApplicationController
   
+  
   def index
     @user = current_user
     @tags = @user.tags
+    flash.now[:notice] = @@flash if @@flash
+    @@flash = nil
   end
   
   def create
     @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
       if @tag.save
+        @@flash = "追加しました"
         redirect_to tags_path
       end
   end

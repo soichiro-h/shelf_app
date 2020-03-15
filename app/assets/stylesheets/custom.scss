@@ -132,7 +132,8 @@ body{
   width: 40px;
   height: 40px;
   border: none;
-  outline: none;
+  outline: none !important;
+  background: $Lavender;
 }
 
 /*=========================
@@ -452,8 +453,7 @@ body{
 }
 
 .wrapper_banner{
-  width: 450px;
-  padding-top: 50px;
+  margin-top: 50px;
 }
 
 .banner_to_shelf{
@@ -517,7 +517,7 @@ body{
 }
 
 #btn_plus_tag{
-  margin-left: 20px;
+  margin: 7px 0 0 20px;
   
 }
 .popup_new_tag .new_tag_title{

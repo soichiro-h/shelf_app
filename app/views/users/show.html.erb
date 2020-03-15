@@ -1,59 +1,62 @@
 
 <div class="container">
   
-  <div class="card">
-  
-  <div class="row edit_wrapper">
-    <div class="col-4">
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url, class:"prf-img" %> 
-      <% else %>
-        <%= image_tag 'city.png', class:"prf-img" %>
-      <% end %>
+  <div class="row justify-content-center">
+    <div class="card">
+    
+    <div class="row edit_wrapper">
+      <div class="col-4">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url, class:"prf-img" %> 
+        <% else %>
+          <%= image_tag 'city.png', class:"prf-img" %>
+        <% end %>
+      </div>
+      <div class="col-8">
+        <div class="row name_email_wrapper">
+          <span class="col-12 nickname"><%= @user.nickname %></span>
+          <span class="col-12 email"><%= @user.email %></span>
+        </div>
+      </div>
+      
+      <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
+      
     </div>
-    <div class="col-8">
-      <div class="row name_email_wrapper">
-        <span class="col-12 nickname"><%= @user.nickname %></span>
-        <span class="col-12 email"><%= @user.email %></span>
+    
+    <div class="line"></div>
+    
+    <div class="row justify-content-center edit_wrapper">
+      <div class="col-5 introduce-comment">
+        <% if @user.introduce_comment %>
+          <%= @user.introduce_comment %>
+        <% elsif @user.introduce_comment == "" %>
+          <p>ここ最近、AI関連の本ばかり読んでます</br>
+          よろしくお願いします</br>
+          まみむめも〜</br></p>
+        <% end %>
+    
+      </div>
+      
+      
+        <i><%= link_to "", profile_edit_path, class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
+      
+      
+    </div>
+    
+    <div class="line"></div>
+    
+    <div class="row justify-content-center">
+      <div class="col-1 num-books">
+        <p><i class="fas fa-book"></i>82</p>
       </div>
     </div>
     
-    <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
-    
-  </div>
-  
-  <div class="line"></div>
-  
-  <div class="row justify-content-center edit_wrapper">
-    <div class="col-5 introduce-comment">
-      <% if @user.introduce_comment %>
-        <%= @user.introduce_comment %>
-      <% elsif @user.introduce_comment == "" %>
-        <p>ここ最近、AI関連の本ばかり読んでます</br>
-        よろしくお願いします</br>
-        まみむめも〜</br></p>
-      <% end %>
-  
     </div>
-    
-    
-      <i><%= link_to "", profile_edit_path, class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
-    
-    
-  </div>
   
-  <div class="line"></div>
+  </div>
   
   <div class="row justify-content-center">
-    <div class="col-1 num-books">
-      <p><i class="fas fa-book"></i>82</p>
-    </div>
-  </div>
-  
-  </div>
-  
-  <div class="wrapper_banner">
-    <div class="row justify-content-center">
+    <div class="wrapper_banner">
       <%= link_to "シェルフを見る", books_path, class: "banner_to_shelf" %>
     </div>
   </div>

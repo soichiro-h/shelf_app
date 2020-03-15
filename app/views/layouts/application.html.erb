@@ -103,15 +103,18 @@
     </nav>
     
       
-    <% if notice %>
+    
       <div class="container">
         <div class="row justify-content-center">
+          
+          <% if notice %>
             <p class="notice"><%= notice %></p>
+          <% end %>
+            
+        </div>
       </div>
-    <% end %>
-        
     
-    
+
     <p class="alert"><%= alert %></p>
     
     <%= yield %>
