@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200310053120) do
+ActiveRecord::Schema.define(version: 20200315133141) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20200310053120) do
     t.string "nickname"
     t.text "introduce_comment"
     t.string "avatar"
+    t.string "flash"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
