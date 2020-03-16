@@ -29,6 +29,23 @@ body{
   height: 100%;
 }
 
+a{
+  color: $SteelGrey;
+  &:hover{
+    color: $SteelGrey;
+    text-decoration: none!important;
+  }
+}
+
+/*タグ*/
+h5 {
+    font-family: 'Kosugi Maru', ;
+    font-size: 16px;
+    i{
+      color: $Bayoux ;
+    }
+  }
+
 #page_container{
 
 }
@@ -121,10 +138,20 @@ body{
 .btn_icon_bayoux{
   color: $Bayoux;
   &:hover{
-    color: $Bayoux;;
+    color: $Bayoux;
     text-decoration: none;
     opacity: .7;
-    
+    cursor: pointer;
+    }
+}
+
+.btn_icon_steelgray{
+  color: $SteelGrey;
+  &:hover{
+    color: $SteelGrey;
+    text-decoration: none;
+    opacity: .7;
+    cursor: pointer;
     }
 }
 
@@ -737,7 +764,6 @@ body{
 }
 
 
-
 #book_title{
   width: 150px;
 }
@@ -763,6 +789,48 @@ body{
 #book_author{
   margin-left: 15px;
 }
+
+/*=========================
+         Details
+=========================*/
+
+#details_page{
+  .row{
+    margin-top: 10px;
+  }
+  .standard_form{
+    padding: 10px;
+    &:hover{
+    border: solid 1px $SteelGrey;
+    }
+  }
+  .underlined_form{
+    text-decoration: none;
+  }
+}
+
+.book_title{
+  font-family: 'Kosugi Maru', ;
+  font-weight: bold;
+  padding: 0;
+}
+
+.book_price{
+  font-size: 14px;
+}
+
+.book_proper_title{
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: -10px;
+}
+
+.book_author{
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: -10px;
+}
+
 
 /*=========================
       Miscellaneous

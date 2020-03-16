@@ -5,10 +5,11 @@ class BooksController < ApplicationController
     @books = @user.books
     @tags = @user.tags
     
-    flash[:notice] = @user.flash if @user.flash
+    flash.now[:notice] = @user.flash if @user.flash
     @user.update_attributes(flash: nil)
    
-  #debugger
+    #debugger
+  
   end
   
   def new
@@ -48,25 +49,41 @@ class BooksController < ApplicationController
   end
   
   def show
+    @user = current_user
+    @book = Book.find(params[:id])
+    #@tags = @user.tags
+    #debugger
   end
   
   def edit
+    @user = current_user
+    @book = Book.find(params[:id])
   end
   
-  def delete
+  def update
+    @book = Book.find(params[:id])
+      if @book.update_attributes(book_params)
+        @user = User.find(params[:user_id])
+        @user.update_attributes(flash: "変更しました")
+    
+      else
+        render 'edit'
+      end
+  end
+  
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    @user = User.find(book.user_id)
+    @user.update_attributes(flash: "削除しました")
+    redirect_to books_path
   end
   
   private
     
-    def add_flash
-      cookies[:flash] = {:notice=>"追加しました"}
-      session[:notice] = "追加しました"
-      cookies.signed[:popup] = {:value=>"追加しました"}
+    def book_params
+      params.require(:book).permit(:title, :proper_title, :proper_title, :price, :author, :image, 
+                :memo, :summary, :params, :related_videos)
     end
-    
-    def add_flash_message
-      flash.permit(:notice)
-    end
-    
   
 end

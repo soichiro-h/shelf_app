@@ -39,15 +39,20 @@
   <div class="row justify-content-center">
     
     <% @books.each.with_index(1) do |b, i| %>
-    
+      
+      <input type="hidden" name="book_id" value="<%= b.id %>">
+      
+      
       <div id="books" class="container">
+        
         
         <div class="row justify-content-center">
           
+          <a href="/details/<%= b.id %>">
           <div class="row card_books">
             <div class="col-3">
               <% if b.image? %>
-                <%= image_tag t.image.url, class:"image_card_books" %> 
+                <%= image_tag b.image.url, class:"image_card_books" %> 
               <% else %>
                 <%= image_tag 'book_sample.jpeg', class:"image_card_books" %>
               <% end %>
@@ -80,8 +85,11 @@
               </div>
             </div>
           </div>
+          </a>
         </div>
+        
       </div>
+      
     <% end %>
     
   </div>

@@ -1,0 +1,128 @@
+<div id="details_page" class="container card">
+
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input type="hidden" name="user_id" value="<%= @book.id %>">
+  
+  <div class="row">
+    <div class="col-3">  
+      <!--image-->
+      <% if !@book.image.url.nil? %>
+        <%= image_tag @book.image.url, class:"book_image" %>
+      <% else%>
+        <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
+      <% end %>
+    </div>
+    
+    <div class="col-9">  
+      <div class="row justify-content-between">
+        <div class="col-5 book_title">
+          <!--title-->
+          <div class="field">
+            <p class="underlined_form"><%= @book.title %></p>
+      
+          </div>
+        </div>
+        
+        <div class="col-4">
+          <!--price-->
+          
+          <% if !@book.price.nil? %>
+            <div class="field book_price">
+              <p class="underlined_form price_field">¥ <%= @book.price %></p>
+            
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="row justify-content-start">
+        <!--proper_title-->
+        <p class="underlined_form book_proper_title"><%= @book.proper_title %></p>
+      </div>
+      
+      <div class="row justify-content-start">
+        <!--author-->
+        <p class="underlined_form book_author"><%= @book.author %></p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <!--memo-->
+    
+    <% if !@book.memo.blank? %>
+      <div class="field">
+      
+          <label class="standard_form_label">メモ</label><br />
+          <p class="standard_form"><%= @book.memo %></p>
+      </div>
+    <% end %>
+    
+  </div>  
+  
+  <div class="row justify-content-center">
+    <!--summary-->
+    
+    <% if !@book.summary.blank? %>
+      <div class="field">
+      
+        <label class="standard_form_label">要約</label><br />
+        <p class="standard_form"><%= @book.summary %></p>
+      </div>
+    
+    <% end %>
+  </div>
+  
+  <div class="row justify-content-center">
+    <!--related_videos-->
+    
+    <% if !@book.related_videos.blank? %>
+      <div class="field">
+        <label class="standard_form_label">関連動画</label><br />
+        <p class="standard_form"><%= @book.related_videos %></p>
+        
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="row justify-content-start">
+    <!--tags-->
+    <h5><i class="fas fa-tags"></i>タグ</h5>
+  </div>  
+  
+  <div class="row justify-content-start">
+    
+    <!--cart-->
+      <i class="fas fa-shopping-cart fa-lg btn_icon_steelgray"></i>
+    <!--trash-->
+      <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-lg btn_icon_steelgray", 
+            method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>
+    <!--edit-->
+      <i><%= link_to "", "/books/#{@book.id}/edit",class: "fas fa-edit fa-lg btn_icon_steelgray" %></i>
+    <!--own-->
+    <% if @book.own %>
+      <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+    <% else %>
+      <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+    <% end %>
+    
+    <!--fav-->
+    <% if @book.favorite %>
+      <i class="fas fa-heart fa-lg icon_fav_active"></i>
+    <% else %>
+      <i class="fas fa-heart fa-lg icon_inactive"></i>
+    <% end %>
+    
+  </div>
+  
+  
+  
+  
+  <div class="row justify-content-end">
+    <!--back-->
+    <button type="button" class="btn btn-secondary" onclick="go_books" >シェルフに戻る</button>
+  </div>
+
+  
+</div>

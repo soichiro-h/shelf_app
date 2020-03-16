@@ -6,7 +6,7 @@
     
     <div class="row edit_wrapper">
       <div class="col-4">
-        <% if @user.avatar? %>
+        <% if !@user.avatar.url.nil? %>
           <%= image_tag @user.avatar.url, class:"prf-img" %> 
         <% else %>
           <%= image_tag 'city.png', class:"prf-img" %>

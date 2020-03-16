@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   get '/books', to: 'books#index'
   post '/book-new', to: 'books#new'
   post '/books', to: 'books#create'
-  get '/details', to: 'books#show'
-  get '/details-edit', to: 'books#edit'
+  get 'details/:id', to: 'books#show'
+  get '/details/:id/edit', to: 'books#edit'
+  delete '/details/:id', to: 'books#destroy'
+  
+  resources :books
 
   devise_for :users, :controllers => { :registrations => :registrations }
   devise_scope :user do
