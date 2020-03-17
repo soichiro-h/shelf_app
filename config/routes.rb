@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   post '/book-new', to: 'books#new'
   post '/books', to: 'books#create'
   get 'details/:id', to: 'books#show'
-  get '/details/:id/edit', to: 'books#edit'
-  delete '/details/:id', to: 'books#destroy'
+  #get '/details/:id/edit', to: 'books#edit'
+  #delete '/details/:id', to: 'books#destroy'
   
   resources :books
 
