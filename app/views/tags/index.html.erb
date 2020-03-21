@@ -1,5 +1,5 @@
 
-  <div class="container" >
+  <div id="tag_page" class="container" >
     
     <div class="row">
       <div class="page_title_card">
@@ -22,7 +22,7 @@
               
               <form role="form" action="/tag-new" method="post">
               <input type="hidden" name="user_id" value="<%= @user.id %>">
-              <input type="text" class="new_tag_title" name="new_tag_title" placeholder="例:　実用書、ライトノベル、英語 etc..." size="40">
+              <input type="text" class="new_tag_title modal_field" name="new_tag_title" placeholder="例:　実用書、ライトノベル、英語 etc..." size="40">
               
             </div>
             <div class="modal-footer">
@@ -36,7 +36,7 @@
       
       
      
-    <div class="">
+    <div id="tags_card">
       
       <form action="/tags" method="post" class="tag_form">
         
@@ -51,7 +51,7 @@
               <% @tags.each.with_index(1) do |t, i| %>
                 <div class="col-6">
                   
-                    <div class="tag_wrapper">
+                    <div class="tag_wrapper" data-toggle="tooltip" data-placement="top" title="<%= t.books.count %>" >
                       <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16">
                       <i><%= link_to "", "/tag/#{t.id}", class: "fas fa-times btn_bayouxx delete_tag", method: :delete, data: { confirm: "タグを削除しますか？" }  %></i>
                     </div>
@@ -73,3 +73,4 @@
       </form>
       
     </div>
+</div>

@@ -16,6 +16,10 @@ class BooksController < ApplicationController
     @user = User.find(params[:user_id])
     sign_in(@user)
     @book = Book.new(title:"")
+    @tags = @user.tags
+    
+    #debugger
+    
   end
   
   def create
@@ -24,8 +28,21 @@ class BooksController < ApplicationController
             summary: params[:book][:summary], related_videos: params[:book][:related_videos], favorite: params[:book][:favorite], own: params[:book][:own], 
             user_id: "#{params[:user_id]}")
       if @book.save
+        
+        relations = params[:tags].keys
+        
+        relations.each{ |rel|
+          @book.relations.create(tag_id: rel)
+        }
+        
+        #TagRelation.create()
+        #debugger
         @user = User.find(params[:user_id])
         @user.update_attributes(flash: "追加しました")
+        
+        redirect_to books_url
+        
+        # flash表示 実験結果
         
         #flash[:message] = "追加しました"
         #flash[:notice] = "追加しました"
@@ -40,11 +57,10 @@ class BooksController < ApplicationController
         #flash[:success] = "追加しました"
         #session[:notice] = "追加しました"
         #redirect_to save_url
-        
-        redirect_to books_url
+      
         #debugger
-        # flash表示
-        # チュートリアル見ながらviewをやる
+        
+
       end
   end
   
@@ -58,6 +74,7 @@ class BooksController < ApplicationController
   def edit
     @user = current_user
     @book = Book.find(params[:id])
+    @tags = @user.tags
   end
   
   def update

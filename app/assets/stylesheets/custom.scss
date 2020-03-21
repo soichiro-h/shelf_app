@@ -179,6 +179,8 @@ h5 {
   outline: none;
   background: white !important;
   width: 380px;
+  resize: none;
+  white-space: pre-wrap;
   &:hover{
     border: solid 1px black;
   }
@@ -252,6 +254,21 @@ h5 {
   }
 }
 
+.modal_field{
+  margin-left: 15px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    color: $SteelGrey !important;
+  }
+}
+
+
 /*=========================
       Navigation
 =========================*/
@@ -319,7 +336,7 @@ h5 {
 }
 
 .icon_close_menu{
-  margin-left: 225px;
+  margin-left: 182px;
   margin-top: -42px;
   color: $Bayoux;
   width : 22px;
@@ -333,18 +350,19 @@ h5 {
 .menu_side_area{
   padding-top: 62px;
   position: fixed;
-  width: 270px;
+  width: 230px;
   height: 100%;
   top: 0;
   right: 0;
   background: $SteelGrey;
   z-index: 10;
   visibility: visible;
-  transform: translate(270px);
+  transform: translate(230px);
   transition: all .4s;
 }
 
 .menu_list{
+  margin-top: 20px;
   list-style: none;
   a{
     font-family: 'Kosugi Maru', ;
@@ -480,11 +498,11 @@ h5 {
 }
 
 .wrapper_banner{
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .banner_to_shelf{
-  padding: 15px 20px;
+  padding: 25px 30px;
   background: white;
   color: $SteelGrey!important;
   font-family: 'Kosugi Maru', !important;
@@ -547,18 +565,10 @@ h5 {
   margin: 7px 0 0 20px;
   
 }
-.popup_new_tag .new_tag_title{
-  margin-left: 15px;
-  height: 30px;
-  line-height: 30px;
-  border: none;
-  &:focus{
-    outline: none;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    color: $SteelGrey !important;
-  }
+ 
+#tags_card{
+  height: 1000px;
+  background: white;
 }
 
 #tags {
@@ -582,14 +592,14 @@ h5 {
 	display: inline-block;
 	width: 180px;
 	height: 44px;
-	margin: 0 50px 10px 10px;
+	margin: 5px 50px 10px 10px;
 	padding: 0 20px 0 23px;
 	-webkit-transition: color 0.2s;
 	        transition: color 0.2s;
 	text-decoration: none;
 	border-radius: 0 3px 3px 0;
-	background: $SteelGrey;
-	box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+	background: $Gainsboro;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);
     &::before, &::after {
     background: $Lavender;/*背景色*/
     }
@@ -613,7 +623,7 @@ h5 {
   	content: '';
   	border-style: solid;
   	border-width: 23px 12px 23px 0;
-  	border-color: transparent $SteelGrey  transparent transparent;
+  	border-color: transparent $Gainsboro  transparent transparent;
   	border-radius: 4px;
     }
     &:hover {
@@ -624,7 +634,7 @@ h5 {
     }
    
     .delete_tag{
-        color: white;
+        color: $SteelGrey;
         position: absolute;
         right: -20px;
         bottom: 8px;
@@ -656,8 +666,8 @@ h5 {
   font-family: 'Kosugi Maru', ;
   font-size: 16px;
   font-weight: bold;
-  color: white;
-  background: $SteelGrey;
+  color: $SteelGrey;
+  background: $Gainsboro;
   height: 44px ;
   border: none;
   outline: none ;
@@ -756,6 +766,16 @@ h5 {
   .row{
     margin-top: 10px;
   }
+  .tag{
+    margin-top: 10px;
+    height: 220px;
+    width: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .tag_field{
+    font-size: 14px;
+    }
+  }
 }
 
 .book_image{
@@ -806,6 +826,19 @@ h5 {
   }
   .underlined_form{
     text-decoration: none;
+  }
+  .tag{
+    padding: 10px 0;
+    margin-top: 10px;
+    max-height: 120px;
+    width: 380px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .tag_field{
+    font-size: 14px;
+    color: $SteelGrey;
+    background: $Gainsboro;
+    }
   }
 }
 

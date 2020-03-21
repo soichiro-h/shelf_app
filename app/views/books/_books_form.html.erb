@@ -75,6 +75,38 @@
   <div class="row justify-content-start">
     <!--tags-->
     <h5><i class="fas fa-tags"></i>タグ</h5>
+    
+    <div class="tag">
+
+      <div class="row">
+        
+        <% @tags.each.with_index(1) do |t, i| %>
+          <div class="col-6">
+            
+              <div class="tag_wrapper">
+                
+                <div class="tag_field">
+                 
+                  <%= check_box_tag :"[tags][#{t.id}]" %>
+                  <%= label_tag :tags, "#{t.tag_title}" %>
+                
+                </div>
+              
+              </div>
+            
+          </div>
+          
+          
+          <% if i % 2 == 0 %>
+            </div>
+            <div class="row">
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
+    
+    
   </div>  
   
   <div class="row justify-content-start">
