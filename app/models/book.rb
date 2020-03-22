@@ -1,7 +1,9 @@
 class Book < ApplicationRecord
    belongs_to :user, optional: true
-   has_many :relations, class_name: "TagRelation", foreign_key: "book_id", dependent: :destroy
-   has_many :tags, through: :relations
+   has_many :related_tags, class_name: "TagRelation", foreign_key: "book_id", dependent: :destroy
+   has_many :tags, through: :related_tags
+   #has_many :related_videos, class_name: "VideoRelation", foreign_key: "book_id", dependent: :destroy
+   has_many :videos, dependent: :destroy
    
    mount_uploader :image, BookImageUploader
    

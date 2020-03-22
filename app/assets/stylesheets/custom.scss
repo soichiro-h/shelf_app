@@ -160,7 +160,7 @@ h5 {
   height: 40px;
   border: none;
   outline: none !important;
-  background: $Lavender;
+  background: white;
 }
 
 /*=========================
@@ -223,6 +223,10 @@ h5 {
   }
 }
 
+.form_textarea{
+  height: 120px;
+}
+
 .form_notitle{
   display: none;
 }
@@ -267,6 +271,7 @@ h5 {
     color: $SteelGrey !important;
   }
 }
+
 
 
 /*=========================
@@ -461,8 +466,10 @@ h5 {
   color: $SteelGrey ;
   font-weight: bold;
   height: 120px ;
-  margin-top: 40px;
+  margin-top: 15px;
+  padding-left: 40px;
   min-width: 255px ;
+  white-space: pre-line;
 }
 
 .num-books{
@@ -689,6 +696,10 @@ h5 {
           Books
 =========================*/
 
+#btn_plus_book{
+  background: $Lavender !important;
+}
+
 #sort_icons{
   margin: 30px 0;
     i{
@@ -778,6 +789,13 @@ h5 {
   }
 }
 
+.section{
+  margin-top: 20px;
+}
+.section_title{
+  margin-left: 15px;
+}
+
 .book_image{
   width: 90px;
   height: 120px;
@@ -800,7 +818,7 @@ h5 {
 .price_field{
   position: absolute;
   left: 0px;
-  width: 80px;
+  width: 95px;
 }
 
 #book_proper_title{
@@ -808,6 +826,56 @@ h5 {
 }
 #book_author{
   margin-left: 15px;
+}
+
+.uploader_info{
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+#btn_plus_video{
+ margin-top: -13px;
+}
+
+.video_url_field{
+  margin-left: 40px;
+  margin-bottom: 10px;
+  position: relative;
+  &:hover{
+    .delete_video{
+    display: block;
+    }
+  }
+}
+
+.video_url{
+  padding: 3px 10px;
+  color: $SteelGrey ;
+  font-size: 14px;
+  overflow: hidden;
+  width: 350px;
+  border: none;
+  border-radius: 5px;
+  background: $Gainsboro ;
+   &:focus{
+    outline: none;
+  }
+}
+
+.delete_video{
+  color: $SteelGrey ;
+  background: white;
+  border: none;
+  display: none;
+  position: absolute;
+  right: 52px;
+  top: 0;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    color: $Alert ;
+  }
 }
 
 /*=========================
@@ -820,17 +888,13 @@ h5 {
   }
   .standard_form{
     padding: 10px;
-    &:hover{
-    border: solid 1px $SteelGrey;
-    }
   }
   .underlined_form{
     text-decoration: none;
   }
-  .tag{
-    padding: 10px 0;
-    margin-top: 10px;
-    max-height: 120px;
+  .tags{
+    padding: 0;
+    margin-top: 0;
     width: 380px;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -862,6 +926,12 @@ h5 {
   font-size: 12px;
   line-height: 18px;
   margin-top: -10px;
+}
+
+.book_related_videos{
+  h5{
+    color: $SteelGrey;
+  }
 }
 
 

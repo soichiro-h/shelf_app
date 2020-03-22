@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200317074134) do
+ActiveRecord::Schema.define(version: 20200322040752) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -68,6 +68,25 @@ ActiveRecord::Schema.define(version: 20200317074134) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "video_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "video_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_video_relations_on_book_id"
+    t.index ["video_id", "book_id"], name: "index_video_relations_on_video_id_and_book_id", unique: true
+    t.index ["video_id"], name: "index_video_relations_on_video_id"
+  end
+
+  create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "video_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_videos_on_book_id"
+  end
+
   add_foreign_key "books", "users"
   add_foreign_key "tags", "users"
+  add_foreign_key "videos", "books"
 end

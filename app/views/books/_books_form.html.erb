@@ -42,17 +42,17 @@
     </div>
   </div>
   
-  <div class="row justify-content-center">
+  <div class="row justify-content-start">
     <!--file-->
-    <%= f.file_field :image, class: "img_uploader" %>
-    <p>※画像を変更する場合はファイルを選択してください</p>
+    <%= f.file_field :image, class: "img_uploader uploader_info" %>
+    <p class="uploader_info">※画像を変更する場合はファイルを選択してください</p>
   </div>
   
   <div class="row justify-content-center">
     <!--memo-->
     <div class="field">
       <%= f.label :メモ, class:"standard_form_label" %><br />
-      <%= f.text_area :memo, class:"standard_form" %>
+      <%= f.text_area :memo, class:"standard_form form_textarea" %>
     </div>
   </div>  
   
@@ -60,54 +60,80 @@
     <!--summary-->
     <div class="field">
       <%= f.label :要約, class:"standard_form_label" %><br />
-      <%= f.text_area :summary, class:"standard_form" %>
+      <%= f.text_area :summary, class:"standard_form form_textarea" %>
     </div>
   </div>
   
-  <div class="row justify-content-center">
-    <!--related_videos-->
-    <div class="field">
-      <%= f.label :関連動画, class:"standard_form_label" %><br />
-      <%= f.text_area :related_videos, class:"standard_form" %>
-    </div>
-  </div>
   
-  <div class="row justify-content-start">
-    <!--tags-->
-    <h5><i class="fas fa-tags"></i>タグ</h5>
+  
+  <div class="section video_seciton">
     
-    <div class="tag">
-
-      <div class="row">
-        
-        <% @tags.each.with_index(1) do |t, i| %>
-          <div class="col-6">
-            
-              <div class="tag_wrapper">
-                
-                <div class="tag_field">
-                 
-                  <%= check_box_tag :"[tags][#{t.id}]" %>
-                  <%= label_tag :tags, "#{t.tag_title}" %>
+    <div class="row justify-content-start">
+      <h5 class="section_title">関連動画</h5>
+      <button type="button" id="btn_plus_video" class="btn-plus" onclick="addVideo_url()">
+      <%= image_tag 'plus_small.png' %></button>
+    </div>
+  
+    <div class="row justify-content-center">
+      <!--videos-->
+      
+      <div id="vf_1" class="col-12 video_url_field">
+        <input type="text" class="video_url" name="[videos][1]" value="https://www.youtube.com/watch?v=BuMA_jz-_Tg" >
+        <button type="button" id="1" class="delete_video" onclick="deleteVideo_url(this);" >
+        <i class="fas fa-times"></i></button>
+      </div>
+      
+      <div id="vf_2" class="col-12 video_url_field">
+        <input type="text" class="video_url" name="[videos][2]" value="https://www.youtube.com/watch?v=8WKwKT7Rdq8" >
+        <button type="button" id="2" class="delete_video" onclick="deleteVideo_url(this);" >
+        <i class="fas fa-times"></i></button>
+      </div>
+      
+      <div id="last"></div>
+    </div>
+    
+  </div>
+  
+  <div class="section tag_section">
+  
+    <div class="row justify-content-start">
+      <!--tags-->
+      <h5 class="section_title"><i class="fas fa-tags"></i>タグ</h5>
+    </div> 
+    
+    <div class="row justify-content-center">
+      <div class="tag">
+  
+        <div class="row">
+          
+          <% @tags.each.with_index(1) do |t, i| %>
+            <div class="col-6">
+              
+                <div class="tag_wrapper">
+                  
+                  <div class="tag_field">
+                   
+                    <%= check_box_tag :"[tags][#{t.id}]" %>
+                    <%= label_tag :tags, "#{t.tag_title}" %>
+                  
+                  </div>
                 
                 </div>
               
-              </div>
-            
-          </div>
-          
-          
-          <% if i % 2 == 0 %>
             </div>
-            <div class="row">
+            
+            
+            <% if i % 2 == 0 %>
+              </div>
+              <div class="row">
+            <% end %>
+            
           <% end %>
-          
-        <% end %>
+        </div>
       </div>
-    </div>
-    
-    
-  </div>  
+      
+    </div>  
+  </div>
   
   <div class="row justify-content-start">
     <!--own-->
@@ -121,8 +147,8 @@
   
   <div class="row justify-content-end">
     <!--submit-->
-    <button type="button" class="btn btn-secondary" onclick="" >戻る</button>
-    <%= f.submit "保存", class: "btn btn_skyblue" %>
+    <button type="button" class="btn btn-secondary" onclick="<%= yield(:back_to) %>" >戻る</button>
+    <button type="button" class="btn btn_skyblue" onclick="submit()" >保存</button>
   </div>
   
   <% end %>

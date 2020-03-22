@@ -1,5 +1,12 @@
 class BooksController < ApplicationController
   
+  #require 'googleauth'
+  #require 'google/apis/youtube_v3'
+  
+  API_KEY = 'AIzaSyBWNozwiqcneF6nclfj2vhTF5-oJoC-_6Q'
+  YOUTUBE_API_SERVICE_NAME = 'youtube'
+  YOUTUBE_API_VERSION = 'v3'
+  
   def index
     @user = current_user
     @books = @user.books
@@ -18,25 +25,65 @@ class BooksController < ApplicationController
     @book = Book.new(title:"")
     @tags = @user.tags
     
+    #def get_service
+    #  youtube = Google::Apis::YoutubeV3::YouTubeService.new
+    #  youtube.key = API_KEY
+    #  return youtube
+    #end
+    
+    #youtube = get_service
+    #@youtube = youtube.list_searches("id,snippet", type: "video", q: "Factfulness", max_results: 2)
+    
     #debugger
     
   end
   
+  def extract_video_id(url)
+    vid = url[/\?v=([^&]+)/]
+    vid.delete("?v=")
+  end
+  
   def create
-    @book =Book.new(title: params[:book][:title], 
-            proper_title: params[:book][:proper_title], price: params[:book][:price], author: params[:book][:author], image: params[:book][:image],memo: params[:book][:memo],
-            summary: params[:book][:summary], related_videos: params[:book][:related_videos], favorite: params[:book][:favorite], own: params[:book][:own], 
-            user_id: "#{params[:user_id]}")
+    
+    
+    @book = Book.new(book_params)
+    @book.user_id = params[:user_id]
       if @book.save
         
-        relations = params[:tags].keys
+        #タグの関連付け
+        if !params[:tags].nil?
+        tag_relations = params[:tags].keys
         
-        relations.each{ |rel|
-          @book.relations.create(tag_id: rel)
+        tag_relations.each{ |rel|
+          @book.related_tags.create(tag_id: rel)
+        }
+        end
+        
+        #videosのcreate と関連付け
+        if !params[:videos].nil?
+        #配列にvideos 格納
+        videos = []
+        #videos_id を抽出
+        params[:videos].each { |key, value|
+            videos.push(extract_video_id(value)) if !value.empty?
         }
         
-        #TagRelation.create()
+        #ceate video
+        videos.each { |v| 
+          #new_video = Video.create(video_id: v, book_id: @book.id)
+          Video.create(video_id: v, book_id: @book.id)
+          #@book.related_videos.create(video_id: new_video.id)
+        }
         #debugger
+        #create video_relation
+        
+        end
+        
+        #if !empty?
+        
+        
+        
+        
         @user = User.find(params[:user_id])
         @user.update_attributes(flash: "追加しました")
         
@@ -99,8 +146,17 @@ class BooksController < ApplicationController
   private
     
     def book_params
-      params.require(:book).permit(:title, :proper_title, :proper_title, :price, :author, :image, 
-                :memo, :summary, :params, :related_videos)
+      params.require(:book).permit(:title, :proper_title, :price, :author, :image, 
+                :memo, :summary, :params, :favorite, :own)
     end
   
 end
+
+
+
+
+
+#title: params[:book][:title], 
+#proper_title: params[:book][:proper_title], price: params[:book][:price], author: params[:book][:author], image: params[:book][:image],memo: params[:book][:memo],
+#summary: params[:book][:summary], related_videos: params[:book][:related_videos], favorite: params[:book][:favorite], own: params[:book][:own], 
+#user_id: "#{params[:user_id]}"

@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base 
-  add_flash_types :notice, :message, :success
+  #add_flash_types :notice, :message, :success
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_action :sign_in_required, only: [:show, :index]
   before_action :configure_sign_up_params, :configure_account_update_params, if: :devise_controller?
+  #after_action :add_default_tags, only: [:create] 
   
-    Flash = nil
   
     def after_sign_in_path_for(resource)
         profile_path

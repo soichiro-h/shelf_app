@@ -25,19 +25,29 @@
         Universal
 =========================*/
 
-
+//flash
 $(function(){
   setTimeout("$('.notice').fadeOut('slow')", 1500);
 })
 
+/*=========================
+         Button
+=========================*/
 
+//submit
+var submit = function(){
+    $('form').submit();
+}
 
+//booksページへ
+var toBooks = function(){
+    window.location.href = '/books'; 
+}
 
-
-
-$(function(){
-  setTimeout("$('#btn1').css('background', '#f00')", 1500);
-})
+//detailsページへ
+var toDetails = function(id){
+    window.location.href = '/details/'+ id; 
+}
 
 /*=========================
           Menu
@@ -82,6 +92,17 @@ $(document).on('click touchstart',function(e) {
         Book_new
 =========================*/
 
-//　戻る
+// plus video_url
+let num = 3 
+var addVideo_url = function(){
+  $('#last').before('<div id="vf_' + num + '" class="col-12 video_url_field "><input type="text" class="video_url" name="[videos][' + num + ']" placeholder="YouTubeのURL" ><button type="button" id="' + num + '" class="delete_video" onclick="deleteVideo_url(this)"><i id=""class="fas fa-times"></i></button></div>');
+  num ++
+}
+
+// delete video_url
+var deleteVideo_url = function(ele){
+  var id_value = ele.id
+  $('#vf_' + id_value).remove();
+}
 
 //　エンターキー無効

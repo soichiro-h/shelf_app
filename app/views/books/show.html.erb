@@ -74,51 +74,73 @@
     <% end %>
   </div>
   
-  <div class="row justify-content-center">
-    <!--related_videos-->
+  
+  <!--related_videos-->
+  
+  <% unless @book.videos.count == 0 %>
     
-    <% if !@book.related_videos.blank? %>
-      <div class="field">
-        <label class="standard_form_label">関連動画</label><br />
-        <p class="standard_form"><%= @book.related_videos %></p>
+    <div class="book_related_videos">
+    
+      <div class="row justify-content-start">
+        <h5 class="section_title">関連動画</h5>
+      </div>
+      
+    
+      <div class="row justify-content-center">
+        
+        <% @book.videos.each do |v| %>
+        <div>
+          <iframe width="380" height="250" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <% end %>
         
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   
-  <div class="row justify-content-start">
+  
     <!--tags-->
-    <h5><i class="fas fa-tags"></i>タグ</h5>
     
-      <div class="tag">
-        <div class="row">
-          
-        <% @book.tags.each.with_index(1) do |t, i| %>
-          <div class="col-4">
+    <% unless @book.tags.count == 0 %>
+    
+    <div class="section">
+      <div class="row justify-content-start">
+        <h5 class="section_title"><i class="fas fa-tags"></i>タグ</h5>
+      </div> 
+      
+      <div class="row justify-content-center">
+        <div class="tags">
+          <div class="row">
             
-             <div class="tag_wrapper">
-                
-                <div class="tag_field">
-                 
-                  <%= content_tag(:p, t.tag_title ) %>
+          <% @book.tags.each.with_index(1) do |t, i| %>
+            <div class="col-4">
+              
+               <div class="tag_wrapper">
+                  
+                  <div class="tag_field">
+                   
+                    <%= content_tag(:p, t.tag_title ) %>
+                  
+                  </div>
                 
                 </div>
               
-              </div>
-            
-          </div>
-          
-          
-          <% if i % 3 == 0 %>
             </div>
-            <div class="row">
+            
+            
+            <% if i % 3 == 0 %>
+              </div>
+              <div class="row">
+            <% end %>
+            
           <% end %>
-          
-        <% end %>
+          </div>
         </div>
-      </div>
-
-  </div>  
+  
+    </div>  
+  </div>
+  
+  <% end %>
   
   <div class="row justify-content-start">
     
@@ -150,7 +172,7 @@
   
   <div class="row justify-content-end">
     <!--back-->
-    <button type="button" class="btn btn-secondary" onclick="go_books" >シェルフに戻る</button>
+    <button type="button" class="btn btn-secondary" onclick="toBooks()" >シェルフに戻る</button>
   </div>
 
   

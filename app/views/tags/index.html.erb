@@ -51,7 +51,7 @@
               <% @tags.each.with_index(1) do |t, i| %>
                 <div class="col-6">
                   
-                    <div class="tag_wrapper" data-toggle="tooltip" data-placement="top" title="<%= t.books.count %>" >
+                    <div class="tag_wrapper" data-toggle="" data-placement="top" title="" >
                       <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16">
                       <i><%= link_to "", "/tag/#{t.id}", class: "fas fa-times btn_bayouxx delete_tag", method: :delete, data: { confirm: "タグを削除しますか？" }  %></i>
                     </div>
