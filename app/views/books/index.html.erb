@@ -1,10 +1,25 @@
 <div class="container">  
-
+<i class="fas fa-sort-numeric-down-alt"></i>
   <div class="row justify-content-center">
+    
+    <div class="container"> 
+    
+        <div class="row justify-content-center row_search_field" >
+          <div class="search_filed_wrapper">
+            <%= form_tag(serach_books_path,:method => 'get') do %>
+            <%= text_field_tag :search, "", class:"search_field" %>
+            <input type="hidden" name="user_id" value="<%= @user.id %>">
+            <%= submit_tag '', :name => nil, class: "search_btn btn_icon_steelgray" %>
+            </div>
+          <% end %>
         
-        <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book">
-          <%= image_tag 'plus.png' %>
-          </button>
+          <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
+            <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
+              <%= image_tag 'plus_btn.png' %>
+            </button>
+            
+          </div>
+        </div>
     
         <div class="modal fade" id="create_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -17,80 +32,143 @@
                 
                 <form role="form" action="/book-new" method="post">
                 <input type="hidden" name="user_id" value="<%= @user.id %>">
-                <input type="text" class="new_book_title modal_field" name="new_book_title" placeholder="追加する本のタイトルを入力" size="40">
+                <input type="text" class="new_book_title modal_field" name="new_book_title" placeholder="本のタイトルを入力" size="40">
                 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
                 <button type="submit" class="btn btn_skyblue" >検索</button>
                 </form>
               </div>
             </div>
           </div>
         </div>  
+      </div>
   </div>
   
-  <div id="sort_icons" class="row justify-content-end">
-    <i id="sort_icon_tag" class="fas fa-tags"></i>
-    <i id="sort_icon_sort" class="fas fa-sort-amount-down"></i>
-    <i id="sort_icon_thumb" class="fas fa-th"></i>
-  </div>
-  
-  <div class="row justify-content-center">
+  <div id="sort_section" class="row justify-content-end">
     
+    <div class="col-6 sort_btns">
+      <button class="sort_btn" data-toggle="collapse" href="#collapse_sort_area" role="button" aria-expanded="false" aria-controls="collapse_sort_area" onclick="openTagsArea()">
+        <i id="sort_icon_tag" class="fas fa-tags"></i>
+      </button>
+      <button class="sort_btn" type="button" data-toggle="collapse" data-target="#collapse_sort_area" aria-expanded="false" aria-controls="collapse_sort_area" onclick="openOrderArea()">
+        <i id="sort_icon_sort" class="fas fa-sort-amount-down"></i>
+      </button>
+    
+      <button type="button" id="switch_to_gallery" class="sort_btn" onclick="switchToGallery()" >
+        <i  class="fas fa-th"></i>
+      </button>
+      <button type="button" id="switch_to_thumb" class="sort_btn no_display" onclick="switchToThumb()" >
+        <i class="fas fa-th-list"></i>
+      </button>
+    
+    </div>
+  </div>
+
+<div class="row justify-content-center">
+  <div class="sort_window">
+
+    <div class="collapse" id="collapse_sort_area">
+        <div class="card card-body sort_area">
+          
+          
+          <%= form_tag('/sort_by',method: :post, id: "sort_by", name:"sort_form") do %>
+            <input type="hidden" name="user_id" value="<%= @user.id %>">
+            
+            <div id="tags_area" class="tags_area">    
+              
+              <%= render 'books/tags_index' %>
+                
+            </div>
+          
+          
+            <div id="order_area" class="order_area">
+              
+              <%= render 'books/sort_order' %>
+              
+            </div>
+          
+             <div class="row justify-content-end">
+                <button type="button" class="btn btn_bayoux" onclick="allClear()"><i class="fas fa-undo-alt fa-lg"></i></button>
+                <button type="button" class="btn btn_skyblue" onclick="sortBy()"><i class="fas fa-random fa-lg"></i></button>
+              </div>
+            
+            <% end %>
+    
+        </div>
+        
+    </div>
+  </div>   
+</div>
+    
+  
+    
+  
+  
+  <div class="container">
+    
+    <div class="for_gallery_row">
     <% @books.each.with_index(1) do |b, i| %>
       
       <input type="hidden" name="book_id" value="<%= b.id %>">
       
-      
-      <div id="books" class="container">
-        
-        
-        <div class="row justify-content-center">
-          
-          <a href="/details/<%= b.id %>">
-          <div class="row card_books">
-            <div class="col-3">
-              <% if b.image? %>
-                <%= image_tag b.image.url, class:"image_card_books" %> 
-              <% else %>
-                <%= image_tag 'book_sample.jpeg', class:"image_card_books" %>
-              <% end %>
+     
+        <div class="for_gallery_col">
+          <div class="row justify-content-center">
             
-            </div>
-            
-            <div class="col-6">
-              <h6 class="title_card_books"><%= b.title %></h6>
-              <p class="memo_card_books"><%= b.memo %></p>
-            </div>
-            
-            <div class="col-3">
-              <% if b.price%>
-                <p class="price_card_books">¥ <%= b.price %></p>
-              <% end %>
-              <div class="row icons_card_books">
-            
-                <% if b.own %>
-                  <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+            <a href="/details/<%= b.id %>">
+            <div class="row card_books justify-content-start">
+              <div class="">
+                <% if b.image? %>
+                  <%= image_tag b.image.url, class:"image_card_books" %> 
                 <% else %>
-                  <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+                  <%= image_tag 'book_sample.jpeg', class:"image_card_books" %>
                 <% end %>
-                
-                <% if b.favorite %>
-                  <i class="fas fa-heart fa-lg icon_fav_active"></i>
-                <% else %>
-                  <i class="fas fa-heart fa-lg icon_inactive"></i>
-                <% end %>
-                
+              
               </div>
+              
+              
+              
+                <div class="col-6 books_card_wrapper_center">
+                  <h6 class="title_card_books"><%= b.title %></h6>
+                  <p class="memo_card_books"><%= b.memo %></p>
+                </div>
+                
+                <div class="books_card_wrapper_right">
+                  <% if b.price%>
+                    <p class="price_card_books">¥ <%= b.price %></p>
+                  <% end %>
+                  <div class="row icons_card_books">
+                
+                    <% if b.own %>
+                      <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+                    <% else %>
+                      <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+                    <% end %>
+                    
+                    <% if b.favorite %>
+                      <i class="fas fa-heart fa-lg icon_fav_active"></i>
+                    <% else %>
+                      <i class="fas fa-heart fa-lg icon_inactive"></i>
+                    <% end %>
+                    
+                  </div>
+                </div>
+         
             </div>
+            </a>
           </div>
-          </a>
         </div>
-        
-      </div>
+     
+        <% if i % 4 == 0 %>
+          </div>
+          <div class="for_gallery_row">
+        <% end %>
+      
       
     <% end %>
+    </div>
     
   </div>
   

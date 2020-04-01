@@ -49,6 +49,33 @@ var toDetails = function(id){
     window.location.href = '/details/'+ id; 
 }
 
+var toBackPage = function(id){
+    window.history.back(-1) ; return false;
+}
+
+
+
+// Ajax のメソッド
+
+    //var div = document.getElementById('test');
+    //div.innerHTML = "<%= @books.count %>";
+    
+    
+    //var url = "/test";
+    //var div = document.getElementById('test');
+    //ajaxUpdate(url, div);
+
+
+function ajaxUpdate(url, element) {
+    url = url + '?ver=' + new Date().getTime();
+    var ajax = new XMLHttpRequest;
+    ajax.open('GET', url, true);
+    ajax.onload = function () {
+       element.innerHTML = ajax.responseText;
+    };
+    ajax.send(null);
+}
+
 /*=========================
           Menu
 =========================*/
@@ -68,6 +95,7 @@ var closeMenu = function(){
 
 var btnClick = function(){
   $('#btn2').css('background', '#f00');
+  $('body').css('background', '#f00');
 }
 
 
@@ -87,6 +115,20 @@ $(document).on('click touchstart',function(e) {
    }
 });
 
+/*=========================
+        Profile
+=========================*/
+
+var editComment = function(){
+     $('#edit_comment').removeClass("no_display");
+     $('#display_comment').addClass("no_display");
+     $('.edit_comment').addClass("no_display");
+     $('.save_comment').removeClass("no_display");
+}
+
+var saveComment = function(){
+    $('#comment_form').submit(); 
+}
 
 /*=========================
         Book_new
@@ -105,4 +147,122 @@ var deleteVideo_url = function(ele){
   $('#vf_' + id_value).remove();
 }
 
-//　エンターキー無効
+/*=========================
+       Books_index
+=========================*/
+
+//　tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+var cxlTooltip = function(){
+  setTimeout("$('#tooltip_add_book').tooltip('hide')", 350);
+}
+
+var testShow = function(){
+    $('#tooltip_add_book').tooltip('hide')
+}
+
+
+var sortBy = function(){
+    $('#sort_by').submit(); 
+}
+
+var openTagsArea = function(){
+
+  //if #collapse_sort_area .collapse show
+  
+  if ($('#collapse_sort_area').hasClass('tags')){
+    //$('#collapse_sort_area').removeClass("show");
+    $('#collapse_sort_area').removeClass("tags");
+    
+  }else if ($('#collapse_sort_area').hasClass('order')){
+    $('#collapse_sort_area').removeClass("show");
+    //$('#collapse_sort_area').collapse('hide')
+    $('#order_area').css('display', 'none');
+    $('#tags_area').css('display', 'block');
+    
+    $('#collapse_sort_area').removeClass("order");
+    $('#collapse_sort_area').addClass("tags");
+    
+    $('#collapse_sort_area').collapse({
+      show: true
+    })
+    
+  }else{
+    $('#order_area').css('display', 'none');
+    $('#tags_area').css('display', 'block');
+    
+    $('#collapse_sort_area').addClass("tags");
+  }
+}
+
+var openOrderArea = function(){
+  if ($('#collapse_sort_area').hasClass('order')){
+    $('#collapse_sort_area').removeClass("order");
+    //$('#collapse_sort_area').removeClass("show");
+    
+  }else if ($('#collapse_sort_area').hasClass('tags')){
+    //$('#collapse_sort_area').collapse('hide')
+    $('#collapse_sort_area').removeClass("show");
+    
+    $('#tags_area').css('display', 'none');
+    $('#order_area').css('display', 'block');
+    
+    //$('#collapse_sort_area').collapse('hide')
+    //$('#collapse_sort_area').collapse('show')
+    $('#collapse_sort_area').removeClass("tags");
+    $('#collapse_sort_area').addClass("order");
+    //$('#collapse_sort_area').addClass("show");
+    
+    $('#collapse_sort_area').collapse({
+      show: true
+    })
+    
+    
+  }else{
+    $('#tags_area').css('display', 'none');
+    $('#order_area').css('display', 'block');
+    
+    $('#collapse_sort_area').addClass("order");
+  }
+}
+
+
+//チェックボックス全外し
+var allClear = function() {
+   var nums = document.sort_form.elements.length; // チェックボックスの数
+   for( i=0 ; i<nums ; i++ ) {
+      document.sort_form.elements[i].checked = false; // ON・OFFを切り替え
+   }
+}
+
+
+var switchToGallery = function() {
+ 
+     $('#switch_to_thumb').removeClass("no_display");
+     $('#switch_to_gallery').addClass("no_display");
+     $('.books_card_wrapper_center').addClass("no_display");
+     $('.books_card_wrapper_right').addClass("no_display");
+     $('.card_books').addClass("for_gallery");
+     $('.for_gallery_row').addClass("row");
+     $('.for_gallery_col').addClass("col-3");
+}
+
+var switchToThumb = function() {
+  
+     $('#switch_to_gallery').removeClass("no_display");
+     $('#switch_to_thumb').addClass("no_display");
+     $('.books_card_wrapper_center').removeClass("no_display");
+     $('.books_card_wrapper_right').removeClass("no_display");
+     $('.card_books').removeClass("for_gallery");
+     $('.for_gallery_row').removeClass("row");
+     $('.for_gallery_col').removeClass("col-3");
+}
+
+var toggleOn = function(ele) {
+    //守護として使うときは、$(ele) と書く
+    a = $(ele).parent().parent().find('input[name="sort_by"]');
+    a.prop('checked', true);
+}

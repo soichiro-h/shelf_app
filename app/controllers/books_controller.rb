@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   
   def index
     @user = current_user
-    @books = @user.books
+    @books = @user.books.order(updated_at: "DESC")
     @tags = @user.tags
     
     flash.now[:notice] = @user.flash if @user.flash
@@ -18,6 +18,124 @@ class BooksController < ApplicationController
     #debugger
   
   end
+  
+  def search
+    @user = User.find(params[:user_id])
+    @tags = @user.tags
+    
+    @books = Book.search(params[:search])
+    render :index
+    
+  end
+  
+  def sorting_by_tags
+    
+    #選ばれたタグ抽出
+    
+    unless params[:tags].nil?
+    
+      @selected_tags = [] 
+    
+      tags = params[:tags].keys
+      tags.each { |t|
+        @selected_tags.push(Tag.find(t))
+      }
+      
+      #タグに関連づいた本抽出
+      @tagged_books = []
+      @selected_tags.each { |t|
+      @tagged_books.push(t.books)
+      }
+      
+      @books = @tagged_books.flatten.uniq
+      
+      
+    else
+      @books = @user.books
+    end
+    
+    #render :partial => "books/index.html.erb",  collection: @book, as: :b
+    #render :index , :collection => @book, as: :b
+    #render partial: 'books/index', locals: { b: @books }
+    #render :index , locals: { b: @books }
+    #debugger
+     
+  end
+  
+  def sorting_by_fav_own
+      
+    if !params[:own_fav].nil?
+      books = []
+      
+      if !params[:own_fav][:by_own].nil?
+        own = @books.select do |b|
+          b.own
+        end
+        books.push(own)
+      end
+      
+      if  !params[:own_fav][:by_favorite].nil?
+        fav = @books.select do |b|
+          b.favorite
+        end
+        books.push(fav)
+      end
+      
+      @books = books.flatten.uniq
+    end
+  end
+  
+  def sorting_by_order
+    
+    case params[:sort_by] 
+     
+      when "created_at"
+        if params[:created_at] == "created_at_desc"
+          @books = @books.sort_by{ |b| b.created_at}.reverse
+          #@books = @books.order(created_at: "DESC")
+        else
+          @books = @books.sort_by{ |b| b.created_at}
+          #@books = @books.order(created_at: "ASC")
+        end
+        
+      when "updated_at"
+        if params[:updated_at] == "updated_at_desc"
+          @books = @books.sort_by{ |b| b.updated_at}.reverse
+          #@books = @books.order(updated_at: "DESC")
+        else
+          @books = @books.sort_by{ |b| b.updated_at}
+          #@books = @books.order(updated_at: "ASC")
+        end
+        
+      when "title"
+        if params[:title] == "title_desc"
+          @books = @books.sort_by{ |b| b.title }.reverse
+          #@books = @books.order(title: "DESC")
+        else
+          @books = @books.sort_by{ |b| b.title }
+          #@books = @books.order(title: "ASC")
+        end
+     
+    end
+    
+  end
+  
+  def sort_by
+    
+    @user = User.find(params[:user_id])
+    @tags = @user.tags
+    
+    sorting_by_tags
+    sorting_by_fav_own
+    sorting_by_order
+
+    render 'books/index', b: @books
+  end
+  
+  
+  
+  
+  
   
   def new
     @user = User.find(params[:user_id])
@@ -34,7 +152,6 @@ class BooksController < ApplicationController
     #youtube = get_service
     #@youtube = youtube.list_searches("id,snippet", type: "video", q: "Factfulness", max_results: 2)
     
-    #debugger
     
   end
   

@@ -7,4 +7,9 @@ class Book < ApplicationRecord
    
    mount_uploader :image, BookImageUploader
    
+   def self.search(search)
+      return Book.all unless search
+      Book.where("title LIKE ? OR memo LIKE ?","%#{search}%", "%#{search}%") 
+    end
+   
 end

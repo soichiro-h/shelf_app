@@ -19,7 +19,7 @@
         </div>
       </div>
       
-      <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
+      <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-lg btn_icon_bayoux edit_prf" %></i>
       
     </div>
     
@@ -27,18 +27,23 @@
     
     <div class="row justify-content-center edit_wrapper">
       <div class="col-8 introduce-comment">
-        <% if @user.introduce_comment %>
-          <%= @user.introduce_comment %>
-        <% elsif @user.introduce_comment == "" %>
-          <p>ここ最近、AI関連の本ばかり読んでます</br>
-          よろしくお願いします</br>
-          まみむめも〜</br></p>
-        <% end %>
-    
+        <div id="display_comment">
+          <% if @user.introduce_comment %>
+            <%= @user.introduce_comment %>
+          <% end %>
+        </div>
+          
+        <div id="edit_comment" class="no_display">
+          <%= form_tag('/comment', method: :post, id: "comment_form", name:"comment_form") do %>
+          <%= text_area_tag :comment_area, value="#{@user.introduce_comment}", maxlength: "64" %>
+          <input type="hidden" name="user_id" value="<%= @user.id %>">
+          <% end %>
+        </div>
       </div>
       
       
-        <i><%= link_to "", profile_edit_path, class: "fas fa-edit fa-2x btn_icon_bayoux edit_prf" %></i>
+        <i class="fas fa-edit fa-lg btn_icon_bayoux edit_comment edit_prf" onclick="editComment()"></i>
+        <i class="fas fa-check-circle fa-lg btn_icon_bayoux save_comment edit_prf no_display" onclick="saveComment()"></i>
       
       
     </div>

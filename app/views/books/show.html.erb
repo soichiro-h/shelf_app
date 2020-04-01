@@ -26,7 +26,7 @@
         <div class="col-4">
           <!--price-->
           
-          <% if !@book.price.nil? %>
+          <% if !@book.price.blank? %>
             <div class="field book_price">
               <p class="underlined_form price_field">¥ <%= @book.price %></p>
             
@@ -90,7 +90,7 @@
         
         <% @book.videos.each do |v| %>
         <div>
-          <iframe width="380" height="250" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="380" height="200" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <% end %>
         
@@ -113,9 +113,9 @@
           <div class="row">
             
           <% @book.tags.each.with_index(1) do |t, i| %>
-            <div class="col-4">
+            <div class="col-4 tag_wrapper">
               
-               <div class="tag_wrapper">
+               <div class="">
                   
                   <div class="tag_field">
                    
@@ -172,7 +172,7 @@
   
   <div class="row justify-content-end">
     <!--back-->
-    <button type="button" class="btn btn-secondary" onclick="toBooks()" >シェルフに戻る</button>
+    <button type="button" class="btn btn-secondary" onclick="toBackPage()" >シェルフに戻る</button>
   </div>
 
   

@@ -22,7 +22,6 @@ $Alert          : #ED404C;
 =========================*/
 
 body{
-  font-family: 'Roboto',sans-serif ;
   font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
   background-color: $Lavender;
   width: 100%;
@@ -83,6 +82,10 @@ h5 {
   margin:0 auto;
 }
 
+.wrapper{
+  position: relative;
+}
+
 /*=========================
           Button
 =========================*/
@@ -97,6 +100,9 @@ h5 {
   &:focus-visible{
     opacity: .5;
     outline: none;
+  }
+  &:focus{
+    outline :none;
   }
 }
 
@@ -117,14 +123,18 @@ h5 {
 
 .btn_skyblue{
   color: white ;
-  background-color: $SkyBlue ;
+  background-color: $SkyBlue;
 }
 
 .btn_bayoux{
   color: white ;
-  background-color: $Bayoux ;
+  background-color: $Bayoux;
 }
 
+.btn_steelgray{
+  color: white ;
+  background-color: $SteelGrey;
+}
 
 /* profile */
 /* Tags */
@@ -437,9 +447,9 @@ h5 {
 
 .prf-img{
   border-radius:100px ;
-  margin: 40px 0 0 60px;
-  width: 150px;
-  height: 150px;
+  margin: 65px 0 0 75px;
+  width: 100px;
+  height: 100px;
 }
 
 .name_email_wrapper{
@@ -462,14 +472,36 @@ h5 {
 }
 
 .introduce-comment{
+  position: relative;
   font-size: 14px ; 
   color: $SteelGrey ;
   font-weight: bold;
   height: 120px ;
-  margin-top: 15px;
-  padding-left: 40px;
   min-width: 255px ;
   white-space: pre-line;
+}
+#display_comment{
+  position: absolute;
+  top: -3px;
+  left: 40px;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#comment_area{
+    position: absolute;
+    top: 16px;
+    left: 38px;
+    font-size: 14px;
+    color: $SteelGrey ;
+    font-weight: bold; 
+    width: 240px;
+    height: 90px;
+    border: none;
+    outline: none;
+    white-space: pre-line;
+    overflow: hidden;
+    resize: none;
 }
 
 .num-books{
@@ -490,11 +522,9 @@ h5 {
 .edit_wrapper{
   position: relative;
   .edit_prf{
-      width: 36px ;
-      height: 32px ;
       position: absolute;
-      right: 80px;
-      bottom: 40px;
+      right: 70px;
+      bottom: 30px;
       display: none;
   }
   &:hover{
@@ -509,7 +539,7 @@ h5 {
 }
 
 .banner_to_shelf{
-  padding: 25px 30px;
+  padding: 22px 30px;
   background: white;
   color: $SteelGrey!important;
   font-family: 'Kosugi Maru', !important;
@@ -696,63 +726,303 @@ h5 {
           Books
 =========================*/
 
+/* tooltips */
+.tooltip .tooltip-inner {
+ color: white;
+ background-color: $SteelGrey;
+  span{
+  }
+}
+.tooltip-auto[x-placement^=top] .arrow::before, 
+.tooltip .arrow::before {
+ border-top-color: $SteelGrey !important; 
+}
+
+/* serch & plus btn*/
+
+.row_search_field{
+}
+
+.search_filed_wrapper{
+  position: relative; 
+  margin-left: -10px;
+  margin-right: 10px;
+}
+.search_field{
+  border: 1px solid $Gainsboro;
+  border-radius: 7px;
+  padding-left: 10px;
+  color: $SteelGrey;
+  font-size: 14px;
+  width: 270px;
+  height: 32px;
+  &:focus{
+    outline :none;
+  }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    color: $SteelGrey !important;
+  }
+  
+}
+
+.search_btn{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-image :url("/images/search-icon.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  border: none !important;
+  top: 7px;
+  right: 3px;
+ 
+}
+
 #btn_plus_book{
+  margin-top: -4px;
   background: $Lavender !important;
 }
 
-#sort_icons{
-  margin: 30px 0;
-    i{
-      color: $Bayoux;
-    }
+/* sort area */
+
+#sort_section{
+  position: relative;
+  margin: 0px 0;
+  button{
+    padding: 0 5px !important;
+  }
+   i{
+    color: $Bayoux;
+  }
+}
+.sort_btns{
+    position: absolute;
+    width: 125px !important;
+    width: 350px;
+    right: 50px;
+    top: 20px;
   }
 
+.sort_btn{
+  border: none;
+  background: $Lavender;
+  &:focus{
+    outline: none;
+  }
+}
+
+.sort_window{
+  margin: 50px 0 20px 0;
+}
+
+.sort_area{
+    box-shadow: none;
+}
+.tags_area{
+  max-height: 220px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 15px;
+}
 
 .card_books{
   position: relative;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+  background: white;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
   border-style: none;
   width: 350px; 
   height: 110px;
   margin-top: 7px;
-  padding: 7px;
+  padding: 5px;
+}
+.for_gallery{
+  width: 88px !important;
+  padding: 5px 2px!important;
+}
+
+/* sort order */
+
+.sort_order_by{
+  display: none;
+  &:checked + .sort_labels:after{
+      background-image: url("/images/sort_order/checked.png");
+    }
+  &:checked + .sort_order_option{
+    opacity: 0.1;
+  }
+}
+
+.sort_labels:after{
+    content: "";
+    width: 22px;
+    height: 17px;
+    background-size: auto;
+    background-image: url("/images/sort_order/check_inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4px;
+    margin: 0;
+    left: 0px;
+}
+
+.sort_labels{
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* sort order ASC/DESC */
+
+.sort_row{
+  margin: 10px 0;
+}
+
+.sort_order_asc{
+  display: none;
+  &:checked + .asc_labels:after{
+      background-image: url("/images/sort_order/sort-asc-int-active.png");
+    }
+}
+
+.asc_labels:after{
+    content: "";
+    width: 17px;
+    height: 18px;
+    background-size: auto;
+    background-image: url("/images/sort_order/sort-asc-int-inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    margin: 0;
+    left: 50px;
+}
+
+.sort_order_desc{
+  display: none;
+  &:checked + .desc_labels:after{
+      background-image: url("/images/sort_order/sort-desc-int-active.png");
+    }
+}
+
+.desc_labels:after{
+    content: "";
+    width: 17px;
+    height: 18px;
+    background-size: auto;
+    background-image: url("/images/sort_order/sort-desc-int-inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    margin: 0;
+    left: 0;
+}
+
+.sort_order_str_asc{
+  display: none;
+  &:checked + .asc_str_labels:after{
+      background-image: url("/images/sort_order/sort-asc-str-active.png");
+    }
+}
+
+.asc_str_labels:after{
+    content: "";
+    width: 17px;
+    height: 18px;
+    background-size: auto;
+    background-image: url("/images/sort_order/sort-asc-str-inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    margin: 0;
+    left: 0;
+}
+
+.sort_order_str_desc{
+  display: none;
+  &:checked + .desc_str_labels:after{
+      background-image: url("/images/sort_order/sort-desc-str-active.png");
+    }
+}
+
+.desc_str_labels:after{
+    content: "";
+    width: 17px;
+    height: 18px;
+    background-size: auto;
+    background-image: url("/images/sort_order/sort-desc-str-inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    margin: 0;
+    left: 50px;
+}
+
+.sort_order_row{
+  margin-left: 35px;
+  position: relative;
+}
+.sort_order_option{
+  position: absolute;
+  top: 3px;
+  left: 130px;
+}
+
+.sort_ownfav_row{
+  margin-left: 20px;
+}
+
+.sort_order_labels{
+  cursor: pointer;
+  width: 30px;
+  height: 20x;
+  
+}
+
+/* books card */
+
+.books_card_wrapper_center{
+  padding: 0 0 0 12px !important;
 }
 
 .title_card_books{
-  font-family: 'Kosugi Maru', ;
+  font-family: 'Roboto','Kosugi Maru',sans-serif,  ;
   font-size: 14px;
   color: $SteelGrey;
-  margin-top: 16px;
+  margin-top: 8px;
+  margin-bottom: 2px !important;
 }
 
 .memo_card_books{
   font-size: 12px;
   color: $Bayoux;
-  margin: 7px 0 0 0;
-  line-height: 18px;
-  max-height: 54px;
+  margin: 0;
+  line-height: 16px;
+  max-height: 64px;
   overflow: hidden;
+  white-space: pre-wrap;
 }
 
 .price_card_books{
   font-size: 10px;
-  margin: 16px 0 0 10px;
+  margin: 8px 0 0 30px;
 }
 
 .image_card_books{
-  width: 65px;
-  height: 90px;
-  margin-top: 7px;
+  padding-left: -15px;
+  width: 75px;
+  height: 96px;
+  margin-top: 2px;
+  margin-left: 5px;
 }
 
 .icons_card_books{
   i{
     position: absolute;
-    right: 5px;
-    bottom: 5px;
+    right: 10px;
+    bottom: 10px;
   }
   i:first-child{
-    right: 33px;
+    right: 38px;
   }
 }
 
@@ -768,6 +1038,9 @@ h5 {
   color: $SkyBlue;
 }
 
+.no_display{
+  display: none !important;
+}
 
 /*=========================
         Book new
@@ -803,6 +1076,7 @@ h5 {
 
 
 #book_title{
+  font-family: 'Roboto','Kosugi Maru',sans-serif,  ;
   width: 150px;
 }
 
@@ -878,6 +1152,94 @@ h5 {
   }
 }
 
+.tags_checkbox{
+  display: none;
+  &:checked + .tags_label{
+    color: white;
+    background: $Bayoux;
+  }
+  &:checked + .tags_label:after{
+    background-image: url("/images/tag_active.png");
+  }
+}
+
+.tags_label{
+  font-family: 'Kosugi Maru', ;
+  font-size: 14px;
+  width: 160px;
+  height: 100%;
+  padding: 13px 0 13px 38px;
+  background: $Gainsboro ;
+  cursor: pointer;
+}
+
+.tags_label:after{
+    content: "";
+    width: 160px;
+    height: 47px;
+    background-size: auto;
+    background-image: url("/images/tag_inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    left: 15px;
+}
+
+
+.section_own-fav{
+ margin: 30px 0 0 20px !important; 
+}
+
+.labels{
+  color: $SteelGrey;
+  font-size: 14px;
+  margin: 15px 20px 0 30px;
+  cursor: pointer;
+}
+
+#own_checkbox{
+  display: none;
+  &:checked + .own_label:after{
+      background-image: url("/images/own_active.png");
+    }
+}
+
+.own_label:after{
+    content: "";
+    width: 24px;
+    height: 33px;
+    background-size: auto;
+    background-image: url("/images/own_inactive.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    left: 0px;
+}
+
+#fav_checkbox{
+  display: none;
+  &:checked + .fav_label:after{
+      background-image: url("/images/fav_active.png");
+    }
+}
+
+.fav_label:after{
+    content: "";
+    width: 27px;
+    height: 24px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: url("/images/fav_inactive.png");
+    position: absolute;
+    top: 7px;
+    margin: 0;
+    left: 0;
+}
+
+
+
 /*=========================
          Details
 =========================*/
@@ -894,14 +1256,33 @@ h5 {
   }
   .tags{
     padding: 0;
-    margin-top: 0;
-    width: 380px;
+    margin-left: 0px;
+    width: 420px;
     overflow-x: hidden;
     overflow-y: hidden;
+    .tag_wrapper{
+      padding: 0 !important;
+    }
+    .row{
+      margin-left: 0 !important;
+    }
     .tag_field{
+    padding-left: 33px;
+    position: relative;
+    width: 130px;
+    height: 44px;
     font-size: 14px;
-    color: $SteelGrey;
-    background: $Gainsboro;
+    color: white;
+    background: $Bayoux ;
+      &:after{
+        content: "";
+        width: 130px;
+        height: 44px;
+        background-image: url("/images/tag_details.png");
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
   }
 }

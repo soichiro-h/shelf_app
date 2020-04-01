@@ -100,54 +100,34 @@
       <!--tags-->
       <h5 class="section_title"><i class="fas fa-tags"></i>タグ</h5>
     </div> 
+     
+     <%= render 'books/tags_index' %> 
     
-    <div class="row justify-content-center">
-      <div class="tag">
-  
-        <div class="row">
-          
-          <% @tags.each.with_index(1) do |t, i| %>
-            <div class="col-6">
-              
-                <div class="tag_wrapper">
-                  
-                  <div class="tag_field">
-                   
-                    <%= check_box_tag :"[tags][#{t.id}]" %>
-                    <%= label_tag :tags, "#{t.tag_title}" %>
-                  
-                  </div>
-                
-                </div>
-              
-            </div>
-            
-            
-            <% if i % 2 == 0 %>
-              </div>
-              <div class="row">
-            <% end %>
-            
-          <% end %>
-        </div>
-      </div>
-      
-    </div>  
   </div>
   
-  <div class="row justify-content-start">
-    <!--own-->
-    <%= f.label :入手済み %>
-    <%= f.check_box :own %>
+  <div class="row justify-content-start section_own-fav">
     
+    <!--own-->
+    <div class="">
+      <div class="wrapper">
+        <%= f.check_box :own, id: "own_checkbox" %>
+        <%= f.label :入手済み, for: "own_checkbox", class: "own_label labels" %>
+      </div>
+    </div>
+      
     <!--fav-->
-    <%= f.label :お気に入り %>
-    <%= f.check_box :favorite %>
+    <div class="">
+      <div class="wrapper">
+        <%= f.check_box :favorite, id: "fav_checkbox" %>
+        <%= f.label :お気に入り, for: "fav_checkbox", class: "fav_label labels" %>
+      </div>
+    </div>
+    
   </div>
   
   <div class="row justify-content-end">
     <!--submit-->
-    <button type="button" class="btn btn-secondary" onclick="<%= yield(:back_to) %>" >戻る</button>
+    <button type="button" class="btn btn-secondary" onclick="toBackPage()" >戻る</button>
     <button type="button" class="btn btn_skyblue" onclick="submit()" >保存</button>
   </div>
   

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'static#home'
   get 'users/show'
   get '/profile', to: 'users#show'
+  post '/comment', to: 'users#comment_update'
+  
   get '/tags', to: 'tags#index'
   post '/tags', to: 'tags#update'
   post '/tag-new', to: 'tags#create'
@@ -14,6 +16,10 @@ Rails.application.routes.draw do
   get 'details/:id', to: 'books#show'
   #get '/details/:id/edit', to: 'books#edit'
   #delete '/details/:id', to: 'books#destroy'
+  
+  post '/sort_by_tags', to: 'books#sort_by_tags'
+  post '/sort_by', to: 'books#sort_by'
+  get '/serach_books', to: 'books#search'
   
   resources :books
 

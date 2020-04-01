@@ -1,0 +1,69 @@
+  <div class="row justify-content-start">
+    
+    <div class="col-12">
+      <h5><i class="fas fa-sort-amount-down"></i>並び替え</h5>
+    </div>
+      
+      <div class="sort_row">
+        <div class="col-12 sort_order_row">
+          <input type="radio" id="sort_by_updated_at" class="sort_order_by" name="sort_by" value="updated_at" checked>
+          <label for="sort_by_updated_at" class="sort_labels" >更新日</label>
+          
+          <div class="sort_order_option">
+            <input type="radio" id="updated_at_desc" name="updated_at" value="updated_at_desc" class="sort_order_desc" checked>
+            <label for="updated_at_desc" class="desc_labels sort_order_labels" onclick="toggleOn(this)"></label>
+            
+            <input type="radio" id="updated_at_asc" name="updated_at" value="updated_at_asc" class="sort_order_asc">
+            <label for="updated_at_asc" class="asc_labels sort_order_labels" onclick="toggleOn(this)"></label>
+          </div>
+        </div>
+        
+        <div class="col-12 sort_order_row">
+          <input type="radio" id="sort_by_created_at" class="sort_order_by" name="sort_by" value="created_at">
+          <label for="sort_by_created_at" class="sort_labels" >作成日</label>
+          
+          <div class="sort_order_option">
+            <input type="radio" id="created_at_desc" name="created_at" value="created_at_desc" class="sort_order_desc" checked>
+            <label for="created_at_desc" class="desc_labels sort_order_labels" onclick="toggleOn(this)"></label>
+            
+            <input type="radio" id="created_at_asc" name="created_at" value="created_at_asc" class="sort_order_asc">
+            <label for="created_at_asc" class="asc_labels sort_order_labels" onclick="toggleOn(this)"></label>
+          </div>
+          
+        </div>
+        
+        <div class="col-12 sort_order_row">
+          <input type="radio" id="sort_by_title" class="sort_order_by" name="sort_by" value="title">
+          <label for="sort_by_title" class="sort_labels" >タイトル</label>
+          
+          <div class="sort_order_option">
+            <input type="radio" id="title_asc" name="title" value="title_asc" class="sort_order_str_asc" checked>
+            <label for="title_asc" class="asc_str_labels sort_order_labels" onclick="toggleOn(this)"></label>
+            
+            <input type="radio" id="title_desc" name="title" value="title_desc" class="sort_order_str_desc">
+            <label for="title_desc" class="desc_str_labels sort_order_labels" onclick="toggleOn(this)"></label>
+          </div>
+          
+        </div>
+      </div>  
+
+      <div class="col-12">
+        <h5><i class="fas fa-filter"></i>フィルター</h5>
+      </div>
+      
+      <div class="sort_row sort_ownfav_row">  
+        <div class="col-12">
+          <div class="col-12">
+            <%= check_box_tag "[own_fav][by_own]",0 ,false, id: "sort_by_own", class: "sort_order_by" %>
+            <%= label_tag :own, "入手済み", for: "sort_by_own", class:"sort_labels" %>
+          </div>
+          
+          <div class="col-12">
+            <%= check_box_tag "[own_fav][by_favorite]",0 ,false, id: "sort_by_fav", class: "sort_order_by" %>
+            <%= label_tag :fav, "お気に入り", for: "sort_by_fav", class: "sort_labels" %>
+          </div>
+          
+        </div>
+      </div>
+    
+  </div>
