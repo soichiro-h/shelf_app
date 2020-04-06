@@ -90,7 +90,7 @@
         
         <% @book.videos.each do |v| %>
         <div>
-          <iframe width="380" height="200" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="380" height="210" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <% end %>
         
@@ -145,7 +145,11 @@
   <div class="row justify-content-start">
     
     <!--cart-->
-      <i class="fas fa-shopping-cart fa-lg btn_icon_steelgray"></i>
+    
+      <i> 
+        <%= link_to "", "#{@book.purchase_url}" , class: "fas fa-shopping-cart fa-lg btn_icon_steelgray" %>
+      </i>
+    
     <!--trash-->
       <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-lg btn_icon_steelgray", 
             method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>

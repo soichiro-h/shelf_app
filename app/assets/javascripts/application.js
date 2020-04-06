@@ -160,8 +160,15 @@ var cxlTooltip = function(){
   setTimeout("$('#tooltip_add_book').tooltip('hide')", 350);
 }
 
-var testShow = function(){
-    $('#tooltip_add_book').tooltip('hide')
+//不要 onclick 消す
+var displayGuess = function(){
+  //  $('#guess_area').addClass("guess_area_margin");
+  //  setTimeout("$('#guess_area').removeClass('no_display')", 1000);
+}
+
+
+var submitGuessBook = function(book){
+    $(book).parent().submit();
 }
 
 

@@ -1,12 +1,18 @@
 
   <%= form_for(@book) do |f| %>
   
-  <input type="hidden" name="user_id" value="<%= @user.id %>">
-  
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
+    <%= f.hidden_field :purchase_url, :value => params[:book][:purchase_url] %>
+   
   <div class="row">
     <div class="col-3">  
       <!--image-->
-      <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
+      <% if !params[:book][:image].nil? %>
+        <%= image_tag params[:book][:image], class:"book_image" %> 
+        <%= f.hidden_field :image, :value => params[:book][:image] %>
+      <% else %>
+        <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
+      <% end %>
     </div>
     
     <div class="col-9">  
@@ -15,7 +21,7 @@
           <!--title-->
           <div class="field">
             <%= f.label :title, class:"form_notitle" %>
-            <%= f.text_field :title, value:"#{params[:new_book_title]}", class:"underlined_form" %>
+            <%= f.text_field :title, value:"#{params[:book][:title]}", class:"underlined_form" %>
           </div>
         </div>
         
@@ -23,7 +29,7 @@
           <!--price-->
           <div class="field">
             <%= f.label :￥, class:"price_label" %>
-            <%= f.text_field :price, class:"price_field underlined_form" %>
+            <%= f.text_field :price, value:"#{params[:book][:price]}", class:"price_field underlined_form" %>
           </div>
         </div>
       </div>
@@ -31,13 +37,13 @@
       <div class="row justify-content-start">
         <!--proper_title-->
         <%= f.label :proper_title, class:"form_notitle" %>
-        <%= f.text_field :proper_title, placeholder:"proper_title", class:"underlined_form" %>
+        <%= f.text_field :proper_title, value:"#{params[:book][:proper_title]}", placeholder:"公式タイトル、サブタイトル等", class:"underlined_form" %>
       </div>
       
       <div class="row justify-content-start">
         <!--author-->
         <%= f.label :author, class:"form_notitle" %>
-        <%= f.text_field :author, placeholder:"author", class:"underlined_form" %>
+        <%= f.text_field :author, value:"#{params[:book][:author]}", placeholder:"著者", class:"underlined_form" %>
       </div>
     </div>
   </div>
@@ -77,17 +83,18 @@
     <div class="row justify-content-center">
       <!--videos-->
       
-      <div id="vf_1" class="col-12 video_url_field">
-        <input type="text" class="video_url" name="[videos][1]" value="https://www.youtube.com/watch?v=BuMA_jz-_Tg" >
-        <button type="button" id="1" class="delete_video" onclick="deleteVideo_url(this);" >
-        <i class="fas fa-times"></i></button>
-      </div>
-      
-      <div id="vf_2" class="col-12 video_url_field">
-        <input type="text" class="video_url" name="[videos][2]" value="https://www.youtube.com/watch?v=8WKwKT7Rdq8" >
-        <button type="button" id="2" class="delete_video" onclick="deleteVideo_url(this);" >
-        <i class="fas fa-times"></i></button>
-      </div>
+      <% if !@youtube.blank? %>
+        
+        <% @youtube.each.with_index(1) do |yt, i| %>
+          
+          <div id="vf_<%= i %>" class="col-12 video_url_field">
+            <input type="text" class="video_url" name="[videos][<%= i %>]" value="https://www.youtube.com/watch?v=<%= yt.id.video_id %>">
+            <button type="button" id="<%= i %>" class="delete_video" onclick="deleteVideo_url(this);" >
+            <i class="fas fa-times"></i></button>
+          </div> 
+        <% end %>
+ 
+      <% end %>
       
       <div id="last"></div>
     </div>

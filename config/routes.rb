@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post '/sort_by', to: 'books#sort_by'
   get '/serach_books', to: 'books#search'
   
+  #テスト
+  get '/guess', to: 'books#search_rakuten'
+  
   resources :books
 
   devise_for :users, :controllers => { :registrations => :registrations }

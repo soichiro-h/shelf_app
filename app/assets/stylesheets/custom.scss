@@ -726,6 +726,14 @@ h5 {
           Books
 =========================*/
 
+#guess_area{
+  margin: 20px 0;
+}
+
+.guessed_book{
+  cursor: pointer;
+}
+
 /* tooltips */
 .tooltip .tooltip-inner {
  color: white;
@@ -818,6 +826,7 @@ h5 {
 
 .sort_area{
     box-shadow: none;
+    max-width: 350px;
 }
 .tags_area{
   max-height: 220px;
@@ -837,8 +846,8 @@ h5 {
   padding: 5px;
 }
 .for_gallery{
-  width: 88px !important;
-  padding: 5px 2px!important;
+  width: 84px !important;
+  padding: 5px 0!important;
 }
 
 /* sort order */
@@ -990,12 +999,14 @@ h5 {
   color: $SteelGrey;
   margin-top: 8px;
   margin-bottom: 2px !important;
+  max-height: 32px;
+  overflow: hidden;
 }
 
 .memo_card_books{
   font-size: 12px;
   color: $Bayoux;
-  margin: 0;
+  margin-top: 5px;
   line-height: 16px;
   max-height: 64px;
   overflow: hidden;
@@ -1013,6 +1024,7 @@ h5 {
   height: 96px;
   margin-top: 2px;
   margin-left: 5px;
+  object-fit: contain;
 }
 
 .icons_card_books{
@@ -1072,12 +1084,13 @@ h5 {
 .book_image{
   width: 90px;
   height: 120px;
+  object-fit: contain;
 }
 
 
 #book_title{
   font-family: 'Roboto','Kosugi Maru',sans-serif,  ;
-  width: 150px;
+  width: 195px;
 }
 
 #book_price{
@@ -1089,6 +1102,7 @@ h5 {
   left: -15px;
   top: 2px;
 }
+
 .price_field{
   position: absolute;
   left: 0px;
@@ -1150,6 +1164,10 @@ h5 {
   &:hover{
     color: $Alert ;
   }
+}
+
+.youtube_thumb{
+  width: 50px;
 }
 
 .tags_checkbox{
@@ -1291,6 +1309,9 @@ h5 {
   font-family: 'Kosugi Maru', ;
   font-weight: bold;
   padding: 0;
+  p{
+    width: 250px !important;
+  }
 }
 
 .book_price{

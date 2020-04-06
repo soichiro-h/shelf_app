@@ -30,14 +30,14 @@
               </div>
               <div class="modal-body popup_new_tag">
                 
-                <form role="form" action="/book-new" method="post">
+                <form role="form" action="/guess" method="get">
                 <input type="hidden" name="user_id" value="<%= @user.id %>">
                 <input type="text" class="new_book_title modal_field" name="new_book_title" placeholder="本のタイトルを入力" size="40">
                 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
-                <button type="submit" class="btn btn_skyblue" >検索</button>
+                <button type="submit" class="btn btn_skyblue" onclick="displayGuess()" >検索</button>
                 </form>
               </div>
             </div>
@@ -45,6 +45,52 @@
         </div>  
       </div>
   </div>
+  
+  
+    
+      
+      
+   
+      <% if !@guess.nil? %>
+        <div id="guess_area" class="">  
+          <div class="row justify-content-center">
+          
+            <% @guess.each.with_index do |g,i| %>
+              <div class="col-3">
+                <form id="guessed_book_form" action="/book-new" method="post">
+                  
+                  <input type="hidden" name="user_id" value="<%= @user.id %>">
+                    <div class="guessed_book" onclick="submitGuessBook(this)">
+                      <input type="hidden" name="[book][title]" value="<%= g.title %>">
+                      <input type="hidden" name="[book][price]" value="<%= g.item_price %>">
+                      <input type="hidden" name="[book][proper_title]" value="<%= g.sub_title %>">
+                      <input type="hidden" name="[book][author]" value="<%= g.author %>">
+                      <input type="hidden" name="[book][image]" value="<%= g.medium_image_url %>">
+                      <input type="hidden" name="[book][purchase_url]" value="<%= g.affiliate_url %>">
+                      <%= image_tag g.medium_image_url, class:"" %> 
+                    </div>
+                    
+                </form>
+              </div>
+            <% end %>
+          </div>
+      
+          <div class="row justify-content-end">
+       
+            <form role="form" action="/book-new" method="post">
+              <input type="hidden" name="user_id" value="<%= @user.id %>">
+              <input type="hidden" name="[book][title]" value="<%= @book_title %>">
+              <button type="button" class="btn btn-secondary" onclick="toBackPage()">戻る</button>
+              <button type="submit" class="btn btn-secondary" onclick="">候補から選ばない</button>
+            </form>  
+          
+          </div>
+        </div>
+      <% end %>
+     
+      
+      
+  
   
   <div id="sort_section" class="row justify-content-end">
     
@@ -62,7 +108,7 @@
       <button type="button" id="switch_to_thumb" class="sort_btn no_display" onclick="switchToThumb()" >
         <i class="fas fa-th-list"></i>
       </button>
-    
+      
     </div>
   </div>
 

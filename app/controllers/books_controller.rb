@@ -1,7 +1,12 @@
 class BooksController < ApplicationController
   
   #require 'googleauth'
-  #require 'google/apis/youtube_v3'
+  require 'google/apis/youtube_v3'
+  
+  require 'json'
+  require 'net/http'
+  require 'open-uri'
+  #require 'rakuten_web_service'
   
   API_KEY = 'AIzaSyBWNozwiqcneF6nclfj2vhTF5-oJoC-_6Q'
   YOUTUBE_API_SERVICE_NAME = 'youtube'
@@ -19,12 +24,39 @@ class BooksController < ApplicationController
   
   end
   
-  def search
+  def search #search_books に変えるか？
     @user = User.find(params[:user_id])
     @tags = @user.tags
     
     @books = Book.search(params[:search])
     render :index
+    
+  end
+  
+  def search_rakuten
+    @user = current_user
+    @tags = @user.tags
+    @books = @user.books.order(updated_at: "DESC")
+    
+    RakutenWebService.configure do |c|
+      c.application_id = '1043260432937924281'
+      c.affiliate_id = '1af7751a.21c91aa3.1af7751b.f9119a71'
+    end
+    keyword = params[:new_book_title]
+    @items = RakutenWebService::Books::Book.search({
+      title: keyword,
+      hits: 4,
+    })
+    @guess = []
+    if !@items.nil?
+      @items.each do |item|
+        @guess << item
+      end
+    @book_title = keyword
+    end
+    #debugger
+    render :index
+    
     
   end
   
@@ -133,37 +165,78 @@ class BooksController < ApplicationController
   end
   
   
-  
-  
+  def get_service
+    youtube = Google::Apis::YoutubeV3::YouTubeService.new
+    youtube.key = API_KEY
+    return youtube
+  end
   
   
   def new
+    #poi = sdf
     @user = User.find(params[:user_id])
     sign_in(@user)
     @book = Book.new(title:"")
     @tags = @user.tags
     
-    #def get_service
-    #  youtube = Google::Apis::YoutubeV3::YouTubeService.new
-    #  youtube.key = API_KEY
-    #  return youtube
-    #end
+    search_youtube
     
-    #youtube = get_service
-    #@youtube = youtube.list_searches("id,snippet", type: "video", q: "Factfulness", max_results: 2)
     
+    #debugger
     
   end
   
+  def search_youtube
+    
+    title = params[:book][:title]
+    if !params[:book][:proper_title].blank?
+      sub_title = params[:book][:proper_title] 
+      keyword = title + " " + sub_title
+    else
+      if !params[:book][:author].blank?
+      author = params[:book][:author] 
+      keyword = title + " " + author
+      else
+        not_search = true
+      end
+    end
+    
+    if !not_search
+    
+      youtube = get_service
+      opt = {
+        q: keyword,
+        type: 'video',
+        max_results: 2,
+        order: :viewCount, #:rating #:relevance 
+      }
+      
+      # 
+      results = youtube.list_searches(:snippet, opt)
+      
+      @youtube = []
+      if !results.nil?
+        results.items.each do |item|
+          @youtube << item
+        end
+      end
+      
+    end
+    
+  end
+  
+  
   def extract_video_id(url)
     vid = url[/\?v=([^&]+)/]
-    vid.delete("?v=")
+    #vid.delete("?v=")
+    vid.slice!(0..2)
+    return vid
   end
   
   def create
     
-    
     @book = Book.new(book_params)
+    @book.remote_image_url = params[:book][:image]
     @book.user_id = params[:user_id]
       if @book.save
         
@@ -222,7 +295,7 @@ class BooksController < ApplicationController
         #session[:notice] = "追加しました"
         #redirect_to save_url
       
-        #debugger
+      #debugger
         
 
       end
@@ -264,7 +337,7 @@ class BooksController < ApplicationController
     
     def book_params
       params.require(:book).permit(:title, :proper_title, :price, :author, :image, 
-                :memo, :summary, :params, :favorite, :own)
+                :memo, :summary, :params, :favorite, :own, :purchase_url)
     end
   
 end

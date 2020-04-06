@@ -5,6 +5,8 @@ class BookImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   
+  process resize_to_fit: [300, 200]
+  
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
