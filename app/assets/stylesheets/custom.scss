@@ -555,15 +555,34 @@ h5 {
        Profile Edit
 =========================*/
 #prof_edit_page{
+  padding: 0;
   .row{
     margin-top: 15px;
   }
- padding: 25px 0;
+  .top-row{
+    position: relative;
+    margin-top: 0!important;
+    .prf-img{
+      margin: 45px 0 0 45px;
+    }
+    .img_uploader{
+      margin-left: 35px;
+    }
+    .uploader_info{
+      margin-left: 35px;
+    }
+  }
+ padding-bottom: 25px;
 }
 
+.wrapper_uploader_prof_edit{
+    top: 0;
+    right: 0;
+  }
+
 .current_avatar{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 75px;
   margin-left: -19px;
 }
@@ -590,40 +609,43 @@ h5 {
 }
 
 .page_title_card{
-  padding: 15px 20px;
+  padding: 12px 20px;
   background: white;
-}
-
-.page_title_card h4 i{
-  color: $Bayoux; 
+  h4{
+    font-size: 20px;
+    i{
+      color: $Bayoux; 
+    }
+  }
 }
 
 #btn_plus_tag{
-  margin: 7px 0 0 20px;
+  background: $Lavender;
+  margin: 5px 0 0 10px;
   
 }
- 
+
+.modal-footer{
+  position: relative;
+}
+
+.error_tags{
+  position: absolute;
+  top: 16px;
+  left: 28px;
+  color: $Alert;
+}
+
 #tags_card{
-  height: 1000px;
-  background: white;
+  margin-top: 30px;
+  margin-left: -30px;
 }
 
 #tags {
-	list-style: none;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%,-50%);
-					transform: translate(-50%,-50%);
-					
   .tag li {
 	display: inline-block;
   }
-  .tag .tag_wrapper {
+  .tag_wrapper {
 	line-height: 44px;
 	position: relative;
 	display: inline-block;
@@ -634,47 +656,17 @@ h5 {
 	-webkit-transition: color 0.2s;
 	        transition: color 0.2s;
 	text-decoration: none;
-	border-radius: 0 3px 3px 0;
-	background: $Gainsboro;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);
-    &::before, &::after {
-    background: $Lavender;/*背景色*/
-    }
-    &::before {
-  	position: absolute;
-  	top: 19px;
-  	left: 6px;
-  	width: 8px;
-  	height: 8px;
-  	content: '';
-  	border-radius: 10px;
-  	background: $Lavender ;
-  	z-index: 2;
-    }
-    &::after {
-  	position: absolute;
-  	top: -1px;
-  	left: -6px;
-  	width: 0;
-  	height: 0;
-  	content: '';
-  	border-style: solid;
-  	border-width: 23px 12px 23px 0;
-  	border-color: transparent $Gainsboro  transparent transparent;
-  	border-radius: 4px;
-    }
+	/*box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);*/
+   
     &:hover {
     opacity: 0.8;
     }
-    &:hover:after {
-	  /* border-color: transparent #555555 transparent transparent; */
-    }
-   
     .delete_tag{
         color: $SteelGrey;
         position: absolute;
-        right: -20px;
-        bottom: 8px;
+        z-index: 5;
+        right: -32px;
+        top: 5px;
         display: none;
         &:hover{
           color: $Alert;
@@ -693,13 +685,11 @@ h5 {
  position: relative;
 }
 
-#tags{
-  margin-top: 80px;
-  transform: translateY(100%) !important;
-  transform: translateX(-50%) !important;
-}
-
 .tag_field{
+  position: relative;
+  z-index: 3;
+  margin: 2px 0 0 30px;
+  width: 135px;
   font-family: 'Kosugi Maru', ;
   font-size: 16px;
   font-weight: bold;
@@ -716,6 +706,25 @@ h5 {
   &:hover{
     cursor: default;
   }
+  &:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px $Gainsboro inset;
+    color: $SteelGrey !important;
+  }
+}
+
+.tag_wrapper:after{
+    content: "";
+    width: 180px;
+    height: 47px;
+    background: $Gainsboro;
+    background-size: auto;
+    background-image: url("/images/tag_bg_180.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    margin: 0;
+    z-index: 1;
+    left: 15px;
 }
 
 #submit_form_tags{
@@ -822,17 +831,56 @@ h5 {
 
 .sort_window{
   margin: 50px 0 20px 0;
+  .card-body{
+    padding: 20px 15px;
+  }
 }
 
 .sort_area{
     box-shadow: none;
-    max-width: 350px;
+    width: 350px;
+    .btns{
+      margin-right: 0px;
+    }
+    button{
+      margin-left: 10px;
+    }
+}
+.tag{
 }
 .tags_area{
-  max-height: 220px;
+  max-height: 215px;
   overflow-x: hidden;
   overflow-y: scroll;
   margin-bottom: 15px;
+  .tag_index_row{
+  }
+  .tag_index{
+    width: 140px;
+    padding: 0!important;
+  }
+  .tags_label{
+    margin-left: -10px;
+    width: 140px;
+    font-size: 12px;
+    padding: 14px 0 14px 35px;
+  }
+  .tags_label:after{
+    background-image: url("/images/tag_inactive_140.png");
+    width: 140px;
+    left: -10px;
+  }
+  .tags_checkbox{
+    &:checked + .tags_label:after{
+      background-image: url("/images/tag_active_140.png");
+    }
+  }
+  .tag_index_row{
+    width: 286px;
+  }
+  .tag_index_row  div:nth-child(2){
+    margin-left: 0px;
+  }
 }
 
 .card_books{
@@ -851,6 +899,10 @@ h5 {
 }
 
 /* sort order */
+
+.sort_order{
+  padding: 10px 10px 0 10px;
+}
 
 .sort_order_by{
   display: none;
@@ -1272,13 +1324,13 @@ h5 {
   .underlined_form{
     text-decoration: none;
   }
-  .tags{
+  .tags_details{
     padding: 0;
     margin-left: 0px;
     width: 420px;
     overflow-x: hidden;
     overflow-y: hidden;
-    .tag_wrapper{
+    .tag_wrapper_details{
       padding: 0 !important;
     }
     .row{
@@ -1287,20 +1339,24 @@ h5 {
     .tag_field{
     padding-left: 33px;
     position: relative;
-    width: 130px;
-    height: 44px;
+    width: 160px;
+    height: 47px;
     font-size: 14px;
     color: white;
     background: $Bayoux ;
       &:after{
         content: "";
-        width: 130px;
-        height: 44px;
-        background-image: url("/images/tag_details.png");
+        width: 160px;
+        height: 47px;
+        background-image: url("/images/tag_active.png");
         position: absolute;
         top: 0;
         left: 0;
       }
+      p{
+        margin: 2px 0 0 5px;
+      }
+      
     }
   }
 }
@@ -1336,6 +1392,9 @@ h5 {
   }
 }
 
+.tags_row_details  div:nth-child(2){
+    margin-left: -25px;
+  }
 
 /*=========================
       Miscellaneous

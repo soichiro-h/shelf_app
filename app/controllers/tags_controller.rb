@@ -6,19 +6,47 @@ class TagsController < ApplicationController
     @tags = @user.tags
     flash[:notice] = @user.flash if @user.flash
     @user.update_attributes(flash: nil)
+    
   end
   
   def create
     @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
+    
+    
+    if !@tag.valid?
+      if @tag.tag_title.empty?
+        @error_msg = "1文字以上入力してください"
+      elsif @tag.tag_title.length >= 9
+        @error_msg = "8文字以内で入力してください"
+      else
+        @error_msg = "既にタグ登録されています"
+      end
+      
+      gon.error_msg = @error_msg
+      
+      @user = User.find(params[:user_id])
+      @tags = @user.tags
+      sign_in @user 
+      render :index
+      
+      
+    else  
       if @tag.save
         @user = User.find(params[:user_id])
         @user.update_attributes(flash: "追加しました")
         redirect_to tags_path
       end
+    end
+  
+  end
+  
+  def clear_tags_error
+    redirect_to tags_path
   end
   
   def destroy
     tag = Tag.find(params[:id])
+    tag.update(deleted_at: Time.now)
     tag.destroy
     redirect_to tags_path
   end
@@ -27,7 +55,7 @@ class TagsController < ApplicationController
     @user = User.find(params[:user_id])
     @tags = @user.tags
     @tags.each do |t|
-      t.update_attribute(:tag_title, params[:"#{t.id}"][:tag_title])
+      t.update(tag_title: params[:"#{t.id}"][:tag_title])
     end
     redirect_to tags_path
   end

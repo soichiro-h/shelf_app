@@ -1,12 +1,12 @@
 <div class="row justify-content-center">
   
   <div class="tag">
-    <div class="row">
+    <div class="row tag_index_row justify-content-between">
       
       <% @tags.each.with_index(1) do |t, i| %>
-        <div class="col-6">
+        <div class="col-6 tag_index">
           
-          <div class="tag_wrapper">
+          <div class="">
            
             <%= check_box_tag "[tags][#{t.id}]",0 ,false, class: "tags_checkbox" %>
             <%= label_tag :tags, "#{t.tag_title}", for: "_tags_#{t.id}",class:"tags_label" %>
@@ -16,7 +16,7 @@
       
         <% if i % 2 == 0 %>
           </div>
-          <div class="row">
+          <div class="row tag_index_row">
         <% end %>
         
       <% end %>

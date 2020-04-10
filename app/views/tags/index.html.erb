@@ -6,8 +6,9 @@
         <h4 class="default_title"><i class="fas fa-tags"></i> タグ</h4>
       </div>
       <button type="button" id="btn_plus_tag" class="btn-plus" data-toggle="modal" data-target="#create_tag">
-        <%= image_tag 'plus.png' %>
+        <%= image_tag 'plus_btn.png' %>
         </button>
+    
     </div>
   
   
@@ -18,17 +19,24 @@
               <h5 class="modal-title default_title" id="exampleModalLabel">タイトル</h5>
               
             </div>
+            
             <div class="modal-body popup_new_tag">
-              
+            
               <form role="form" action="/tag-new" method="post">
               <input type="hidden" name="user_id" value="<%= @user.id %>">
               <input type="text" class="new_tag_title modal_field" name="new_tag_title" placeholder="例:　実用書、ライトノベル、英語 etc..." size="40">
               
             </div>
+            
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
-              <button type="submit" class="btn btn_skyblue" >追加</button>
+               
+              <p class="error_tags"><%= @error_msg %></p>
+           
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearErrors()">戻る</button>
+              <button type="submit" class="btn btn_skyblue" onclick="tagError()" >追加</button>
+            
               </form>
+              
             </div>
           </div>
         </div>
@@ -52,7 +60,7 @@
                 <div class="col-6">
                   
                     <div class="tag_wrapper" data-toggle="" data-placement="top" title="" >
-                      <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16">
+                      <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16" onblur="saveTags()">
                       <i><%= link_to "", "/tag/#{t.id}", class: "fas fa-times btn_bayouxx delete_tag", method: :delete, data: { confirm: "タグを削除しますか？" }  %></i>
                     </div>
                   

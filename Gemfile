@@ -45,6 +45,7 @@ gem 'fog-aws'
 gem 'google-api-client', '0.9.20', require: 'google/apis/youtube_v3'
 gem 'trollop'
 gem 'rakuten_web_service'
+gem 'gon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

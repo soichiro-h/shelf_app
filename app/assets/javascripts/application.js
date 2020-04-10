@@ -71,10 +71,13 @@ function ajaxUpdate(url, element) {
     var ajax = new XMLHttpRequest;
     ajax.open('GET', url, true);
     ajax.onload = function () {
-       element.innerHTML = ajax.responseText;
+       //　element.innerHTML = ajax.responseText;
     };
     ajax.send(null);
 }
+
+
+
 
 /*=========================
           Menu
@@ -103,17 +106,29 @@ var btnClick = function(){
           Tags
 =========================*/
 
-var updateTags = function(){
-  document.tags.submit();
+var saveTags = function(){
+    $('.tag_form').submit();
 }
 
-$(document).on('click touchstart',function(e) {
-   if(!$(e.target).closest('.tag_wrapper').length) {
-     document.tags.submit();
-   } else {
-    
-   }
+
+$(window).bind("load", function(){
+    if(document.URL.match(/tag-new/) ) {
+    	
+    	$('#create_tag').modal({
+          show: true
+        })
+            	
+    }else{
+        
+    }
 });
+
+var clearErrors = function(){
+    if(document.URL.match(/tag-new/) ) {
+        window.location.href = '/clear_tags_error';
+    }
+}
+
 
 /*=========================
         Profile
@@ -269,7 +284,7 @@ var switchToThumb = function() {
 }
 
 var toggleOn = function(ele) {
-    //守護として使うときは、$(ele) と書く
+    //主語として使うときは、$(ele) と書く
     a = $(ele).parent().parent().find('input[name="sort_by"]');
     a.prop('checked', true);
 }

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/tags', to: 'tags#update'
   post '/tag-new', to: 'tags#create'
   delete '/tag/:id', to: 'tags#destroy'
+  get 'clear_tags_error', to: 'tags#clear_tags_error'
   
   get '/books', to: 'books#index'
   post '/book-new', to: 'books#new'

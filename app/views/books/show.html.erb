@@ -109,11 +109,11 @@
       </div> 
       
       <div class="row justify-content-center">
-        <div class="tags">
-          <div class="row">
+        <div class="tags_details">
+          <div class="row tags_row_details">
             
           <% @book.tags.each.with_index(1) do |t, i| %>
-            <div class="col-4 tag_wrapper">
+            <div class="col-6 tag_wrapper_details">
               
                <div class="">
                   
@@ -128,9 +128,9 @@
             </div>
             
             
-            <% if i % 3 == 0 %>
+            <% if i % 2 == 0 %>
               </div>
-              <div class="row">
+              <div class="row tags_row_details">
             <% end %>
             
           <% end %>
