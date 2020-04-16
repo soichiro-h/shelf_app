@@ -1,0 +1,12 @@
+<p>
+  
+<% if !resource.errors.details[:nickname].blank? %>
+  <% case resource.errors.details[:nickname].first[:error] %>
+    <% when :blank %>
+    <%= "ニックネームを入力して下さい" %>
+    <% when :too_long %>
+    <%= "12文字以内で入力して下さい" %>
+  <% end %>
+<% end %>
+
+</p>

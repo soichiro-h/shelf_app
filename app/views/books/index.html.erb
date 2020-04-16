@@ -1,8 +1,19 @@
+<% provide(:tags_checkbox, 'books/tags_checkbox' ) %>
+
 <div class="container">  
 <i class="fas fa-sort-numeric-down-alt"></i>
   <div class="row justify-content-center">
     
     <div class="container"> 
+    
+          <div class="row justify-content-center">
+            <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
+              <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
+                <%= image_tag 'plus_btn.png' %>
+              </button>
+              
+            </div>
+          </div>
     
         <div class="row justify-content-center row_search_field" >
           <div class="search_filed_wrapper">
@@ -12,14 +23,10 @@
             <%= submit_tag '', :name => nil, class: "search_btn btn_icon_steelgray" %>
             </div>
           <% end %>
-        
-          <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
-            <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
-              <%= image_tag 'plus_btn.png' %>
-            </button>
-            
+          
           </div>
-        </div>
+          
+        
     
         <div class="modal fade" id="create_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">

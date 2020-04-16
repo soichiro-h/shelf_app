@@ -11,30 +11,36 @@
   </div>  
     
   <div class="row justify-content-center">  
-    <div class="field">
+    <div class="field <%= "has_error" if !resource.errors.details[:nickname].blank? %>">
       <%= f.label :ニックネーム, class: "standard_form_label" %><br />
-      <%= f.text_field :nickname, class: "standard_form", placeholder: "例:　シェルフくん" %>
+      <%= f.text_field :nickname, class: "standard_form", placeholder: "例:　シェルフくん", autocomplete: "off" %>
+      <%= render 'devise/errors/error_msg_nickname' if !resource.errors.details[:nickname].blank? %>
     </div>
+    
   </div>
   
   <div class="row justify-content-center">
-    <div class="field">
+    <div class="field <%= "has_error" if !resource.errors.details[:email].blank? %>">
       <%= f.label :メールアドレス, class: "standard_form_label" %><br />
       <%= f.email_field :email, class: "standard_form", autocomplete: "email", placeholder: "例:　mail@shelf.com" %>
+      <%= render 'devise/errors/error_msg_email' if !resource.errors.details[:email].blank? %>
     </div>
+    
   </div>
   
   <div class="row justify-content-center">
-    <div class="field">
-      <%= f.label :パスワード, class: "standard_form_label" %><br />
-      <%= f.password_field :password, class: "standard_form", autocomplete: "new-password", placeholder: "例:　6文字以上の半角英数字" %>
-    </div>
+      <div class="field <%= "has_error" if !resource.errors.details[:password].blank? %>">
+        <%= f.label :パスワード, class: "standard_form_label" %> <br />
+        <%= f.password_field :password, class: "standard_form", autocomplete: "off", placeholder: "例:　6文字以上の半角英数字" %>
+        <%= render 'devise/errors/error_msg_password' if !resource.errors.details[:password].blank? %>
+      </div>
   </div>
   
   <div class="row justify-content-center">
-    <div class="field">
+    <div class="field <%= "has_error" if !resource.errors.details[:password_confirmation].blank? %>">
       <%= f.label :パスワード（確認用）, class: "standard_form_label" %><br />
-      <%= f.password_field :password_confirmation, class: "standard_form", autocomplete: "new-password", placeholder: "" %>
+      <%= f.password_field :password_confirmation, class: "standard_form", autocomplete: "off", placeholder: "" %>
+      <%= render 'devise/errors/error_msg_password_confirmation' if !resource.errors.details[:password_confirmation].blank? %>
     </div>
   </div>
   

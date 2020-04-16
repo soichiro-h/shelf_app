@@ -86,6 +86,10 @@ h5 {
   position: relative;
 }
 
+#error_explanation{
+  display: none;
+}
+
 /*=========================
           Button
 =========================*/
@@ -166,6 +170,7 @@ h5 {
 }
 
 .btn-plus{
+  margin: 0 0 15px 0;
   width: 40px;
   height: 40px;
   border: none;
@@ -211,6 +216,7 @@ h5 {
   position: absolute;
   top: 15px;
   left: 10px;
+  z-index: 3;
 }
 
 .underlined_form{
@@ -281,6 +287,48 @@ h5 {
     color: $SteelGrey !important;
   }
 }
+
+/* Error */
+
+.has_error{
+  .standard_form{
+  padding: 5px 10px;
+  border: solid 2px $Alert !important;
+  margin: -1px 0;
+  border-radius: 5px;
+  outline: none;
+  background: white !important;
+  width: 380px;
+  resize: none;
+  white-space: pre-wrap;
+    &:hover{
+      border: solid 1px $Alert;
+    }
+    &:focus{
+      border: solid 2px $Alert !important;
+      
+    }
+    &:-webkit-autofill{
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      color: $SteelGrey !important;
+    }
+  }
+  .standard_form_label{
+    font-size: 12px;
+    padding: 0 5px;
+    color: $Alert !important;
+    background: white;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+  p{
+    margin: 15px 0 -7px 10px !important;
+    font-size: 14px;
+    color: $Alert;
+  }
+}
+
 
 
 
@@ -397,6 +445,50 @@ h5 {
 /*=========================
            Home
 =========================*/
+
+.book_shelf{
+  width: auto;
+  height: 600px;
+  background-image: url("/images/book_shelf.jpg");
+  background-size: cover;
+}
+
+.introduce_shelf{
+  width: auto;
+  height: 600px;
+  background: white;
+}
+
+.add_books{
+  width: auto;
+  height: 600px;
+  background: $SkyBlue;
+}
+
+.tsundoku{
+  width: auto;
+  height: 600px;
+  background: white;
+}
+
+.pile_of_books{
+  width: auto;
+  height: 600px;
+  background-image: url("/images/pile_of_books.jpg");
+  background-size: cover;
+}
+
+.note_down_ideas{
+  width: auto;
+  height: 600px;
+  background: white;
+}
+
+.what_can_do_with_shelf{
+  width: auto;
+  height: 600px;
+  background: $SkyBlue;
+}
 
 
 /*=========================
@@ -764,14 +856,16 @@ h5 {
   position: relative; 
   margin-left: -10px;
   margin-right: 10px;
+  width: 350px;
 }
 .search_field{
   border: 1px solid $Gainsboro;
   border-radius: 7px;
+  margin-left: 10px;
   padding-left: 10px;
   color: $SteelGrey;
   font-size: 14px;
-  width: 270px;
+  width: 350px;
   height: 32px;
   &:focus{
     outline :none;

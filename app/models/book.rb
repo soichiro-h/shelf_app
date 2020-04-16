@@ -7,6 +7,9 @@ class Book < ApplicationRecord
    
    mount_uploader :image, BookImageUploader
    
+   validates :title, presence: true 
+   validates :price, numericality: :only_integer
+   
    def self.search(search)
       return Book.all unless search
       Book.where("title LIKE ? OR memo LIKE ?","%#{search}%", "%#{search}%") 

@@ -4,13 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :sign_in_required, only: [:show, :index]
   before_action :configure_sign_up_params, :configure_account_update_params, if: :devise_controller?
-  #after_action :add_default_tags, only: [:create] 
+  #before_action :debug, only: [:create] 
   
   
     def after_sign_in_path_for(resource)
         profile_path
     end
     
+    def debug
+      debugger
+    end
     
 
     private

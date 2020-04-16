@@ -1,0 +1,16 @@
+<p>
+
+<% if !resource.errors.details[:email].blank? %>
+  <% case resource.errors.details[:email].first[:error] %>
+    <% when  :blank %>
+    <%= "メールアドレスを入力して下さい" %>
+    <% when  :invalid %>
+    <%= "正しいメールアドレスを入力して下さい" %>
+    <% when  :taken %>
+    <%= "このメールアドレスは既に使用されています" %>
+  <% end %>
+<% end %>
+
+</p>
+
+

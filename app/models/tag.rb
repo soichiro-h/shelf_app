@@ -3,6 +3,6 @@ class Tag < ApplicationRecord
   has_many :relations, class_name: "TagRelation", foreign_key: "tag_id", dependent: :destroy
   has_many :books, through: :relations
   
-  validates :tag_title, presence: true, uniqueness: { scope: :deleted_at }, length: { maximum: 8 }
+  validates :tag_title, presence: true, uniqueness: { scope: [:deleted_at, :user_id]  }, length: { maximum: 8 }
 
 end

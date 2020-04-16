@@ -25,16 +25,21 @@
     </div>
     
     <div class="row justify-content-center">
-      <div class="field">
+      
+
+      <div class="field <%= "has_error" if !resource.errors.details[:nickname].blank? %>">
         <%= f.label :ニックネーム, class: "standard_form_label" %><br />
         <%= f.text_field :nickname, class: "standard_form", autocomplete: "off" %>
+        <%= render 'devise/errors/error_msg_nickname' if !resource.errors.details[:nickname].blank? %>
       </div>
+      
     </div>
     
     <div class="row justify-content-center">
-      <div class="field">
+      <div class="field <%= "has_error" if !resource.errors.details[:email].blank? %>">
         <%= f.label :メールアドレス, class: "standard_form_label" %><br />
         <%= f.email_field :email, class: "standard_form", autocomplete: "email" %>
+        <%= render 'devise/errors/error_msg_email' if !resource.errors.details[:email].blank? %>
       </div>
     </div>
     
@@ -43,24 +48,27 @@
       <% end %>
     
     <div class="row justify-content-center">
-      <div class="field">
+      <div class="field <%= "has_error" if !resource.errors.details[:password].blank? %>">
         <%= f.label :パスワード, class: "standard_form_label" %> <br />
         <%= f.password_field :password, class: "standard_form", autocomplete: "new-password" %>
+        <%= render 'devise/errors/error_msg_password' if !resource.errors.details[:password].blank? %>
         
       </div>
     </div>
     
     <div class="row justify-content-center">
-      <div class="field">
+      <div class="field <%= "has_error" if !resource.errors.details[:password_confirmation].blank? %>">
         <%= f.label :パスワード（確認用）, class: "standard_form_label" %><br />
         <%= f.password_field :password_confirmation, class: "standard_form", autocomplete: "new-password" %>
+        <%= render 'devise/errors/error_msg_password_confirmation' if !resource.errors.details[:password_confirmation].blank? %>
       </div>
     </div>
     
     <div class="row justify-content-center">
-      <div class="field">
+      <div class="field <%= "has_error" if !resource.errors.details[:current_password].blank? %>">
         <%= f.label :現在のパスワード, class: "standard_form_label" %> <br />
         <%= f.password_field :current_password, class: "standard_form", autocomplete: "current-password" %>
+        <%= render 'devise/errors/error_msg_current_password' if !resource.errors.details[:current_password].blank? %>
       </div>
     </div>
     
@@ -68,7 +76,7 @@
     <div class="row justify-content-center">
       
       <div class="row wrapper_bottom_btns justify-content-end">
-        <%= link_to "戻る", :back, class: "btn btn_bayoux" %>
+        <%= link_to "戻る", profile_path, class: "btn btn_bayoux" %>
       
         <div class="actions">
           <button type="button" class="btn btn_skyblue" onclick="submit()" >保存</button>

@@ -9,10 +9,7 @@ class TagsController < ApplicationController
     
   end
   
-  def create
-    @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
-    
-    
+  def tag_has_errors?
     if !@tag.valid?
       if @tag.tag_title.empty?
         @error_msg = "1文字以上入力してください"
@@ -29,7 +26,6 @@ class TagsController < ApplicationController
       sign_in @user 
       render :index
       
-      
     else  
       if @tag.save
         @user = User.find(params[:user_id])
@@ -37,7 +33,13 @@ class TagsController < ApplicationController
         redirect_to tags_path
       end
     end
+  end
   
+  def create
+    @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
+    
+    tag_has_errors?
+    
   end
   
   def clear_tags_error

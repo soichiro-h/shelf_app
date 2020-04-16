@@ -7,9 +7,9 @@
         <div class="col-6 tag_index">
           
           <div class="">
-           
-            <%= check_box_tag "[tags][#{t.id}]",0 ,false, class: "tags_checkbox" %>
-            <%= label_tag :tags, "#{t.tag_title}", for: "_tags_#{t.id}",class:"tags_label" %>
+            
+            <%= render partial: yield(:tags_checkbox), locals: { t: t } %>
+            <%= label_tag :tags, "#{t.tag_title}", for: "[tags][#{t.id}]",class:"tags_label" %>
           
           </div>
         </div>

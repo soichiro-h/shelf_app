@@ -28,8 +28,12 @@ class BooksController < ApplicationController
     @user = User.find(params[:user_id])
     @tags = @user.tags
     
-    @books = Book.search(params[:search])
+    users_book = Book.where(user_id: @user.id)
+    @books = users_book.search(params[:search])
+
     render :index
+    
+    
     
   end
   
@@ -225,6 +229,36 @@ class BooksController < ApplicationController
     
   end
   
+  def add_tags
+    if !params[:tags].nil?
+        tag_relations = params[:tags].keys
+        
+        tag_relations.each{ |rel|
+          @book.related_tags.create(tag_id: rel)
+        }
+    end
+  end
+  
+  def add_videos
+    if !params[:videos].nil?
+      #配列にvideos 格納
+      videos = []
+      #videos_id を抽出
+      params[:videos].each { |key, value|
+          videos.push(extract_video_id(value)) if !value.empty?
+      }
+      
+      #ceate video
+      videos.each { |v| 
+        #new_video = Video.create(video_id: v, book_id: @book.id)
+        Video.create(video_id: v, book_id: @book.id)
+        #@book.related_videos.create(video_id: new_video.id)
+      }
+      #debugger
+      #create video_relation
+      
+    end
+  end
   
   def extract_video_id(url)
     vid = url[/\?v=([^&]+)/]
@@ -232,6 +266,7 @@ class BooksController < ApplicationController
     vid.slice!(0..2)
     return vid
   end
+  
   
   def create
     
@@ -241,33 +276,14 @@ class BooksController < ApplicationController
       if @book.save
         
         #タグの関連付け
-        if !params[:tags].nil?
-        tag_relations = params[:tags].keys
         
-        tag_relations.each{ |rel|
-          @book.related_tags.create(tag_id: rel)
-        }
-        end
         
         #videosのcreate と関連付け
-        if !params[:videos].nil?
-        #配列にvideos 格納
-        videos = []
-        #videos_id を抽出
-        params[:videos].each { |key, value|
-            videos.push(extract_video_id(value)) if !value.empty?
-        }
+        add_tags
         
-        #ceate video
-        videos.each { |v| 
-          #new_video = Video.create(video_id: v, book_id: @book.id)
-          Video.create(video_id: v, book_id: @book.id)
-          #@book.related_videos.create(video_id: new_video.id)
-        }
-        #debugger
-        #create video_relation
-        
-        end
+        #add_videos
+        add_videos
+       
         
         #if !empty?
         
@@ -305,24 +321,75 @@ class BooksController < ApplicationController
     @user = current_user
     @book = Book.find(params[:id])
     #@tags = @user.tags
+    
+    flash.now[:notice] = @user.flash if @user.flash
+    @user.update_attributes(flash: nil)
+    
     #debugger
   end
   
   def edit
     @user = current_user
     @book = Book.find(params[:id])
+    @youtube = @book.videos
     @tags = @user.tags
+    
+    @related_tags_id = @book.tags.ids
+    
+    #debugger
+    
   end
   
   def update
-    @book = Book.find(params[:id])
-      if @book.update_attributes(book_params)
-        @user = User.find(params[:user_id])
-        @user.update_attributes(flash: "変更しました")
     
-      else
-        render 'edit'
-      end
+    @user = User.find(params[:user_id])
+    @book = Book.find(params[:id])
+    @tags = @user.tags
+    #debugger
+  
+    if @book.update_attributes!(book_params)
+      # uploader にファイルがある時だけ、imageをupdate
+      @book.update_attributes( image: params[:book][:image] ) if params[:book][:image].class == ActionDispatch::Http::UploadedFile
+        #@book.update_attributes!(book_params)
+        #rescue ActiveRecord::RecordInvalid => e
+        #puts e.record.errors
+        #debugger
+      @user = User.find(params[:user_id])
+      @user.update_attributes(flash: "変更しました")
+      
+    else
+      @user = User.find(params[:user_id])
+      @book = Book.find(params[:id])
+      @tags = @user.tags
+      #debugger
+      render 'edit'
+    end
+    
+    
+    #update tags
+    
+    tag_relations = TagRelation.where(book_id: @book.id)
+    
+    tag_relations.each { |v|
+      v.destroy
+    }
+    
+    add_tags
+    
+    #update videos
+    
+    videos = @book.videos
+    
+    videos.each { |v|
+      v.destroy
+    }
+    
+    add_videos
+    
+   
+    redirect_to "/details/#{params[:id]}"
+    
+    
   end
   
   def destroy
@@ -336,7 +403,7 @@ class BooksController < ApplicationController
   private
     
     def book_params
-      params.require(:book).permit(:title, :proper_title, :price, :author, :image, 
+      params.require(:book).permit(:title, :proper_title, :price, :author, #:image,
                 :memo, :summary, :params, :favorite, :own, :purchase_url)
     end
   

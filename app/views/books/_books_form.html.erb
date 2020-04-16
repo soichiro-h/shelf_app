@@ -2,14 +2,14 @@
   <%= form_for(@book) do |f| %>
   
     <input type="hidden" name="user_id" value="<%= @user.id %>">
-    <%= f.hidden_field :purchase_url, :value => params[:book][:purchase_url] %>
+    <%= f.hidden_field :purchase_url, :value => yield(:purchase_url) %>
    
   <div class="row">
     <div class="col-3">  
       <!--image-->
-      <% if !params[:book][:image].nil? %>
-        <%= image_tag params[:book][:image], class:"book_image" %> 
-        <%= f.hidden_field :image, :value => params[:book][:image] %>
+      <% if !yield(:image).nil? %>
+        <%= image_tag yield(:image), class:"book_image" %> 
+        <%= f.hidden_field :image, :value => yield(:image) %>
       <% else %>
         <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
       <% end %>
@@ -21,7 +21,7 @@
           <!--title-->
           <div class="field">
             <%= f.label :title, class:"form_notitle" %>
-            <%= f.text_field :title, value:"#{params[:book][:title]}", class:"underlined_form" %>
+            <%= f.text_field :title, value: yield(:title), class:"underlined_form" %>
           </div>
         </div>
         
@@ -29,7 +29,7 @@
           <!--price-->
           <div class="field">
             <%= f.label :￥, class:"price_label" %>
-            <%= f.text_field :price, value:"#{params[:book][:price]}", class:"price_field underlined_form" %>
+            <%= f.text_field :price, value: yield(:price), class:"price_field underlined_form" %>
           </div>
         </div>
       </div>
@@ -37,13 +37,13 @@
       <div class="row justify-content-start">
         <!--proper_title-->
         <%= f.label :proper_title, class:"form_notitle" %>
-        <%= f.text_field :proper_title, value:"#{params[:book][:proper_title]}", placeholder:"公式タイトル、サブタイトル等", class:"underlined_form" %>
+        <%= f.text_field :proper_title, value:"#{yield(:proper_title)}", placeholder:"公式タイトル、サブタイトル等", class:"underlined_form" %>
       </div>
       
       <div class="row justify-content-start">
         <!--author-->
         <%= f.label :author, class:"form_notitle" %>
-        <%= f.text_field :author, value:"#{params[:book][:author]}", placeholder:"著者", class:"underlined_form" %>
+        <%= f.text_field :author, value:"#{yield(:author)}", placeholder:"著者", class:"underlined_form" %>
       </div>
     </div>
   </div>
@@ -87,11 +87,9 @@
         
         <% @youtube.each.with_index(1) do |yt, i| %>
           
-          <div id="vf_<%= i %>" class="col-12 video_url_field">
-            <input type="text" class="video_url" name="[videos][<%= i %>]" value="https://www.youtube.com/watch?v=<%= yt.id.video_id %>">
-            <button type="button" id="<%= i %>" class="delete_video" onclick="deleteVideo_url(this);" >
-            <i class="fas fa-times"></i></button>
-          </div> 
+          <%= render partial: yield(:youtube_links), locals: { i: i, yt: yt } %>
+          
+          
         <% end %>
  
       <% end %>
