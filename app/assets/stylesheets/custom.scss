@@ -28,6 +28,10 @@ body{
   height: 100%;
 }
 
+.bg_white{
+  background-color: white;
+}
+
 a{
   color: $SteelGrey;
   &:hover{
@@ -35,6 +39,16 @@ a{
     text-decoration: none!important;
   }
 }
+
+/* HOME */
+h3{
+  font-family: 'Kosugi Maru', ;
+  font-size: 36px;
+  text-align: center;
+  margin: 60px 0;
+}
+
+
 
 /*タグ*/
 h5 {
@@ -46,7 +60,10 @@ h5 {
   }
 
 #page_container{
+}
 
+.logo{
+  font-family: 'Patua One',sans-serif ;
 }
 
 .default_title{
@@ -74,6 +91,7 @@ h5 {
   box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
   border-style: none;
   max-width: 450px ;
+  margin-bottom: 50px;
 }
 
 .line{
@@ -89,6 +107,7 @@ h5 {
 #error_explanation{
   display: none;
 }
+
 
 /*=========================
           Button
@@ -138,6 +157,21 @@ h5 {
 .btn_steelgray{
   color: white ;
   background-color: $SteelGrey;
+}
+
+.btn_white{
+  color:  $SkyBlue;
+  background-color: white;
+  &:hover{
+    color:  $SkyBlue;
+    background-color: white;
+    opacity: 1;
+    transform: scale(1.2,1.2);
+  }
+}
+
+.bottom_btn{
+  margin-left: 10px;
 }
 
 /* profile */
@@ -351,8 +385,17 @@ h5 {
   }
 
 .navbar{
-  background: $Lavender !important; 
+  background: $Lavender !important;
 }
+
+.fixed-top{
+  border-bottom: 1px solid $Gainsboro;
+}
+
+.navbar_shadow{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .nav-white{
   background: white !important;
 }
@@ -374,16 +417,17 @@ h5 {
        Menu Drawer
 =========================*/
 
+
 .layer{
   content: "";
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, .4);
-  z-index: 5;
+  z-index: 1050;
   opacity: 0;
   visibility: hidden;
   transition: opacity .4s;
@@ -418,7 +462,7 @@ h5 {
   top: 0;
   right: 0;
   background: $SteelGrey;
-  z-index: 10;
+  z-index: 1050;
   visibility: visible;
   transform: translate(230px);
   transition: all .4s;
@@ -446,48 +490,95 @@ h5 {
            Home
 =========================*/
 
-.book_shelf{
+.btn_signup_free{
+  width: 220px;
+  height: 50px;
+  font-size: 18px;
+  padding-top: 11px;
+}
+
+.gray_on_white{
+  color: $SteelGrey;
+  background: white;
+}
+
+.white_on_blue{
+  color: white;
+  background: $SkyBlue;
+}
+
+.list{
+  font-size: 24px;
+  line-height: 42px;
+}
+
+.row_arrow{
+  position: absolute;
+  width: calc( 100% + 30px );
+  bottom: 0;
+}
+
+.white_space{
+  background: white;
+  width: calc( (100% - 100px) / 2 );
+  height: 45px;
+}
+
+#book_shelf{
+  margin-top: 62px;
+  position: relative;
   width: auto;
-  height: 600px;
+  height: 580px;
   background-image: url("/images/book_shelf.jpg");
   background-size: cover;
 }
 
-.introduce_shelf{
+#introduce_shelf{
   width: auto;
-  height: 600px;
-  background: white;
+  height: 1000px;
+  img{
+    margin-top: 40px;
+  }
 }
 
-.add_books{
+#put_books_in{
   width: auto;
-  height: 600px;
-  background: $SkyBlue;
+  height: 945px;
+  img{
+    margin-left: 25px;
+  }
 }
 
-.tsundoku{
+#tsundoku{
   width: auto;
-  height: 600px;
-  background: white;
+  height: 700px;
+  .youtube_image{
+    margin-top: 70px;
+  }
 }
 
-.pile_of_books{
+#pile_of_books{
+  position: relative;
   width: auto;
   height: 600px;
   background-image: url("/images/pile_of_books.jpg");
   background-size: cover;
 }
 
-.note_down_ideas{
+#note_down_ideas{
   width: auto;
-  height: 600px;
-  background: white;
+  height: 650px;
+  img{
+    margin-top: 30px;
+  }
 }
 
-.what_can_do_with_shelf{
+#what_can_do_with_shelf{
   width: auto;
-  height: 600px;
-  background: $SkyBlue;
+  height: 700px;
+  img{
+    margin: 20px 0 40px -70px;
+  }
 }
 
 
@@ -536,6 +627,10 @@ h5 {
 /*=========================
        Profile
 =========================*/
+
+#profile_page{
+  margin-top: 0px;  
+}
 
 .prf-img{
   border-radius:100px ;
@@ -627,7 +722,7 @@ h5 {
 }
 
 .wrapper_banner{
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .banner_to_shelf{
@@ -693,6 +788,10 @@ h5 {
 /*=========================
           Tags
 =========================*/
+
+#tag_page{
+  margin-top: 93px;
+}
 
 .card_tag{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
@@ -824,8 +923,12 @@ h5 {
 }
 
 /*=========================
-          Books
+       Books (index)
 =========================*/
+
+#books_page{
+  margin-top: 62px;
+}
 
 #guess_area{
   margin: 20px 0;
@@ -977,20 +1080,6 @@ h5 {
   }
 }
 
-.card_books{
-  position: relative;
-  background: white;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-  border-style: none;
-  width: 350px; 
-  height: 110px;
-  margin-top: 7px;
-  padding: 5px;
-}
-.for_gallery{
-  width: 84px !important;
-  padding: 5px 0!important;
-}
 
 /* sort order */
 
@@ -1133,14 +1222,37 @@ h5 {
   
 }
 
+
+
+/* books area */
+
+#books_area{
+  margin-bottom: 50px;
+}
+
 /* books card */
+
+.card_books{
+  position: relative;
+  background: white;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+  border-style: none;
+  width: 350px; 
+  height: 110px;
+  margin-top: 7px;
+  padding: 5px;
+}
+.for_gallery{
+  width: 84px !important;
+  padding: 5px 0!important;
+}
 
 .books_card_wrapper_center{
   padding: 0 0 0 12px !important;
 }
 
 .title_card_books{
-  font-family: 'Roboto','Kosugi Maru',sans-serif,  ;
+  font-family: 'Open Sans','Kosugi Maru',sans-serif,  ;
   font-size: 14px;
   color: $SteelGrey;
   margin-top: 8px;
@@ -1201,10 +1313,11 @@ h5 {
 }
 
 /*=========================
-        Book new
+        Books new
 =========================*/
 
 #book_new_page{
+  margin-top: 93px;
   .row{
     margin-top: 10px;
   }
@@ -1217,6 +1330,10 @@ h5 {
     .tag_field{
     font-size: 14px;
     }
+  }
+  .btn_wrapper{
+    margin: 0px 20px 25px 0;
+    padding-top: 15px;
   }
 }
 
@@ -1403,12 +1520,12 @@ h5 {
 }
 
 
-
 /*=========================
-         Details
+    Details (Books show)
 =========================*/
 
 #details_page{
+  margin-top: 93px;
   .row{
     margin-top: 10px;
   }
@@ -1453,10 +1570,17 @@ h5 {
       
     }
   }
+  .btn_wrapper{
+    width: 450px;
+    margin: -15px 0 50px 0;
+    button{
+      width: 140px;;
+    }
+  }
 }
 
 .book_title{
-  font-family: 'Kosugi Maru', ;
+  font-family: 'Open Sans', 'Kosugi Maru', sans-serif; ;
   font-weight: bold;
   padding: 0;
   p{
@@ -1489,6 +1613,30 @@ h5 {
 .tags_row_details  div:nth-child(2){
     margin-left: -25px;
   }
+
+.icons_row{
+  padding-top: 25px;
+}
+
+.icons{
+  margin: 0 30px 30px 35px;
+  i{
+    margin-right: 3px;
+  }
+}
+
+.dates{
+  color: $SteelGrey;
+  font-size: 12px;
+  p{
+    margin: 0;
+  }
+}
+
+/*=========================
+        Books edit
+=========================*/
+
 
 /*=========================
       Miscellaneous

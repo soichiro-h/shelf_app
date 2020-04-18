@@ -80,7 +80,7 @@ function ajaxUpdate(url, element) {
 
 
 /*=========================
-          Menu
+       Menu drawer
 =========================*/
 
 
@@ -88,12 +88,18 @@ var openMenu = function(){
   $('.menu_side_area').css('transform', 'translate(0)');
   $('.layer').css('opacity', '1');
   $('.layer').css('visibility', 'visible');
+  
+  no_scroll();
+  
 }
 
 var closeMenu = function(){
   $('.menu_side_area').css('transform', 'translate(300px)')
   $('.layer').css('opacity', '0');
   $('.layer').css('visibility', 'hidden');
+  
+  return_scroll() ;
+  
 }
 
 var btnClick = function(){
@@ -101,6 +107,22 @@ var btnClick = function(){
   $('body').css('background', '#f00');
 }
 
+function no_scroll() {
+    // PCでのスクロール禁止
+    document.addEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止
+    document.addEventListener("touchmove", scroll_control, { passive: false });
+}
+
+function return_scroll() {
+    // PCでのスクロール禁止解除
+    document.removeEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止解除
+    document.removeEventListener('touchmove', scroll_control, { passive: false });
+}
+function scroll_control(event) {
+    event.preventDefault();
+}
 
 /*=========================
           Tags
@@ -288,3 +310,11 @@ var toggleOn = function(ele) {
     a = $(ele).parent().parent().find('input[name="sort_by"]');
     a.prop('checked', true);
 }
+
+//card_books memo 
+
+//book_title が２行の時だけ
+// title height 取得
+// >= xx
+// memo css max-height: xxx; を追加
+//book_memo を max-height 3行分に！

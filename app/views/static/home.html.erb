@@ -1,30 +1,153 @@
 <% provide(:page, "Home") %>
+<% provide(:navbar, "fixed-top") %>
 
-<div class="">
 
-  <div class="book_shelf">
+<div id="home_page">
+
+  <div id="book_shelf">
+    <div class="row justify-content-center row_arrow">
+      <div class="white_space"></div>
+      <%= image_tag 'arrow_shape.png', class:"arrow_shape" %>
+      <div class="white_space"></div>
+    </div>
   </div>
   
-  <section class="introduce_shelf">
+  
+<!-- 自分だけの本棚-->
+
+  <section id="introduce_shelf" class="gray_on_white">
+    
+    <div class="row justify-content-center">
+      <h3>自分だけの本棚</br>“シェルフ”</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <ul class="list">
+          <li>本棚は知的好奇心の一覧</li>
+          <li>情報整理のインデックスとして</li>
+          <li>欲しい本リストとしても使える！</li>
+        </ul>
+    </div>
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'card_books_image.png' %>
+    </div>
+    
+  </section>
+
+
+<!-- 気になる本をどんどん追加-->
+  <section id="put_books_in" class="white_on_blue">
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'arrow_white.png' %>
+    </div>
+    
+    <div class="row justify-content-center">
+      <h3>気になる本を、どんどん</br>追加！</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <ul class="list">
+          <li>気になった本は、すぐにシェルフに追加！</li>
+          <li>タイトル検索機能で、簡単に追加できる！</li>
+          <li>気になる本、うやむやにしない！</li>
+        </ul>
+    </div>
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'pc_mobile_image.png' %>
+    </div>
+    
+    <div class="row justify-content-center">
+       <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
+    </div>
+   
+  </section>
+  
+
+<!-- ツンドク-->  
+  <section id="tsundoku" class="gray_on_white">
+    
+    <div class="row justify-content-center">
+      <h3>オンラインで気軽にできる</br>“積読（ツンドク）”</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <ul class="list">
+          <li>NOコストで気楽に試せる “ツンドク”！</li>
+          <li>本を追加すると、自動で関連動画を検索</li>
+          <li>欲しくなったら、すぐに購入もできる！</li>
+        </ul>
+    </div>
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'youtube_image.png', class:"youtube_image" %>
+    </div>
     
   </section>
   
-  <section class="add_books">
+  <div id="pile_of_books">
+    <div class="row justify-content-center">
+      <%= image_tag 'arrow_white.png' %>
+    </div>
     
-  </section>
-  
-  <section class="tsundoku">
+    <div class="row justify-content-center row_arrow">
+      <div class="white_space"></div>
+      <%= image_tag 'arrow_shape.png', class:"arrow_shape" %>
+      <div class="white_space"></div>
+    </div>
     
-  </section>
-  
-  <div class="pile_of_books">
   </div>
   
-  <section class="note_down_ideas">
+  
+<!-- アイデアはメモに-->    
+  <section id="note_down_ideas" class="gray_on_white">
+    
+    <div class="row justify-content-center">
+      <h3>読んだ内容やアイデアは</br>テキストメモに整理！</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <ul class="list">
+          <li>本の内容など、自分の言葉でメモできる！</li>
+          <li>思いついたアイデアも逃さず記録！</li>
+          <li>概要と自分のメモは別々に保存できる！</li>
+        </ul>
+    </div>
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'ideas_image.png' %>
+    </div>
+    
     
   </section>
-  
-  <section class="what_can_do_with_shelf">
+
+
+<!-- Shelfでできること-->   
+  <section id="what_can_do_with_shelf" class="white_on_blue">
+    
+    <div class="row justify-content-center">
+      <h3><span class="logo">Shelf</span> が解決できること</h3>
+    </div>
+    
+    <div class="row justify-content-center">
+        <ul class="list">
+          <li>欲しい本リストを簡単に作成</li>
+          <li>本をインデックスとして情報整理</li>
+          <li>コストを掛けずにツンドク</li>
+          <li>気になる本を逃さない</li>
+          <li>アイデアをうやむやにしない</li>
+        </ul>
+    </div>
+    
+    <div class="row justify-content-center">
+      <%= image_tag 'shelf_image.png' %>
+    </div>
+    
+    <div class="row justify-content-center">
+       <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
+    </div>
     
   </section>
 

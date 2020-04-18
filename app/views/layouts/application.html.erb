@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
-  
-
+ 
   <head>
     <title>Shelf</title>
     <%= csrf_meta_tags %>
     
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap" rel="stylesheet">
     
+    <%= render 'layouts/webfont' %>
     <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
   
-
-  <% unless user_signed_in? %>
-    <body style="background: white;" >
-  <% else %>
-    <body>
-  <% end %>
+  <body class="<%= 'bg_white' unless user_signed_in? %>">
   
-  <div id="page_container">
+  <div id="">
   
   <div class="layer" onclick="closeMenu()">
   </div>
@@ -57,12 +49,9 @@
     </div>
   <% end %>
   
-  <% unless user_signed_in? %>
-    <nav class="navbar navbar-light nav-white">
-  <% else %>
-    <nav class="navbar navbar-light">
-  <% end %>
-  
+ 
+    <nav class="navbar navbar-light <%= 'nav-white' unless user_signed_in? %> <%= yield(:navbar) %>">
+
         <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i>
         <%= link_to"Shelf", 
         if user_signed_in?
@@ -82,10 +71,7 @@
               <i class="fas fa-ellipsis-h fa-2x"></i>
             </div>
 
-            
-            
-   
-          
+       
           <% elsif current_page?(root_path) %>
           
             <li class="nav-item">

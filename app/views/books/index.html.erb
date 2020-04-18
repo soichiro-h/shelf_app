@@ -1,6 +1,7 @@
 <% provide(:tags_checkbox, 'books/tags_checkbox' ) %>
+<% provide(:navbar, "fixed-top") %>
 
-<div class="container">  
+<div id="books_page" class="container">  
 <i class="fas fa-sort-numeric-down-alt"></i>
   <div class="row justify-content-center">
     
@@ -156,10 +157,8 @@
 </div>
     
   
-    
   
-  
-  <div class="container">
+  <div id="books_area" class="container">
     
     <div class="for_gallery_row">
     <% @books.each.with_index(1) do |b, i| %>

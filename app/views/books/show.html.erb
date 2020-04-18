@@ -1,4 +1,8 @@
-<div id="details_page" class="container card">
+<% provide(:navbar, "fixed-top") %>
+
+<div id="details_page" class="row justify-content-center">
+  
+<div class="container card">
 
   <input type="hidden" name="user_id" value="<%= @user.id %>">
   <input type="hidden" name="user_id" value="<%= @book.id %>">
@@ -142,42 +146,47 @@
   
   <% end %>
   
-  <div class="row justify-content-start">
+  <div class="row justify-content-start icons_row">
     
-    <!--cart-->
+    <div class="icons">
+      <!--cart-->
+      
+        <i> 
+          <%= link_to "", "#{@book.purchase_url}" , class: "fas fa-shopping-cart fa-2x btn_icon_steelgray" %>
+        </i>
+      
+      <!--trash-->
+        <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-2x btn_icon_steelgray", 
+              method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>
+      <!--edit-->
+        <i><%= link_to "", "/books/#{@book.id}/edit",class: "fas fa-edit fa-2x btn_icon_steelgray" %></i>
+      <!--own-->
+      <% if @book.own %>
+        <i class="fas fa-fist-raised fa-2x icon_own_active"></i>
+      <% else %>
+        <i class="fas fa-fist-raised fa-2x icon_inactive"></i>
+      <% end %>
+      
+      <!--fav-->
+      <% if @book.favorite %>
+        <i class="fas fa-heart fa-2x icon_fav_active"></i>
+      <% else %>
+        <i class="fas fa-heart fa-2x icon_inactive"></i>
+      <% end %>
+    </div>
     
-      <i> 
-        <%= link_to "", "#{@book.purchase_url}" , class: "fas fa-shopping-cart fa-lg btn_icon_steelgray" %>
-      </i>
+    <div class="dates">
+      <p>更新日：<%= @book.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+      <p>作成日：<%= @book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+    </div>
     
-    <!--trash-->
-      <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-lg btn_icon_steelgray", 
-            method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>
-    <!--edit-->
-      <i><%= link_to "", "/books/#{@book.id}/edit",class: "fas fa-edit fa-lg btn_icon_steelgray" %></i>
-    <!--own-->
-    <% if @book.own %>
-      <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
-    <% else %>
-      <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
-    <% end %>
-    
-    <!--fav-->
-    <% if @book.favorite %>
-      <i class="fas fa-heart fa-lg icon_fav_active"></i>
-    <% else %>
-      <i class="fas fa-heart fa-lg icon_inactive"></i>
-    <% end %>
-    
-  </div>
-  
-  
-  
-  
-  <div class="row justify-content-end">
-    <!--back-->
-    <button type="button" class="btn btn-secondary" onclick="toBooks()" >シェルフに戻る</button>
   </div>
 
+</div>
+
+  <div class="row justify-content-end btn_wrapper">
+    <!--back-->
+    <button type="button" class="btn btn_bayoux" onclick="toBooks()" >シェルフに戻る</button>
+  </div>
   
 </div>
