@@ -275,14 +275,13 @@ h5 {
 
 .form_textarea{
   height: 120px;
+  &:focus{
+    margin: 0 !important;
+  }
 }
 
 .form_notitle{
   display: none;
-}
-
-.img_uploader{
-  outline: none;
 }
 
 .btn_form_submit{
@@ -320,6 +319,36 @@ h5 {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     color: $SteelGrey !important;
   }
+}
+
+/* uploader*/
+
+#btn_file_uploader {
+    border: 1px solid $Gainsboro;
+    border-radius: 20px;
+    background: white;
+    color: $SteelGrey;
+    cursor: pointer;
+    padding: 2px 10px;
+    display: inline-block;
+}
+#filename{
+  color: $SteelGrey;
+  width: 200px;
+}
+
+.uploader{
+  color: $SteelGrey;
+  font-size: 12px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.uploader_info{
+  color: $SteelGrey;
+  font-size: 12px;
 }
 
 /* Error */
@@ -752,12 +781,9 @@ h5 {
     .prf-img{
       margin: 45px 0 0 45px;
     }
-    .img_uploader{
-      margin-left: 35px;
-    }
-    .uploader_info{
-      margin-left: 35px;
-    }
+  }
+  #btn_file_uploader{
+    margin-left: 35px;
   }
  padding-bottom: 25px;
 }
@@ -766,6 +792,11 @@ h5 {
     top: 0;
     right: 0;
   }
+
+#user_avatar{
+  position : absolute;
+  top : -9999px;
+}
 
 .current_avatar{
   width: 100px;
@@ -780,8 +811,8 @@ h5 {
     font-size: 12px;
     margin-left: -40px;
   }
-  p{
-    margin: 0 0 5px 15px;
+  .uploader_info{
+    margin: 0 0 0 40px;
   }
 }
 
@@ -820,7 +851,7 @@ h5 {
   position: relative;
 }
 
-.error_tags{
+.error_modal{
   position: absolute;
   top: 16px;
   left: 28px;
@@ -932,10 +963,30 @@ h5 {
 
 #guess_area{
   margin: 20px 0;
+  p{
+  }
 }
 
 .guessed_book{
   cursor: pointer;
+  img{
+    margin: 0 auto;
+  }
+}
+
+.guess_wrapper{
+  position: relative;
+  width: 500px;
+  margin-top: 60px;
+  padding-left: 15px;
+  .info{
+    margin: -10px -10px -10px -25px ;
+    font-family: 'Kosugi Maru',sans-serif,  ;
+    color: $SteelGrey;
+   }
+   .btn_wrapper{
+      margin-top: 30px; 
+   }
 }
 
 /* tooltips */
@@ -950,9 +1001,16 @@ h5 {
  border-top-color: $SteelGrey !important; 
 }
 
+#tooltip_add_book{
+  margin: 0px;
+}
+
 /* serch & plus btn*/
 
 .row_search_field{
+  /*width: 350px;
+  margin-top: 20px;
+  padding-left: 30px;*/
 }
 
 .search_filed_wrapper{
@@ -980,6 +1038,10 @@ h5 {
   
 }
 
+.row_plus_btn{
+ height: 20px !important; 
+}
+
 .search_btn{
   width: 20px;
   height: 20px;
@@ -994,7 +1056,7 @@ h5 {
 }
 
 #btn_plus_book{
-  margin-top: -4px;
+  margin: 15px 0 -10px 0 !important;
   background: $Lavender !important;
 }
 
@@ -1029,13 +1091,15 @@ h5 {
 .sort_window{
   margin: 50px 0 20px 0;
   .card-body{
-    padding: 20px 15px;
+    margin-top: 10px;
+    padding: 20px 15px 20px 0;
   }
 }
 
 .sort_area{
     box-shadow: none;
     width: 350px;
+    margin-bottom: 0 !important;
     .btns{
       margin-right: 0px;
     }
@@ -1073,13 +1137,12 @@ h5 {
     }
   }
   .tag_index_row{
-    width: 286px;
-  }
-  .tag_index_row  div:nth-child(2){
-    margin-left: 0px;
+    margin-left: 5px;
+    div:nth-child(2){
+    margin-left: 20px;
+    }
   }
 }
-
 
 /* sort order */
 
@@ -1379,9 +1442,17 @@ h5 {
   margin-left: 15px;
 }
 
-.uploader_info{
-  margin-left: 15px;
-  font-size: 12px;
+#book_image{
+  position : absolute;
+  top : -9999px;
+}
+
+.book_img_uploader{
+  margin: 0 0 0 10px;
+  padding-top: 3px;
+  .uploader_info{
+  margin: 0 0 0 15px;
+  }
 }
 
 #btn_plus_video{
@@ -1467,6 +1538,9 @@ h5 {
     left: 15px;
 }
 
+.tag_index_row  div:nth-child(2){
+    margin-left: -20px;
+}
 
 .section_own-fav{
  margin: 30px 0 0 20px !important; 
@@ -1571,12 +1645,18 @@ h5 {
     }
   }
   .btn_wrapper{
+    position: relative;
     width: 450px;
-    margin: -15px 0 50px 0;
+    margin: -20px 0 60px 0;
     button{
+      position: absolute;
+      right: 0;
       width: 140px;;
     }
   }
+}
+.xxx{
+  width: 450px;
 }
 
 .book_title{

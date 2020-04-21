@@ -7,14 +7,7 @@
     
     <div class="container"> 
     
-          <div class="row justify-content-center">
-            <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
-              <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
-                <%= image_tag 'plus_btn.png' %>
-              </button>
-              
-            </div>
-          </div>
+          
     
         <div class="row justify-content-center row_search_field" >
           <div class="search_filed_wrapper">
@@ -25,9 +18,18 @@
             </div>
           <% end %>
           
+            
+          
           </div>
           
-        
+            <div class="row justify-content-center row_plus_btn">
+              <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
+                <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
+                  <%= image_tag 'plus_btn.png' %>
+                </button>
+                
+              </div>
+            </div>
     
         <div class="modal fade" id="create_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -44,13 +46,16 @@
                 
               </div>
               <div class="modal-footer">
+                
+                <p class="error_modal"><%= @error_msg %></p>
+                
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
                 <button type="submit" class="btn btn_skyblue" onclick="displayGuess()" >検索</button>
                 </form>
               </div>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
   </div>
   
@@ -60,38 +65,51 @@
       
    
       <% if !@guess.nil? %>
-        <div id="guess_area" class="">  
+        <div id="guess_area" class="container">  
+        
           <div class="row justify-content-center">
-          
-            <% @guess.each.with_index do |g,i| %>
-              <div class="col-3">
-                <form id="guessed_book_form" action="/book-new" method="post">
-                  
-                  <input type="hidden" name="user_id" value="<%= @user.id %>">
-                    <div class="guessed_book" onclick="submitGuessBook(this)">
-                      <input type="hidden" name="[book][title]" value="<%= g.title %>">
-                      <input type="hidden" name="[book][price]" value="<%= g.item_price %>">
-                      <input type="hidden" name="[book][proper_title]" value="<%= g.sub_title %>">
-                      <input type="hidden" name="[book][author]" value="<%= g.author %>">
-                      <input type="hidden" name="[book][image]" value="<%= g.medium_image_url %>">
-                      <input type="hidden" name="[book][purchase_url]" value="<%= g.affiliate_url %>">
-                      <%= image_tag g.medium_image_url, class:"" %> 
+         
+            <div class="guess_wrapper">
+            
+              <% if !@guess.empty? %>
+                
+                <div class="row justify-content-center">
+                  <% @guess.each.with_index do |g,i| %>
+                    <div class="col">
+                      <form id="guessed_book_form" action="/book-new" method="post">
+                        
+                        <input type="hidden" name="user_id" value="<%= @user.id %>">
+                        <div class="guessed_book" onclick="submitGuessBook(this)">
+                          <input type="hidden" name="[book][title]" value="<%= g.title %>">
+                          <input type="hidden" name="[book][price]" value="<%= g.item_price %>">
+                          <input type="hidden" name="[book][proper_title]" value="<%= g.sub_title %>">
+                          <input type="hidden" name="[book][author]" value="<%= g.author %>">
+                          <input type="hidden" name="[book][image]" value="<%= g.medium_image_url %>">
+                          <input type="hidden" name="[book][purchase_url]" value="<%= g.affiliate_url %>">
+                          <%= image_tag g.medium_image_url, class:"" %> 
+                        </div>
+                          
+                      </form>
                     </div>
-                    
-                </form>
-              </div>
-            <% end %>
-          </div>
-      
-          <div class="row justify-content-end">
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="row justify-content-center">
+                  <p class="info">候補がありません</p> 
+                </div>
+              <% end %>
+            
+              <div class="row justify-content-end btn_wrapper">
        
-            <form role="form" action="/book-new" method="post">
-              <input type="hidden" name="user_id" value="<%= @user.id %>">
-              <input type="hidden" name="[book][title]" value="<%= @book_title %>">
-              <button type="button" class="btn btn-secondary" onclick="toBackPage()">戻る</button>
-              <button type="submit" class="btn btn-secondary" onclick="">候補から選ばない</button>
-            </form>  
+                <form role="form" action="/book-new" method="post">
+                  <input type="hidden" name="user_id" value="<%= @user.id %>">
+                  <input type="hidden" name="[book][title]" value="<%= @book_title %>">
+                  <button type="button" class="btn btn-secondary" onclick="toBackPage()">戻る</button>
+                  <button type="submit" class="btn btn-secondary" onclick="">候補から選ばない</button>
+                </form>  
           
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
@@ -170,12 +188,12 @@
           <div class="row justify-content-center">
             
             <a href="/details/<%= b.id %>">
-            <div class="row card_books justify-content-start">
+            <div id="book_<%= i %>" class="row card_books justify-content-start">
               <div class="">
                 <% if b.image? %>
                   <%= image_tag b.image.url, class:"image_card_books" %> 
                 <% else %>
-                  <%= image_tag 'book_sample.jpeg', class:"image_card_books" %>
+                  <%= image_tag 'no_img_book.png', class:"image_card_books" %>
                 <% end %>
               
               </div>

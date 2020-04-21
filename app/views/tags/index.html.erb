@@ -31,7 +31,7 @@
             
             <div class="modal-footer">
                
-              <p class="error_tags"><%= @error_msg %></p>
+              <p class="error_modal"><%= @error_msg %></p>
            
               <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearErrors()">戻る</button>
               <button type="submit" class="btn btn_skyblue" onclick="tagError()" >追加</button>
@@ -60,7 +60,7 @@
               <% @tags.each.with_index(1) do |t, i| %>
                 <div class="col-6">
                   
-                    <div class="tag_wrapper" data-toggle="" data-placement="top" title="" >
+                    <div class="tag_wrapper" >
                       <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16" onblur="saveTags()">
                       <i><%= link_to "", "/tag/#{t.id}", class: "fas fa-times btn_bayouxx delete_tag", method: :delete, data: { confirm: "タグを削除しますか？" }  %></i>
                     </div>

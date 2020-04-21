@@ -1,3 +1,5 @@
+<% provide(:uploader, "book[image]") %>
+<% provide(:uploader_icon, "far fa-image") %>
 
   <%= form_for(@book) do |f| %>
   
@@ -7,11 +9,11 @@
   <div class="row">
     <div class="col-3">  
       <!--image-->
-      <% if !yield(:image).nil? %>
+      <% if !yield(:image).blank? %>
         <%= image_tag yield(:image), class:"book_image" %> 
         <%= f.hidden_field :image, :value => yield(:image) %>
       <% else %>
-        <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
+        <%= image_tag 'no_img_book.png', class:"book_image" %> 
       <% end %>
     </div>
     
@@ -48,10 +50,11 @@
     </div>
   </div>
   
-  <div class="row justify-content-start">
+  <div class="row justify-content-start book_img_uploader">
     <!--file-->
     <%= f.file_field :image, class: "img_uploader uploader_info" %>
-    <p class="uploader_info">※画像を変更する場合はファイルを選択してください</p>
+    <%= render 'shared/uploader' %>
+    
   </div>
   
   <div class="row justify-content-center">

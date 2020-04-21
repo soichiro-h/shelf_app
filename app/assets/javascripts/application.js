@@ -76,7 +76,28 @@ function ajaxUpdate(url, element) {
     ajax.send(null);
 }
 
+//file uploader
 
+$(function() {
+     $('#files').css({
+         'position': 'absolute',
+         'top': '-9999px'
+     })
+     
+     .change(function() {
+         var val = $(this).val();
+         var path = val.replace(/\\/g, '/');
+         var match = path.lastIndexOf('/');
+    $('#filename').css("display","inline-block");
+         $('#filename').val(match !== -1 ? val.substring(match + 1) : val);
+     });
+     $('#filename').bind('keyup, keydown, keypress', function() {
+         return false;
+     });
+     $('#filename, #btn_file_uploader').click(function() {
+         $('#files').trigger('click');
+     });
+ });
 
 
 /*=========================
@@ -129,9 +150,8 @@ function scroll_control(event) {
 =========================*/
 
 var saveTags = function(){
-    $('.tag_form').submit();
+  $('.tag_form').submit();
 }
-
 
 $(window).bind("load", function(){
     if(document.URL.match(/tag-new/) ) {
@@ -216,6 +236,8 @@ var sortBy = function(){
 var openTagsArea = function(){
 
   //if #collapse_sort_area .collapse show
+   $('.card-body').css('padding', '20px 0');
+   $('.btns').css('margin-right', '15px');
   
   if ($('#collapse_sort_area').hasClass('tags')){
     //$('#collapse_sort_area').removeClass("show");
@@ -243,6 +265,10 @@ var openTagsArea = function(){
 }
 
 var openOrderArea = function(){
+  
+  $('.card-body').css('padding', '20px 15px');
+  $('.btns').css('margin-right', '0');
+  
   if ($('#collapse_sort_area').hasClass('order')){
     $('#collapse_sort_area').removeClass("order");
     //$('#collapse_sort_area').removeClass("show");
@@ -311,10 +337,69 @@ var toggleOn = function(ele) {
     a.prop('checked', true);
 }
 
-//card_books memo 
+//card_books
+
+$(function() {
+  
+  var num = ($('.card_books').length);
+  
+  for ( var i = 1; i <= num; i++){
+  var book = $("#book_"+ i)
+  var title = book.children('.books_card_wrapper_center').children('.title_card_books');
+  var memo = book.children('.books_card_wrapper_center').children('.memo_card_books');
+  
+    if ( title.height() == 32 ){
+      memo.css('max-height', '48px');
+    }
+  }
+})
+  /*
+  var book = $("#book_1")
+  var title = book.children('.books_card_wrapper_center').children('.title_card_books');
+  console.log(title.height());
+  console.log($('.card_books').length)
+ 
+  var memo = book.children('.books_card_wrapper_center').children('.memo_card_books');
+  
+  if ( title.height() == 32 ){
+    memo.css('max-height', '48px');
+  }
+  */
+  
+
+//ループ
+
+/*
+
+for ([初期化式]; [条件式]; [加算式])
+for (let i = 1; i =< $('.card_books').length; i++){
+  var book = $("'#book_' + i")
+  var title = book.children('.books_card_wrapper_center').children('.title_card_books');
+  var memo = book.children('.books_card_wrapper_center').children('.memo_card_books');
+  
+  if ( title.height() == 32 ){
+    memo.css('max-height', '48px');
+  }
+
+
+book_1 
+books_card_wrapper_center
+card_title
+
+
+$("#book_1").children('.books_card_wrapper_center').children('.card_title');
+
+book_1 
+books_card_wrapper_center
+memo_card_books
+
 
 //book_title が２行の時だけ
 // title height 取得
 // >= xx
 // memo css max-height: xxx; を追加
 //book_memo を max-height 3行分に！
+
+
+*/
+

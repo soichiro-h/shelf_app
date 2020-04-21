@@ -1,3 +1,6 @@
+<% provide(:uploader, "user[avatar]") %>
+<% provide(:uploader_icon, "fas fa-camera") %>
+
 
 <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -11,16 +14,18 @@
         <% if @user.avatar? %>
           <%= image_tag @user.avatar.url, class: "prf-img" %> 
         <% else %>
-          <%= image_tag 'city.png', class: "prf-img" %>
+          <%= image_tag 'prf_img.jpg', class: "prf-img" %>
         <% end %>
           
       </div>
       
       <div class="col-8 wrapper_uploader_prof_edit">
-        <div class="field">
-          <%= f.file_field :avatar, class: "img_uploader" %>
-          <p class="uploader_info">※画像を変更する場合はファイルを選択して下さい</p>
-        </div>
+      
+        <%= f.file_field :avatar, class: "img_uploader" %>
+        
+        <%= render 'shared/uploader' %>
+        
+        
       </div>
     </div>
     

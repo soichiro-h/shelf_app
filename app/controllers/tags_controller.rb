@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   def index
     @user = current_user
     @tags = @user.tags
-    flash[:notice] = @user.flash if @user.flash
+    flash.now[:notice] = @user.flash if @user.flash
     @user.update_attributes(flash: nil)
     
   end
@@ -50,7 +50,11 @@ class TagsController < ApplicationController
     tag = Tag.find(params[:id])
     tag.update(deleted_at: Time.now)
     tag.destroy
+    @user = User.find(tag.user_id)
+    @user.update_attributes(flash: "削除しました")
+    
     redirect_to tags_path
+    
   end
   
   def update

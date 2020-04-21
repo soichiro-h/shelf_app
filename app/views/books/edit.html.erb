@@ -1,7 +1,7 @@
 <% provide(:navbar, "fixed-top") %>
 
 <% provide(:purchase_url, @book.purchase_url) %>
-<% provide(:image, @book.image) %>
+<% provide(:image, @book.image.url) %>
 <% provide(:title, @book.title) %>
 <% provide(:price, @book.price.to_s) %>
 <% provide(:proper_title, @book.proper_title) %>

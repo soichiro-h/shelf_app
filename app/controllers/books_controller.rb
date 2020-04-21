@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   #require 'googleauth'
   require 'google/apis/youtube_v3'
   
+  #↓いらんかな？
   require 'json'
   require 'net/http'
   require 'open-uri'
@@ -33,7 +34,41 @@ class BooksController < ApplicationController
 
     render :index
     
+
+  end
+  
+  def over_2char?(keyword)
     
+    #keyword が2文字以上かどうか判定
+  
+    splited_words = []
+    
+    if keyword.include?("　")
+      inspection = keyword.split("　")
+   
+      inspection.each { |i|
+        splited_words << i if !i.blank?
+      }
+      
+      splited_words.each{ |s| 
+        return false if s.length == 1
+      }
+      
+    elsif keyword.include?(" ")
+      inspection = keyword.split
+      
+      inspection.each { |i|
+        splited_words << i if !i.blank?
+      }
+      
+      splited_words.each{ |s| 
+        return false if s.length == 1
+      }
+    elsif keyword.length == 1
+       return false
+    else
+      return true
+    end
     
   end
   
@@ -41,26 +76,38 @@ class BooksController < ApplicationController
     @user = current_user
     @tags = @user.tags
     @books = @user.books.order(updated_at: "DESC")
+    @guess = []
     
     RakutenWebService.configure do |c|
       c.application_id = '1043260432937924281'
       c.affiliate_id = '1af7751a.21c91aa3.1af7751b.f9119a71'
     end
-    keyword = params[:new_book_title]
-    @items = RakutenWebService::Books::Book.search({
-      title: keyword,
-      hits: 4,
-    })
-    @guess = []
-    if !@items.nil?
-      @items.each do |item|
-        @guess << item
-      end
-    @book_title = keyword
-    end
-    #debugger
-    render :index
     
+    if !params[:new_book_title].empty?
+    
+      keyword = params[:new_book_title]
+  
+      over_2char = over_2char?(keyword)
+      
+      if over_2char
+        @items = RakutenWebService::Books::Book.search({
+          title: keyword,
+          hits: 4,
+        })
+
+        if !@items.nil?
+          @items.each do |item|
+            @guess << item
+          end
+        
+        @book_title = keyword
+        end
+      else
+        @book_title = keyword
+      end
+    end
+    
+    render :index
     
   end
   
@@ -177,7 +224,7 @@ class BooksController < ApplicationController
   
   
   def new
-    #poi = sdf
+    
     @user = User.find(params[:user_id])
     sign_in(@user)
     @book = Book.new(title:"")
@@ -269,11 +316,16 @@ class BooksController < ApplicationController
   
   
   def create
-    
+  
     @book = Book.new(book_params)
     @book.remote_image_url = params[:book][:image]
+    
+    @book = Book.new(book_params_with_image) if params[:book][:image].class == ActionDispatch::Http::UploadedFile
+    
     @book.user_id = params[:user_id]
+    
       if @book.save
+        
         
         #タグの関連付け
         
@@ -404,6 +456,15 @@ class BooksController < ApplicationController
     
     def book_params
       params.require(:book).permit(:title, :proper_title, :price, :author, #:image,
+                :memo, :summary, :params, :favorite, :own, :purchase_url)
+    end
+    
+    def book_params_image
+      params.require(:book).permit(:image)
+    end
+    
+    def book_params_with_image
+      params.require(:book).permit(:title, :proper_title, :price, :author, :image,
                 :memo, :summary, :params, :favorite, :own, :purchase_url)
     end
   

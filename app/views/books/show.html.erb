@@ -1,192 +1,198 @@
 <% provide(:navbar, "fixed-top") %>
 
-<div id="details_page" class="row justify-content-center">
-  
-<div class="container card">
+<div id="details_page" class="">
 
-  <input type="hidden" name="user_id" value="<%= @user.id %>">
-  <input type="hidden" name="user_id" value="<%= @book.id %>">
+<div class="container">
   
-  <div class="row">
-    <div class="col-3">  
-      <!--image-->
-      <% if !@book.image.url.nil? %>
-        <%= image_tag @book.image.url, class:"book_image" %>
-      <% else%>
-        <%= image_tag 'book_sample.jpeg', class:"book_image" %> 
-      <% end %>
-    </div>
+  <div class="container card">
+  
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
+    <input type="hidden" name="user_id" value="<%= @book.id %>">
     
-    <div class="col-9">  
-      <div class="row justify-content-between">
-        <div class="col-5 book_title">
-          <!--title-->
-          <div class="field">
-            <p class="underlined_form"><%= @book.title %></p>
+    <div class="row">
+      <div class="col-3">  
+        <!--image-->
+        <% if !@book.image.url.nil? %>
+          <%= image_tag @book.image.url, class:"book_image" %>
+        <% else%>
+          <%= image_tag 'no_img_book.png', class:"book_image" %> 
+        <% end %>
+      </div>
       
+      <div class="col-9">  
+        <div class="row justify-content-between">
+          <div class="col-5 book_title">
+            <!--title-->
+            <div class="field">
+              <p class="underlined_form"><%= @book.title %></p>
+        
+            </div>
+          </div>
+          
+          <div class="col-4">
+            <!--price-->
+            
+            <% if !@book.price.blank? %>
+              <div class="field book_price">
+                <p class="underlined_form price_field">¥ <%= @book.price %></p>
+              
+              </div>
+            <% end %>
           </div>
         </div>
         
-        <div class="col-4">
-          <!--price-->
+        <div class="row justify-content-start">
+          <!--proper_title-->
+          <p class="underlined_form book_proper_title"><%= @book.proper_title %></p>
+        </div>
+        
+        <div class="row justify-content-start">
+          <!--author-->
+          <p class="underlined_form book_author"><%= @book.author %></p>
           
-          <% if !@book.price.blank? %>
-            <div class="field book_price">
-              <p class="underlined_form price_field">¥ <%= @book.price %></p>
-            
-            </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center">
+      <!--memo-->
+      
+      <% if !@book.memo.blank? %>
+        <div class="field">
+        
+            <label class="standard_form_label">メモ</label><br />
+            <p class="standard_form"><%= @book.memo %></p>
+        </div>
+      <% end %>
+      
+    </div>  
+    
+    <div class="row justify-content-center">
+      <!--summary-->
+      
+      <% if !@book.summary.blank? %>
+        <div class="field">
+        
+          <label class="standard_form_label">要約</label><br />
+          <p class="standard_form"><%= @book.summary %></p>
+        </div>
+      
+      <% end %>
+    </div>
+    
+    
+    <!--related_videos-->
+    
+    <% unless @book.videos.count == 0 %>
+      
+      <div class="book_related_videos">
+      
+        <div class="row justify-content-start">
+          <h5 class="section_title">関連動画</h5>
+        </div>
+        
+      
+        <div class="row justify-content-center">
+          
+          <% @book.videos.each do |v| %>
+          <div>
+            <iframe width="380" height="210" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           <% end %>
+          
         </div>
-      </div>
-      
-      <div class="row justify-content-start">
-        <!--proper_title-->
-        <p class="underlined_form book_proper_title"><%= @book.proper_title %></p>
-      </div>
-      
-      <div class="row justify-content-start">
-        <!--author-->
-        <p class="underlined_form book_author"><%= @book.author %></p>
-        
-      </div>
-    </div>
-  </div>
-  
-  <div class="row justify-content-center">
-    <!--memo-->
-    
-    <% if !@book.memo.blank? %>
-      <div class="field">
-      
-          <label class="standard_form_label">メモ</label><br />
-          <p class="standard_form"><%= @book.memo %></p>
       </div>
     <% end %>
     
-  </div>  
-  
-  <div class="row justify-content-center">
-    <!--summary-->
     
-    <% if !@book.summary.blank? %>
-      <div class="field">
+      <!--tags-->
       
-        <label class="standard_form_label">要約</label><br />
-        <p class="standard_form"><%= @book.summary %></p>
-      </div>
-    
-    <% end %>
-  </div>
-  
-  
-  <!--related_videos-->
-  
-  <% unless @book.videos.count == 0 %>
-    
-    <div class="book_related_videos">
-    
-      <div class="row justify-content-start">
-        <h5 class="section_title">関連動画</h5>
-      </div>
+      <% unless @book.tags.count == 0 %>
       
-    
-      <div class="row justify-content-center">
+      <div class="section">
+        <div class="row justify-content-start">
+          <h5 class="section_title"><i class="fas fa-tags"></i>タグ</h5>
+        </div> 
         
-        <% @book.videos.each do |v| %>
-        <div>
-          <iframe width="380" height="210" src="https://www.youtube.com/embed/<%= v.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <% end %>
-        
-      </div>
-    </div>
-  <% end %>
-  
-  
-    <!--tags-->
-    
-    <% unless @book.tags.count == 0 %>
-    
-    <div class="section">
-      <div class="row justify-content-start">
-        <h5 class="section_title"><i class="fas fa-tags"></i>タグ</h5>
-      </div> 
-      
-      <div class="row justify-content-center">
-        <div class="tags_details">
-          <div class="row tags_row_details">
-            
-          <% @book.tags.each.with_index(1) do |t, i| %>
-            <div class="col-6 tag_wrapper_details">
+        <div class="row justify-content-center">
+          <div class="tags_details">
+            <div class="row tags_row_details">
               
-               <div class="">
-                  
-                  <div class="tag_field">
-                   
-                    <%= content_tag(:p, t.tag_title ) %>
+            <% @book.tags.each.with_index(1) do |t, i| %>
+              <div class="col-6 tag_wrapper_details">
+                
+                 <div class="">
+                    
+                    <div class="tag_field">
+                     
+                      <%= content_tag(:p, t.tag_title ) %>
+                    
+                    </div>
                   
                   </div>
                 
-                </div>
-              
-            </div>
-            
-            
-            <% if i % 2 == 0 %>
               </div>
-              <div class="row tags_row_details">
+              
+              
+              <% if i % 2 == 0 %>
+                </div>
+                <div class="row tags_row_details">
+              <% end %>
+              
             <% end %>
-            
-          <% end %>
+            </div>
           </div>
-        </div>
-  
-    </div>  
-  </div>
-  
-  <% end %>
-  
-  <div class="row justify-content-start icons_row">
     
-    <div class="icons">
-      <!--cart-->
-      
-        <i> 
-          <%= link_to "", "#{@book.purchase_url}" , class: "fas fa-shopping-cart fa-2x btn_icon_steelgray" %>
-        </i>
-      
-      <!--trash-->
-        <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-2x btn_icon_steelgray", 
-              method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>
-      <!--edit-->
-        <i><%= link_to "", "/books/#{@book.id}/edit",class: "fas fa-edit fa-2x btn_icon_steelgray" %></i>
-      <!--own-->
-      <% if @book.own %>
-        <i class="fas fa-fist-raised fa-2x icon_own_active"></i>
-      <% else %>
-        <i class="fas fa-fist-raised fa-2x icon_inactive"></i>
-      <% end %>
-      
-      <!--fav-->
-      <% if @book.favorite %>
-        <i class="fas fa-heart fa-2x icon_fav_active"></i>
-      <% else %>
-        <i class="fas fa-heart fa-2x icon_inactive"></i>
-      <% end %>
+      </div>  
     </div>
     
-    <div class="dates">
-      <p>更新日：<%= @book.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-      <p>作成日：<%= @book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-    </div>
+    <% end %>
     
+    <div class="row justify-content-start icons_row">
+      
+      <div class="icons">
+        <!--cart-->
+        
+          <i> 
+            <%= link_to "", "#{@book.purchase_url}" , class: "fas fa-shopping-cart fa-2x btn_icon_steelgray" %>
+          </i>
+        
+        <!--trash-->
+          <i><%= link_to "", "/books/#{@book.id}", class: "fas fa-trash-alt fa-2x btn_icon_steelgray", 
+                method: :delete, data: { confirm: "この本を削除しますか？" }  %></i>
+        <!--edit-->
+          <i><%= link_to "", "/books/#{@book.id}/edit",class: "fas fa-edit fa-2x btn_icon_steelgray" %></i>
+        <!--own-->
+        <% if @book.own %>
+          <i class="fas fa-fist-raised fa-2x icon_own_active"></i>
+        <% else %>
+          <i class="fas fa-fist-raised fa-2x icon_inactive"></i>
+        <% end %>
+        
+        <!--fav-->
+        <% if @book.favorite %>
+          <i class="fas fa-heart fa-2x icon_fav_active"></i>
+        <% else %>
+          <i class="fas fa-heart fa-2x icon_inactive"></i>
+        <% end %>
+      </div>
+      
+      <div class="dates">
+        <p>更新日：<%= @book.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <p>作成日：<%= @book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+      </div>
+      
+    </div>
+  
   </div>
 
+  <div class="row justify-content-center">
+    <div class="btn_wrapper">
+      <!--back-->
+      <button type="button" class="btn btn_bayoux" onclick="toBooks()" >シェルフに戻る</button>
+    </div>
+  </div>
+  
 </div>
 
-  <div class="row justify-content-end btn_wrapper">
-    <!--back-->
-    <button type="button" class="btn btn_bayoux" onclick="toBooks()" >シェルフに戻る</button>
-  </div>
-  
 </div>

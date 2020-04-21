@@ -8,7 +8,7 @@ class Book < ApplicationRecord
    mount_uploader :image, BookImageUploader
    
    validates :title, presence: true 
-   validates :price, numericality: :only_integer
+   validates :price, numericality: :only_integer, allow_nil: true
    
    def self.search(search)
       return Book.all unless search
