@@ -28,6 +28,10 @@ body{
   height: 100%;
 }
 
+#contents_wrapper{
+  min-height: calc(100% - 50px);
+}
+
 .bg_white{
   background-color: white;
 }
@@ -108,6 +112,21 @@ h5 {
   display: none;
 }
 
+/* footer */
+
+.copyrights{
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 12px;
+  color: $SteelGrey;
+}
+
+.home_page{
+  background: $SkyBlue;
+  p{
+    color: white;
+  }
+}
 
 /*=========================
           Button
@@ -537,8 +556,14 @@ h5 {
 }
 
 .list{
+  margin: 0 auto;
   font-size: 24px;
   line-height: 42px;
+  span{
+    margin: 0 5px;
+    font-family: 'Kosugi Maru', ;
+    font-weight: bold;
+  }
 }
 
 .row_arrow{
@@ -564,25 +589,41 @@ h5 {
 
 #introduce_shelf{
   width: auto;
-  height: 1000px;
+  height: 1010px;
+  .list{
+    width: 398px;
+  }
   img{
-    margin-top: 40px;
+    margin-top: 50px;
+    margin-left: calc(((100% - 422px) / 2) + 10px);
   }
 }
+
 
 #put_books_in{
   width: auto;
   height: 945px;
-  img{
-    margin-left: 25px;
+  .list{
+    width: 510px;
+  }
+  .pc_mobile_image{
+    margin-left: calc(((100% - 492px) / 2) + 20px);
+  }
+  .btn_signup_free{
+    margin: 0 auto;
+    margin-left: calc(((100% - 220px) / 2) + 0px);
   }
 }
 
 #tsundoku{
   width: auto;
   height: 700px;
+  .list{
+    width: 520px;
+  }
   .youtube_image{
     margin-top: 70px;
+    margin-left: calc(((100% - 191px) / 2) + 0px);
   }
 }
 
@@ -596,19 +637,39 @@ h5 {
 
 #note_down_ideas{
   width: auto;
-  height: 650px;
-  img{
-    margin-top: 30px;
+  height: 640px;
+  .list{
+    width: 500px;
+  }
+  .ideas_image{
+    margin-top: 35px;
+    margin-left: calc(((100% - 293px) / 2) + 0px);
   }
 }
 
 #what_can_do_with_shelf{
   width: auto;
-  height: 700px;
-  img{
-    margin: 20px 0 40px -70px;
+  height: 680px;
+  .list{
+    width: 400px;
+  }
+  .shelf_image{
+    width: 196px;
+    height: 147px;
+    margin-top: 20px;
+    margin-left: calc(((100% - 196px) / 2) + -35px);
+  }
+  .btn_signup_free{
+   margin-top: 40px;
+   /*
+    margin-left: calc(((100% - 220px) / 2)  - 0px);
+    */
   }
 }
+
+
+
+
 
 
 /*=========================
@@ -616,6 +677,7 @@ h5 {
 =========================*/
 
 #signup_page{
+  margin-bottom: 30px;
   .row{
     margin-top: 15px;
   }
@@ -630,8 +692,11 @@ h5 {
 =========================*/
 
 
-#login_page .row{
+#login_page{
+  margin-bottom: 30px;
+ .row{
   margin-top: 15px;
+  }
 }
 
 #login_page .standard_form{
@@ -644,6 +709,7 @@ h5 {
 =========================*/
 
 #forget_page{
+  margin-bottom: 30px;
   .row{
     margin-top: 15px;
   }
@@ -752,6 +818,7 @@ h5 {
 
 .wrapper_banner{
   margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .banner_to_shelf{
@@ -822,6 +889,7 @@ h5 {
 
 #tag_page{
   margin-top: 93px;
+  margin-bottom: 50px;
 }
 
 .card_tag{
@@ -1107,8 +1175,7 @@ h5 {
       margin-left: 10px;
     }
 }
-.tag{
-}
+
 .tags_area{
   max-height: 215px;
   overflow-x: hidden;
@@ -1302,13 +1369,19 @@ h5 {
   border-style: none;
   width: 350px; 
   height: 110px;
-  margin-top: 7px;
+  margin: 7px auto 0;
   padding: 5px;
+  
 }
 .for_gallery{
   width: 84px !important;
   padding: 5px 0!important;
 }
+
+.for_display_col{
+  padding: 0 !important;
+}
+
 
 .books_card_wrapper_center{
   padding: 0 0 0 12px !important;
@@ -1341,10 +1414,10 @@ h5 {
 
 .image_card_books{
   padding-left: -15px;
-  width: 75px;
+  width: 70px;  /* 75→70 */
   height: 96px;
   margin-top: 2px;
-  margin-left: 5px;
+  margin-left: 10px;  /* 5→10 */
   object-fit: contain;
 }
 
@@ -1373,6 +1446,19 @@ h5 {
 
 .no_display{
   display: none !important;
+}
+
+/* col-1.5 */
+.col-1-5{
+  position: relative;
+  min-height: 1px;
+  margin: 0 27px ;
+  padding-right: 20px;
+  padding-left: 15px;
+  width: 12.5% !important;
+  max-width: 84px;
+  padding: 0 15px;
+  float: left;
 }
 
 /*=========================
@@ -1516,7 +1602,7 @@ h5 {
 }
 
 .tags_label{
-  font-family: 'Kosugi Maru', ;
+  font-family: 'Open Sans','Kosugi Maru',sans-serif,  ;
   font-size: 14px;
   width: 160px;
   height: 100%;
@@ -1719,6 +1805,84 @@ h5 {
 
 
 /*=========================
-      Miscellaneous
+      Responsive
 =========================*/
+
+/* HOME */
+
+@media screen and (min-width:576px) {
+  #pile_of_books{
+    background-image: url("/images/pile_of_books_lg.jpg");
+  }
+}
+
+@media screen and (min-width:1200px) {
+    /*　画面サイズが1024pxからはここを読み込む　*/
+ #introduce_shelf{
+  height: 650px;
+  .text_wrappper{
+   padding-top: 90px; 
+  }
+  .list{
+    width: 398px;
+  }
+  img{
+    margin-top: 50px;
+    margin-left: calc(((100% - 422px) / 2) - 30% + 20px;
+    }
+  }
+  
+  #put_books_in{
+    position: relative;
+    height: 630px;
+    .pc_mobile_image{
+      position: absolute;
+      top: 60px;
+      left: -550px;
+    }
+    .btn_signup_free{
+      margin-top: 90px;
+    }
+  }
+  
+  #tsundoku{
+    padding-top: 50px;
+    height: 550px;
+    .list{
+     margin-top: 85px;
+    }
+    .youtube_image{
+      margin-top: 120px;
+      margin-left: 100px;
+    }
+  }
+  #note_down_ideas{
+    padding-top: 30px;
+    height: 540px;
+    .list{
+      margin-top: 90px;
+      }
+    .ideas_image{
+      margin-top: 110px;
+      margin-left: 0px;
+    }
+  }
+  #what_can_do_with_shelf{
+    padding-top: 20px;
+    position: relative;
+    height: 560px;
+    .list{
+    }
+    .shelf_image{
+      position: absolute;
+      top: 5px;
+      /*left: -310px;*/
+      left: -335px ;
+      }
+    .btn_signup_free{
+      margin: 0 auto;
+      margin-top: 70px;
+    }
+  }
+}
 

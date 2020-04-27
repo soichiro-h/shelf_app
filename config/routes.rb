@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   post '/sort_by_tags', to: 'books#sort_by_tags'
   post '/sort_by', to: 'books#sort_by'
-  get '/serach_books', to: 'books#search'
+  get '/serach_books', to: 'books#search_books'
   
   #テスト
   get '/guess', to: 'books#search_rakuten'

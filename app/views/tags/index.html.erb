@@ -58,7 +58,7 @@
               <div class="row">
                 
               <% @tags.each.with_index(1) do |t, i| %>
-                <div class="col-6">
+                <div class="tag_col col-6">
                   
                     <div class="tag_wrapper" >
                       <input type="text" class="tag_field" name="<%= t.id %>[tag_title]" value="<%= t.tag_title %>" size="16" onblur="saveTags()">
@@ -67,8 +67,7 @@
                   
                 </div>
                 
-                
-                <% if i % 2 == 0 %>
+                <% if i % 4 == 0 %>
                   </div>
                   <div class="row">
                 <% end %>

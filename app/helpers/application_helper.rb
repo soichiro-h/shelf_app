@@ -5,7 +5,7 @@ module ApplicationHelper
   #require 'google/apis/youtube_v3'
   #require 'trollop'
 
-  API_KEY = 'AIzaSyBWNozwiqcneF6nclfj2vhTF5-oJoC-_6Q'
+  API_KEY = ENV['YOUTUBE_API_KEY']
   YOUTUBE_API_SERVICE_NAME = 'youtube'
   YOUTUBE_API_VERSION = 'v3'
   
@@ -15,6 +15,16 @@ module ApplicationHelper
       return youtube
   end
   
+  def redirect_back_or
+    if !user_session[:forwarding_url].blank?
+      redirect_to( user_session[:forwarding_url] )
+      user_session.delete(:forwarding_url)
+    end
+  end
+
+  def store_location
+    user_session[:forwarding_url] = request.original_url if request.get?
+  end
   
   
 end

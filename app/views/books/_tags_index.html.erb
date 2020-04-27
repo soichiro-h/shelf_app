@@ -6,10 +6,10 @@
       <% @tags.each.with_index(1) do |t, i| %>
         <div class="col tag_index">
           
-          <div class="">
+          <div class="tags_container">
             
             <%= render partial: yield(:tags_checkbox), locals: { t: t } %>
-            <%= label_tag :tags, "#{t.tag_title}", for: "[tags][#{t.id}]",class:"tags_label" %>
+            <%= label_tag :tags, "#{truncate(t.tag_title, length: 8)}", for: "[tags][#{t.id}]",class:"tags_label" %>
           
           </div>
         </div>

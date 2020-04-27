@@ -121,11 +121,11 @@
             <% @book.tags.each.with_index(1) do |t, i| %>
               <div class="col-6 tag_wrapper_details">
                 
-                 <div class="">
+                 <div class="tags_container">
                     
                     <div class="tag_field">
                      
-                      <%= content_tag(:p, t.tag_title ) %>
+                      <%= content_tag(:p, truncate(t.tag_title, length: 8) ) %>
                     
                     </div>
                   

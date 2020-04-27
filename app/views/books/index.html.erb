@@ -12,7 +12,7 @@
         <div class="row justify-content-center row_search_field" >
           <div class="search_filed_wrapper">
             <%= form_tag(serach_books_path,:method => 'get') do %>
-            <%= text_field_tag :search, "", class:"search_field" %>
+            <%= text_field_tag :search_books, "", class:"search_field" %>
             <input type="hidden" name="user_id" value="<%= @user.id %>">
             <%= submit_tag '', :name => nil, class: "search_btn btn_icon_steelgray" %>
             </div>
@@ -75,7 +75,8 @@
                 
                 <div class="row justify-content-center">
                   <% @guess.each.with_index do |g,i| %>
-                    <div class="col">
+                    
+                    <div class="col-3">
                       <form id="guessed_book_form" action="/book-new" method="post">
                         
                         <input type="hidden" name="user_id" value="<%= @user.id %>">
@@ -162,7 +163,7 @@
             </div>
           
              <div class="row justify-content-end btns">
-                <button type="button" class="btn btn_bayoux" onclick="allClear()"><i class="fas fa-undo-alt fa-lg"></i></button>
+                <button type="button" class="btn btn_bayoux" onclick="orderReset()"><i class="fas fa-undo-alt fa-lg"></i></button>
                 <button type="button" class="btn btn_skyblue" onclick="sortBy()"><i class="fas fa-random fa-lg"></i></button>
               </div>
             
@@ -176,74 +177,73 @@
     
   
   
-  <div id="books_area" class="container">
+  <div id="books_area" class="">
     
-    <div class="for_gallery_row">
-    <% @books.each.with_index(1) do |b, i| %>
+    <div class="for_display_row row justify-content-center">
       
-      <input type="hidden" name="book_id" value="<%= b.id %>">
-      
-     
-        <div class="for_gallery_col">
-          <div class="row justify-content-center">
-            
-            <a href="/details/<%= b.id %>">
-            <div id="book_<%= i %>" class="row card_books justify-content-start">
-              <div class="">
-                <% if b.image? %>
-                  <%= image_tag b.image.url, class:"image_card_books" %> 
-                <% else %>
-                  <%= image_tag 'no_img_book.png', class:"image_card_books" %>
-                <% end %>
-              
-              </div>
-              
-              
-              
-                <div class="col-6 books_card_wrapper_center">
-                  <h6 class="title_card_books"><%= b.title %></h6>
-                  <p class="memo_card_books"><%= b.memo %></p>
-                </div>
-                
-                <div class="books_card_wrapper_right">
-                  <% if b.price%>
-                    <p class="price_card_books">¥ <%= b.price %></p>
-                  <% end %>
-                  <div class="row icons_card_books">
-                
-                    <% if b.own %>
-                      <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
-                    <% else %>
-                      <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
-                    <% end %>
-                    
-                    <% if b.favorite %>
-                      <i class="fas fa-heart fa-lg icon_fav_active"></i>
-                    <% else %>
-                      <i class="fas fa-heart fa-lg icon_inactive"></i>
-                    <% end %>
-                    
-                  </div>
-                </div>
+      <div class="row justify-content-start no-gutters">
+    
+        <% @books.each.with_index(1) do |b, i| %>
+          
+          <input type="hidden" name="book_id" value="<%= b.id %>">
+          
          
-            </div>
-            </a>
-          </div>
-        </div>
-     
-        <% if i % 4 == 0 %>
-          </div>
-          <div class="for_gallery_row">
+            <div class="for_display_col col">
+              <div class="justify-content-center row_card_books"><!-- row_card_books -->
+                
+                <a href="/details/<%= b.id %>">
+                <div class="">
+                <div id="book_<%= i %>" class="row card_books justify-content-start">
+                  <div class="">
+                    <% if b.image? %>
+                      <%= image_tag b.image.url, class:"image_card_books" %> 
+                    <% else %>
+                      <%= image_tag 'no_img_book.png', class:"image_card_books" %>
+                    <% end %>
+                  
+                  </div>
+                  
+                  
+                  
+                    <div class="col-6 books_card_wrapper_center">
+                      <h6 class="title_card_books"><%= b.title %></h6>
+                      <p class="memo_card_books"><%= b.memo %></p>
+                    </div>
+                    
+                    <div class="books_card_wrapper_right">
+                      <% if b.price%>
+                        <p class="price_card_books">¥ <%= b.price %></p>
+                      <% end %>
+                      <div class="row icons_card_books">
+                    
+                        <% if b.own %>
+                          <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+                        <% else %>
+                          <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+                        <% end %>
+                        
+                        <% if b.favorite %>
+                          <i class="fas fa-heart fa-lg icon_fav_active"></i>
+                        <% else %>
+                          <i class="fas fa-heart fa-lg icon_inactive"></i>
+                        <% end %>
+                        
+                      </div>
+                    </div>
+             
+                  </div>
+                  </div>
+                </a>
+              
+              </div><!-- row_card_books -->
+              
+            </div><!-- gallery_col -->
+
         <% end %>
-      
-      
-    <% end %>
-    </div>
     
+      </div>
+    </div>
   </div>
-  
-  
-  
   
   
 </div>

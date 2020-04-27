@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  
+before_action :authenticate_user!
+
   def show
+    user_session[:test] = "popopo popo poopo op"
     @user = current_user
     #debugger
   end

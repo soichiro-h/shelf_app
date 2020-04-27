@@ -15,7 +15,7 @@
   
   <body class="<%= 'bg_white' unless user_signed_in? %>">
   
-  <div id="">
+  <div id="contents_wrapper">
   
   <div class="layer" onclick="closeMenu()">
   </div>
@@ -91,7 +91,7 @@
     
       
     
-      <div class="container">
+  
         <div class="row justify-content-center">
           
           <% if notice %>
@@ -99,7 +99,7 @@
           <% end %>
             
         </div>
-      </div>
+     
     
 
     <p class="alert"><%= alert %></p>
@@ -108,8 +108,17 @@
   
   </div>
   
+  <!-- footer -->  
+  
+  <footer class="footer">
+    <div class="row justify-content-center <%= yield(:home_page) %>">
+      <p class="copyrights">Copyrights &copy; 2020 Shelf All Right Reserved</p>
+    </div>
+  </footer>
+ 
+  
   </body>
 
-  <!-- footer -->  
+  
   
 </html>

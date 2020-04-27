@@ -1,8 +1,9 @@
 <% provide(:page, "Home") %>
 <% provide(:navbar, "fixed-top") %>
+<% provide(:home_page, "home_page") %>
 
 
-<div id="home_page">
+<div id="home_page" class="">
 
   <div id="book_shelf">
     <div class="row justify-content-center row_arrow">
@@ -18,21 +19,23 @@
   <section id="introduce_shelf" class="gray_on_white">
     
     <div class="row justify-content-center">
-      <h3>自分だけの本棚</br>“シェルフ”</h3>
-    </div>
     
-    <div class="row justify-content-center">
-        <ul class="list">
-          <li>本棚は知的好奇心の一覧</li>
-          <li>情報整理のインデックスとして</li>
-          <li>欲しい本リストとしても使える！</li>
-        </ul>
-    </div>
+      <div class="col-md-12 col-xl-6 text_wrappper">  
+  
+          <h3 >自分だけの本棚</br>“シェルフ”</h3>
     
-    <div class="row justify-content-center">
-      <%= image_tag 'card_books_image.png' %>
-    </div>
+            <ul class="list">
+              <li>本棚は知的好奇心の一覧</li>
+              <li>情報整理のインデックスとして</li>
+              <li>欲しい本リストとしても使える！</li>
+            </ul>
+      </div>
+      
+      <div class="col-md-12 col-xl-4">
+        <%= image_tag 'card_books_image.png' %>
+      </div>
     
+    </div>
   </section>
 
 
@@ -44,23 +47,22 @@
     </div>
     
     <div class="row justify-content-center">
+      
+    <div class="col-md-12 col-xl-6 offset-xl-4 text_wrappper">
       <h3>気になる本を、どんどん</br>追加！</h3>
-    </div>
     
-    <div class="row justify-content-center">
-        <ul class="list">
-          <li>気になった本は、すぐにシェルフに追加！</li>
-          <li>タイトル検索機能で、簡単に追加できる！</li>
-          <li>気になる本、うやむやにしない！</li>
-        </ul>
-    </div>
     
-    <div class="row justify-content-center">
-      <%= image_tag 'pc_mobile_image.png' %>
-    </div>
+  
+      <ul class="list">
+        <li>気になった本は、すぐにシェルフに追加！</li>
+        <li>タイトル検索機能で、簡単に追加できる！</li>
+        <li>気になる本、うやむやにしない！</li>
+      </ul>
+   
+      <%= image_tag 'pc_mobile_image_7.png', class: "pc_mobile_image" %>
+  
+      <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
     
-    <div class="row justify-content-center">
-       <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
     </div>
    
   </section>
@@ -70,19 +72,22 @@
   <section id="tsundoku" class="gray_on_white">
     
     <div class="row justify-content-center">
-      <h3>オンラインで気軽にできる</br>“積読（ツンドク）”</h3>
-    </div>
-    
-    <div class="row justify-content-center">
-        <ul class="list">
-          <li>NOコストで気楽に試せる “ツンドク”！</li>
-          <li>本を追加すると、自動で関連動画を検索</li>
-          <li>欲しくなったら、すぐに購入もできる！</li>
-        </ul>
-    </div>
-    
-    <div class="row justify-content-center">
-      <%= image_tag 'youtube_image.png', class:"youtube_image" %>
+  
+      <div class="col-md-12 col-xl-6 text_wrappper">
+        
+        <h3>オンラインで気軽にできる</br>“積読（ツンドク）”</h3>
+          <ul class="list">
+            <li>NOコストで気楽に試せる “ツンドク”！</li>
+            <li>本を追加すると、自動で<span>関連動画</span>を検索</li>
+            <li>入手したくなったら、すぐに購入もできる！</li>
+          </ul>
+      
+      </div>
+      
+      <div class="col-md-12 col-xl-4">
+        <%= image_tag 'youtube_image.png', class:"youtube_image" %>
+      </div>
+   
     </div>
     
   </section>
@@ -105,21 +110,22 @@
   <section id="note_down_ideas" class="gray_on_white">
     
     <div class="row justify-content-center">
-      <h3>読んだ内容やアイデアは</br>テキストメモに整理！</h3>
-    </div>
     
-    <div class="row justify-content-center">
-        <ul class="list">
-          <li>本の内容など、自分の言葉でメモできる！</li>
-          <li>思いついたアイデアも逃さず記録！</li>
-          <li>概要と自分のメモは別々に保存できる！</li>
-        </ul>
-    </div>
+      <div class="col-md-12 col-xl-6 text_wrappper">
+        <h3>読んだ内容やアイデアは</br>テキストメモに整理！</h3>
+     
+          <ul class="list">
+            <li>本の内容など、自分の言葉でメモできる！</li>
+            <li>思いついたアイデアも逃さず記録！</li>
+            <li>概要と自分のメモは別々に保存できる！</li>
+          </ul>
+      </div>
+      
+      <div class="col-md-12 col-xl-4">
+        <%= image_tag 'ideas_image.png', class: "ideas_image" %>
+      </div>
     
-    <div class="row justify-content-center">
-      <%= image_tag 'ideas_image.png' %>
     </div>
-    
     
   </section>
 
@@ -132,23 +138,31 @@
     </div>
     
     <div class="row justify-content-center">
-        <ul class="list">
-          <li>欲しい本リストを簡単に作成</li>
-          <li>本をインデックスとして情報整理</li>
-          <li>コストを掛けずにツンドク</li>
-          <li>気になる本を逃さない</li>
-          <li>アイデアをうやむやにしない</li>
-        </ul>
-    </div>
     
-    <div class="row justify-content-center">
-      <%= image_tag 'shelf_image.png' %>
-    </div>
-    
-    <div class="row justify-content-center">
-       <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
-    </div>
-    
+      <div class="col-md-12 col-xl-6 offset-xl-2 text_wrappper no-gutters">
+          <ul class="list">
+            <li>欲しい本リストを簡単に作成</li>
+            <li>本をインデックスとして情報整理</li>
+            <li>コストを掛けずにツンドク</li>
+            <li>気になる本を逃さない</li>
+            <li>アイデアをうやむやにしない</li>
+          </ul>
+      
+      
+        <div class="">
+          <%= image_tag 'shelf_image@2x.png', class: "shelf_image" %>
+        </div>
+      
+      </div>
+      
+      </div>
+      
+      <div class="row justify-content-center">
+        <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
+      </div>
+        
+   
+
   </section>
 
 

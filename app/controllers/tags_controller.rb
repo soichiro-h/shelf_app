@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  
+before_action :authenticate_user!, only: [:index ]
   
   def index
     @user = current_user
@@ -12,9 +12,9 @@ class TagsController < ApplicationController
   def tag_has_errors?
     if !@tag.valid?
       if @tag.tag_title.empty?
-        @error_msg = "1文字以上入力してください"
-      elsif @tag.tag_title.length >= 9
-        @error_msg = "8文字以内で入力してください"
+        @error_msg = "文字を入力してください"
+      elsif @tag.tag_title.length >= 21
+        @error_msg = "20文字以内で入力してください"
       else
         @error_msg = "既にタグ登録されています"
       end
@@ -37,9 +37,8 @@ class TagsController < ApplicationController
   
   def create
     @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
-    
     tag_has_errors?
-    
+  
   end
   
   def clear_tags_error

@@ -308,6 +308,19 @@ var allClear = function() {
    }
 }
 
+//チェックボックスデフォルトへ
+
+var orderReset = function() {
+    allClear();
+    
+    $('#sort_by_updated_at').prop('checked', true);
+    $('#updated_at_desc').prop('checked', true);
+    $('#created_at_desc').prop('checked', true);
+    $('#title_asc').prop('checked', true);
+    
+}
+
+
 
 var switchToGallery = function() {
  
@@ -316,8 +329,10 @@ var switchToGallery = function() {
      $('.books_card_wrapper_center').addClass("no_display");
      $('.books_card_wrapper_right').addClass("no_display");
      $('.card_books').addClass("for_gallery");
-     $('.for_gallery_row').addClass("row");
-     $('.for_gallery_col').addClass("col-3");
+     $('.for_display_row').addClass("gallery");
+     $('.for_display_row').removeClass("thumb");
+     
+     displayRow();
 }
 
 var switchToThumb = function() {
@@ -327,8 +342,10 @@ var switchToThumb = function() {
      $('.books_card_wrapper_center').removeClass("no_display");
      $('.books_card_wrapper_right').removeClass("no_display");
      $('.card_books').removeClass("for_gallery");
-     $('.for_gallery_row').removeClass("row");
-     $('.for_gallery_col').removeClass("col-3");
+     $('.for_display_row').removeClass("gallery");
+     $('.for_display_row').addClass("thumb");
+     
+     displayRow();
 }
 
 var toggleOn = function(ele) {
@@ -403,3 +420,69 @@ memo_card_books
 
 */
 
+/*=========================
+       Responsive
+=========================*/
+
+
+$(function() {
+    tagsRow();
+    displayRow();
+})
+
+//ウィンドウサイズ変更時に更新
+window.onresize = window_load;
+
+//サイズの表示
+function window_load() {
+    tagsRow();
+    displayRow();
+}
+
+function tagsRow(){
+    var sW = window.innerWidth;
+    
+  	if( sW >= 992 ){
+	  $('.tag_col').addClass("col-3");
+    $('.tag_col').removeClass("col-6");
+  	}else{
+	  $('.tag_col').addClass("col-6");
+    $('.tag_col').removeClass("col-3");
+  }
+}
+
+function removeDisplayCol(){
+    $('.for_display_col').removeClass("col-1-5");
+    $('.for_display_col').removeClass("col-2");
+    $('.for_display_col').removeClass("col-3");
+    $('.for_display_col').removeClass("col-4");
+    $('.for_display_col').removeClass("col-6");
+    $('.for_display_col').removeClass("col-12");
+}
+
+function displayRow(){
+    var sW = window.innerWidth;
+    
+    removeDisplayCol();
+    
+    if($('.for_display_row').hasClass('gallery')){
+        
+        if( sW >= 1200 ){
+            $('.for_display_col').addClass("col-1-5");
+      	}else if ( sW >= 768 ){
+      	    $('.for_display_col').addClass("col-2");
+        }else{
+            $('.for_display_col').addClass("col-3");
+        }
+        
+    }else{
+        
+        if( sW >= 1200 ){
+            $('.for_display_col').addClass("col-4");
+      	}else if ( sW >= 768 ){
+      	    $('.for_display_col').addClass("col-6");
+        }else{
+            $('.for_display_col').addClass("col-12");
+        }
+    }
+}
