@@ -1,4 +1,4 @@
-/*　いらん？→　@import "bootstrap-sprockets";*/
+
 @import "bootstrap";
 
 
@@ -51,8 +51,6 @@ h3{
   text-align: center;
   margin: 60px 0;
 }
-
-
 
 /*タグ*/
 h5 {
@@ -123,6 +121,7 @@ h5 {
 
 .home_page{
   background: $SkyBlue;
+  margin-top: -20px;
   p{
     color: white;
   }
@@ -607,7 +606,7 @@ h5 {
     width: 510px;
   }
   .pc_mobile_image{
-    margin-left: calc(((100% - 492px) / 2) + 20px);
+    margin-left: calc(((100% - 492px) / 2) + 10px);
   }
   .btn_signup_free{
     margin: 0 auto;
@@ -666,11 +665,6 @@ h5 {
     */
   }
 }
-
-
-
-
-
 
 /*=========================
           Signup
@@ -767,7 +761,9 @@ h5 {
   top: -3px;
   left: 40px;
   max-height: 100px;
+  width: 250px;
   overflow: hidden;
+  padding :1px;
 }
 
 #comment_area{
@@ -777,7 +773,7 @@ h5 {
     font-size: 14px;
     color: $SteelGrey ;
     font-weight: bold; 
-    width: 240px;
+    width: 252px;
     height: 90px;
     border: none;
     outline: none;
@@ -798,8 +794,6 @@ h5 {
     margin-right: 7px ;
   }
 }
-
-/*num-book 4桁表示するには、min-widthを115pxにする必要あり*/
 
 .edit_wrapper{
   position: relative;
@@ -933,20 +927,19 @@ h5 {
 
 #tags {
   .tag li {
-	display: inline-block;
+display: inline-block;
   }
   .tag_wrapper {
-	line-height: 44px;
-	position: relative;
-	display: inline-block;
-	width: 180px;
-	height: 44px;
-	margin: 5px 50px 10px 10px;
-	padding: 0 20px 0 23px;
-	-webkit-transition: color 0.2s;
-	        transition: color 0.2s;
-	text-decoration: none;
-	/*box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.04);*/
+line-height: 44px;
+position: relative;
+display: inline-block;
+width: 180px;
+height: 44px;
+margin: 5px 50px 10px 10px;
+padding: 0 20px 0 23px;
+-webkit-transition: color 0.2s;
+       transition: color 0.2s;
+text-decoration: none;
    
     &:hover {
     opacity: 0.8;
@@ -964,9 +957,9 @@ h5 {
         }
     }
     &:hover{
-        .delete_tag{
-          display: block;
-        }
+      .delete_tag{
+        display: block;
+      }
     }
   }
 }
@@ -1103,7 +1096,6 @@ h5 {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     color: $SteelGrey !important;
   }
-  
 }
 
 .row_plus_btn{
@@ -1349,15 +1341,17 @@ h5 {
   cursor: pointer;
   width: 30px;
   height: 20x;
-  
 }
-
 
 
 /* books area */
 
 #books_area{
   margin-bottom: 50px;
+}
+
+.card_books_row{
+  width: 100%;
 }
 
 /* books card */
@@ -1374,14 +1368,13 @@ h5 {
   
 }
 .for_gallery{
-  width: 84px !important;
+  width: 80px !important;
   padding: 5px 0!important;
 }
 
 .for_display_col{
   padding: 0 !important;
 }
-
 
 .books_card_wrapper_center{
   padding: 0 0 0 12px !important;
@@ -1419,6 +1412,9 @@ h5 {
   margin-top: 2px;
   margin-left: 10px;  /* 5→10 */
   object-fit: contain;
+}
+.img_for_gallery{
+  margin-left: 5px! important;
 }
 
 .icons_card_books{
@@ -1741,9 +1737,6 @@ h5 {
     }
   }
 }
-.xxx{
-  width: 450px;
-}
 
 .book_title{
   font-family: 'Open Sans', 'Kosugi Maru', sans-serif; ;
@@ -1884,5 +1877,9 @@ h5 {
       margin-top: 70px;
     }
   }
+  
+  /* Books */
+  .gallery{
+    padding-left: 1.5%;
+  }
 }
-

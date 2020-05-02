@@ -1,0 +1,32 @@
+<!-- レイヤー -->
+<div class="layer" onclick="closeMenu()"></div>
+  
+<!-- メニューバー -->  
+<% if user_signed_in? %>
+  <div class="menu_side_area">
+    
+    <div class="icon_close_menu" onclick="closeMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+    
+    <ul class="menu_list">
+      
+      <li class="">
+        <%= link_to"シェルフをみる", books_path, class: "nav-link btn_text_white" %>
+      </li>
+      
+      <li class="">
+        <%= link_to"プロフィール", profile_path, class: "nav-link btn_text_white" %>
+      </li>
+      
+      <li class="">
+        <%= link_to"タグ", tags_path, class: "nav-link btn_text_white" %>
+      </li>
+      
+      <li class="">
+        <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link btn_text_white" %>
+      </li>
+    </ul>
+  
+  </div>
+<% end %>

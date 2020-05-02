@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light <%= 'nav-white' unless user_signed_in? %> <%= yield(:navbar) %>">
+
+  <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i>
+    <%= link_to"Shelf", user_signed_in? ? profile_path : root_path, id: "logo" %>
+  </span>
+    
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      
+      <% if user_signed_in? %>
+    
+        <div class="nav-item icon_open_menu" onclick="openMenu()">  
+          <i class="fas fa-ellipsis-h fa-2x"></i>
+        </div>
+
+   
+      <% elsif current_page?(root_path) %>
+      
+        <li class="nav-item">
+          <%= link_to"ログイン", login_path, id: "btn_to_login", class: "nav-link btn_text btn_nav" %>
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to"新規登録", signup_path, id: "btn_to_signup", class: "nav-link btn btn_skyblue btn_nav" %>
+        </li>
+      
+      <% else %>
+        <!-- static -->
+      <% end %>
+    </li>  
+  </ul>
+  
+</nav>

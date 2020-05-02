@@ -12,7 +12,7 @@ module BooksHelper
     @tags = @user.tags
     
     users_book = Book.where(user_id: @user.id)
-    @books = users_book.search(params[:search])
+    @books = users_book.search(params[:search_books])
     
     render :index
  
@@ -72,6 +72,48 @@ module BooksHelper
     end
   end
   
+  def sorting_by_order
+    
+    case params[:sort_by] 
+     
+      when "created_at"
+        if params[:created_at] == "created_at_desc"
+          @books = @books.sort_by{ |b| b.created_at}.reverse
+        else
+          @books = @books.sort_by{ |b| b.created_at}
+        end
+        
+      when "updated_at"
+        if params[:updated_at] == "updated_at_desc"
+          @books = @books.sort_by{ |b| b.updated_at}.reverse
+        else
+          @books = @books.sort_by{ |b| b.updated_at}
+        end
+        
+      when "title"
+        if params[:title] == "title_desc"
+          @books = @books.sort_by{ |b| b.title }.reverse
+        else
+          @books = @books.sort_by{ |b| b.title }
+        end
+        
+    end
+    
+  end
+  
+  def sort_by
+    
+    @user = User.find(params[:user_id])
+    @tags = @user.tags
+    
+    sorting_by_tags
+    sorting_by_fav_own
+    sorting_by_order
+
+    render 'books/index', b: @books
+  end
+  
+  
   #################################
   #        Youtube API  
   #################################
@@ -86,11 +128,56 @@ module BooksHelper
       return youtube
   end
   
+  def search_youtube
+  
+  title = params[:book][:title]
+  
+    if !params[:book][:proper_title].blank?
+      sub_title = params[:book][:proper_title] 
+      keyword = title + " " + sub_title
+    else
+      if !params[:book][:author].blank?
+      author = params[:book][:author] 
+      keyword = title + " " + author
+      else
+        do_not_search = true
+      end
+    end
+  
+    if !do_not_search
+    
+      youtube = get_service
+      opt = {
+        q: keyword,
+        type: 'video',
+        max_results: 2,
+        order: :viewCount, #:rating #:relevance 
+      }
+      
+      results = youtube.list_searches(:snippet, opt)
+      
+      @youtube = []
+      if !results.nil?
+        results.items.each do |item|
+          @youtube << item
+        end
+      end
+      
+    end
+  
+  end
+  
+  def extract_video_id(url)
+    vid = url[/\?v=([^&]+)/]
+    vid.slice!(0..2)
+    return vid
+  end
   
   
   #################################
   #         Rakuten API  
   #################################
+
   
   def search_rakuten
     @user = current_user
@@ -130,8 +217,6 @@ module BooksHelper
     
     render :index
     
-    #debugger
-    
   end
  
   
@@ -169,6 +254,5 @@ module BooksHelper
     end
     
   end
-  
-  
+
 end

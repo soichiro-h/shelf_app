@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show'
   post '/comment', to: 'users#comment_update'
   
+  post '/test_login', to: 'application#login_as_test_user'
+  
   get '/tags', to: 'tags#index'
   post '/tags', to: 'tags#update'
   post '/tag-new', to: 'tags#create'
@@ -15,14 +17,11 @@ Rails.application.routes.draw do
   post '/book-new', to: 'books#new'
   post '/books', to: 'books#create'
   get '/details/:id', to: 'books#show'
-  #get '/details/:id/edit', to: 'books#edit'
-  #delete '/details/:id', to: 'books#destroy'
   
   post '/sort_by_tags', to: 'books#sort_by_tags'
   post '/sort_by', to: 'books#sort_by'
   get '/serach_books', to: 'books#search_books'
   
-  #テスト
   get '/guess', to: 'books#search_rakuten'
   
   resources :books

@@ -11,8 +11,8 @@ class Book < ApplicationRecord
    validates :price, numericality: :only_integer, allow_nil: true
    
    def self.search(search)
-      return Book.all unless search
+      return Book.all.order( updated_at: "DESC") if search.blank?
       Book.where("title LIKE ? OR memo LIKE ?","%#{search}%", "%#{search}%") 
-    end
+   end
    
 end

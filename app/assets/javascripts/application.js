@@ -30,6 +30,7 @@ $(function(){
   setTimeout("$('.notice').fadeOut('slow')", 1500);
 })
 
+
 /*=========================
          Button
 =========================*/
@@ -52,18 +53,6 @@ var toDetails = function(id){
 var toBackPage = function(id){
     window.history.back(-1) ; return false;
 }
-
-
-
-// Ajax のメソッド
-
-    //var div = document.getElementById('test');
-    //div.innerHTML = "<%= @books.count %>";
-    
-    
-    //var url = "/test";
-    //var div = document.getElementById('test');
-    //ajaxUpdate(url, div);
 
 
 function ajaxUpdate(url, element) {
@@ -154,15 +143,12 @@ var saveTags = function(){
 }
 
 $(window).bind("load", function(){
-    if(document.URL.match(/tag-new/) ) {
-    	
-    	$('#create_tag').modal({
-          show: true
-        })
-            	
-    }else{
-        
-    }
+  if(document.URL.match(/tag-new/) ) {
+ 
+  $('#create_tag').modal({
+        show: true
+    })
+  }
 });
 
 var clearErrors = function(){
@@ -216,13 +202,6 @@ $(function () {
 var cxlTooltip = function(){
   setTimeout("$('#tooltip_add_book').tooltip('hide')", 350);
 }
-
-//不要 onclick 消す
-var displayGuess = function(){
-  //  $('#guess_area').addClass("guess_area_margin");
-  //  setTimeout("$('#guess_area').removeClass('no_display')", 1000);
-}
-
 
 var submitGuessBook = function(book){
     $(book).parent().submit();
@@ -320,7 +299,14 @@ var orderReset = function() {
     
 }
 
+//display, gallery
 
+$(function() {
+  var gallery = sessionStorage.getItem('gallery');
+    if( gallery == 'true'){
+        switchToGallery();
+    }
+})
 
 var switchToGallery = function() {
  
@@ -329,8 +315,11 @@ var switchToGallery = function() {
      $('.books_card_wrapper_center').addClass("no_display");
      $('.books_card_wrapper_right').addClass("no_display");
      $('.card_books').addClass("for_gallery");
+     $('.image_card_books').addClass("img_for_gallery");
      $('.for_display_row').addClass("gallery");
      $('.for_display_row').removeClass("thumb");
+     
+     sessionStorage.setItem('gallery', 'true' );
      
      displayRow();
 }
@@ -342,21 +331,24 @@ var switchToThumb = function() {
      $('.books_card_wrapper_center').removeClass("no_display");
      $('.books_card_wrapper_right').removeClass("no_display");
      $('.card_books').removeClass("for_gallery");
+     $('.image_card_books').removeClass("img_for_gallery");
      $('.for_display_row').removeClass("gallery");
      $('.for_display_row').addClass("thumb");
      
+     sessionStorage.removeItem('gallery');
+     
+     adjustCardMemoHeight();
      displayRow();
 }
 
 var toggleOn = function(ele) {
-    //主語として使うときは、$(ele) と書く
     a = $(ele).parent().parent().find('input[name="sort_by"]');
     a.prop('checked', true);
 }
 
 //card_books
 
-$(function() {
+function adjustCardMemoHeight() {
   
   var num = ($('.card_books').length);
   
@@ -369,56 +361,8 @@ $(function() {
       memo.css('max-height', '48px');
     }
   }
-})
-  /*
-  var book = $("#book_1")
-  var title = book.children('.books_card_wrapper_center').children('.title_card_books');
-  console.log(title.height());
-  console.log($('.card_books').length)
- 
-  var memo = book.children('.books_card_wrapper_center').children('.memo_card_books');
-  
-  if ( title.height() == 32 ){
-    memo.css('max-height', '48px');
-  }
-  */
-  
+}
 
-//ループ
-
-/*
-
-for ([初期化式]; [条件式]; [加算式])
-for (let i = 1; i =< $('.card_books').length; i++){
-  var book = $("'#book_' + i")
-  var title = book.children('.books_card_wrapper_center').children('.title_card_books');
-  var memo = book.children('.books_card_wrapper_center').children('.memo_card_books');
-  
-  if ( title.height() == 32 ){
-    memo.css('max-height', '48px');
-  }
-
-
-book_1 
-books_card_wrapper_center
-card_title
-
-
-$("#book_1").children('.books_card_wrapper_center').children('.card_title');
-
-book_1 
-books_card_wrapper_center
-memo_card_books
-
-
-//book_title が２行の時だけ
-// title height 取得
-// >= xx
-// memo css max-height: xxx; を追加
-//book_memo を max-height 3行分に！
-
-
-*/
 
 /*=========================
        Responsive
@@ -428,25 +372,27 @@ memo_card_books
 $(function() {
     tagsRow();
     displayRow();
+    adjustCardMemoHeight();
 })
 
 //ウィンドウサイズ変更時に更新
 window.onresize = window_load;
 
-//サイズの表示
+//ディスプレイ調整
 function window_load() {
     tagsRow();
     displayRow();
+    adjustCardMemoHeight();
 }
 
 function tagsRow(){
     var sW = window.innerWidth;
     
-  	if( sW >= 992 ){
-	  $('.tag_col').addClass("col-3");
+  if( sW >= 992 ){
+ $('.tag_col').addClass("col-3");
     $('.tag_col').removeClass("col-6");
-  	}else{
-	  $('.tag_col').addClass("col-6");
+  }else{
+ $('.tag_col').addClass("col-6");
     $('.tag_col').removeClass("col-3");
   }
 }
@@ -469,8 +415,8 @@ function displayRow(){
         
         if( sW >= 1200 ){
             $('.for_display_col').addClass("col-1-5");
-      	}else if ( sW >= 768 ){
-      	    $('.for_display_col').addClass("col-2");
+      }else if ( sW >= 768 ){
+         $('.for_display_col').addClass("col-2");
         }else{
             $('.for_display_col').addClass("col-3");
         }
@@ -479,8 +425,8 @@ function displayRow(){
         
         if( sW >= 1200 ){
             $('.for_display_col').addClass("col-4");
-      	}else if ( sW >= 768 ){
-      	    $('.for_display_col').addClass("col-6");
+      }else if ( sW >= 768 ){
+         $('.for_display_col').addClass("col-6");
         }else{
             $('.for_display_col').addClass("col-12");
         }

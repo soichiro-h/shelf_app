@@ -17,92 +17,21 @@
   
   <div id="contents_wrapper">
   
-  <div class="layer" onclick="closeMenu()">
-  </div>
   
-  <% if user_signed_in? %>
-    <div class="menu_side_area">
-      
-      <div class="icon_close_menu" onclick="closeMenu()">
-        <i class="fas fa-times"></i>
-      </div>
-      
-      <ul class="menu_list">
-        
-        <li class="">
-          <%= link_to"シェルフをみる", books_path, class: "nav-link btn_text_white" %>
-        </li>
-        
-        <li class="">
-          <%= link_to"プロフィール", profile_path, class: "nav-link btn_text_white" %>
-        </li>
-        
-        <li class="">
-          <%= link_to"タグ", tags_path, class: "nav-link btn_text_white" %>
-        </li>
-        
-        <li class="">
-          <%= link_to"ログアウト", logout_path, method: :delete, class: "nav-link btn_text_white" %>
-        </li>
-      </ul>
-    
-    </div>
-  <% end %>
-  
+    <%= render 'layouts/side_menu' %>
  
-    <nav class="navbar navbar-light <%= 'nav-white' unless user_signed_in? %> <%= yield(:navbar) %>">
-
-        <span class="navbar-brand"><i id="logo_icon" class="fas fa-book"></i>
-        <%= link_to"Shelf", 
-        if user_signed_in?
-          profile_path
-        else
-          root_path
-        end,
-        id: "logo" %>
-        </span>
-        
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          
-          <% if user_signed_in? %>
-        
-            <div class="nav-item icon_open_menu" onclick="openMenu()">  
-              <i class="fas fa-ellipsis-h fa-2x"></i>
-            </div>
-
-       
-          <% elsif current_page?(root_path) %>
-          
-            <li class="nav-item">
-              <%= link_to"ログイン", login_path, id: "btn_to_login", class: "nav-link btn_text btn_nav" %>
-            </li>
-            
-            <li class="nav-item">
-              
-              <%= link_to"新規登録", signup_path, id: "btn_to_signup", class: "nav-link btn btn_skyblue btn_nav" %>
-            </li>
-          
-          <% else %>
-
-          <% end %>
-      </ul>
-    </nav>
+    <%= render 'layouts/nav' %>
     
+    
+    <!-- flash -->  
+    
+    <div class="row justify-content-center">
       
-    
-  
-        <div class="row justify-content-center">
-          
-          <% if notice %>
-            <p class="notice"><%= notice %></p>
-          <% end %>
-            
-        </div>
-     
-    
-
-    <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+        
+    </div>
     
     <%= yield %>
   
@@ -111,14 +40,11 @@
   <!-- footer -->  
   
   <footer class="footer">
-    <div class="row justify-content-center <%= yield(:home_page) %>">
-      <p class="copyrights">Copyrights &copy; 2020 Shelf All Right Reserved</p>
+    <div class="row justify-content-center <%= yield(:footer) %>">
+      <p class="copyrights">Copyrights &copy; 2020 Shelf All Rights Reserved</p>
     </div>
   </footer>
- 
   
   </body>
-
-  
   
 </html>
