@@ -2,19 +2,18 @@
 <% provide(:navbar, "fixed-top") %>
 
 <div id="books_page" class="container">  
+
 <i class="fas fa-sort-numeric-down-alt"></i>
   <div class="row justify-content-center">
     
     <div class="container"> 
-    
-          
-    
+
         <div class="row justify-content-center row_search_field" >
           <div class="search_filed_wrapper">
             <%= form_tag(serach_books_path,:method => 'get') do %>
             <%= text_field_tag :search_books, "", class:"search_field" %>
             <input type="hidden" name="user_id" value="<%= @user.id %>">
-            <%= submit_tag '', :name => nil, class: "search_btn btn_icon_steelgray" %>
+            <i class="fas fa-search search_btn"><%= submit_tag '', :name => nil, class: "search_books_submit" %></i>
             </div>
           <% end %>
           
@@ -49,8 +48,8 @@
                 
                 <p class="error_modal"><%= @error_msg %></p>
                 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
-                <button type="submit" class="btn btn_skyblue" onclick="displayGuess()" >検索</button>
+                <button type="button" class="btn btn-secondary btn_modal" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
+                <button type="submit" class="btn btn_skyblue btn_modal" onclick="displayGuess()" >検索</button>
                 </form>
               </div>
             </div>
@@ -105,8 +104,8 @@
                 <form role="form" action="/book-new" method="post">
                   <input type="hidden" name="user_id" value="<%= @user.id %>">
                   <input type="hidden" name="[book][title]" value="<%= @book_title %>">
-                  <button type="button" class="btn btn-secondary" onclick="toBackPage()">戻る</button>
-                  <button type="submit" class="btn btn-secondary" onclick="">候補から選ばない</button>
+                  <button type="button" class="btn btn-secondary btn_modal" onclick="toBackPage()">戻る</button>
+                  <button type="submit" class="btn btn-secondary btn_modal" onclick="">候補から選ばない</button>
                 </form>  
           
               </div>
@@ -163,8 +162,8 @@
             </div>
           
              <div class="row justify-content-end btns">
-                <button type="button" class="btn btn_bayoux" onclick="orderReset()"><i class="fas fa-undo-alt fa-lg"></i></button>
-                <button type="button" class="btn btn_skyblue" onclick="sortBy()"><i class="fas fa-random fa-lg"></i></button>
+                <button type="button" class="btn btn_bayoux btn_modal" onclick="orderReset()"><i class="fas fa-undo-alt fa-lg"></i></button>
+                <button type="button" class="btn btn_skyblue btn_modal" onclick="sortBy()"><i class="fas fa-random fa-lg"></i></button>
               </div>
             
             <% end %>

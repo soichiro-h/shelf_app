@@ -6,6 +6,8 @@ class BooksController < ApplicationController
   
   def index
     
+    #debugger
+    
     @user = current_user
     @books = @user.books.order(updated_at: "DESC")
     @tags = @user.tags

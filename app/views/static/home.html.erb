@@ -3,13 +3,13 @@
 <% provide(:footer, "home_page") %>
 
 
-<div id="home_page" class="">
+<div id="home_page" class="container-fluid">
 
   <div id="book_shelf">
     <div class="row justify-content-center row_arrow">
-      <div class="white_space"></div>
+      <div class="white_space ws_left"></div>
       <%= image_tag 'arrow_shape.png', class:"arrow_shape" %>
-      <div class="white_space"></div>
+      <div class="white_space ws_right"></div>
     </div>
   </div>
   
@@ -18,7 +18,9 @@
 
   <section id="introduce_shelf" class="gray_on_white">
     
-    <div class="row justify-content-center">
+    <div class="white_space_line"></div>
+    
+    <div class="row justify-content-center no-gutters">
     
       <div class="col-md-12 col-xl-6 text_wrappper">  
   
@@ -42,11 +44,11 @@
 <!-- 気になる本をどんどん追加-->
   <section id="put_books_in" class="white_on_blue">
     
-    <div class="row justify-content-center">
-      <%= image_tag 'arrow_white.png' %>
+    <div class="row justify-content-center no-gutters">
+      <%= image_tag 'arrow_white.png', class:"arrow_white" %>
     </div>
     
-    <div class="row justify-content-center">
+    <div class="row justify-content-center no-gutters">
       
     <div class="col-md-12 col-xl-6 offset-xl-4 text_wrappper">
       <h3>気になる本を、どんどん</br>追加！</h3>
@@ -71,7 +73,7 @@
 <!-- ツンドク-->  
   <section id="tsundoku" class="gray_on_white">
     
-    <div class="row justify-content-center">
+    <div class="row justify-content-center no-gutters">
   
       <div class="col-md-12 col-xl-6 text_wrappper">
         
@@ -93,14 +95,14 @@
   </section>
   
   <div id="pile_of_books">
-    <div class="row justify-content-center">
-      <%= image_tag 'arrow_white.png' %>
+    <div class="row justify-content-center no-gutters">
+      <%= image_tag 'arrow_white.png', class:"arrow_white" %>
     </div>
     
     <div class="row justify-content-center row_arrow">
-      <div class="white_space"></div>
+      <div class="white_space ws_left"></div>
       <%= image_tag 'arrow_shape.png', class:"arrow_shape" %>
-      <div class="white_space"></div>
+      <div class="white_space ws_right"></div>
     </div>
     
   </div>
@@ -109,7 +111,9 @@
 <!-- アイデアはメモに-->    
   <section id="note_down_ideas" class="gray_on_white">
     
-    <div class="row justify-content-center">
+    <div class="white_space_line"></div>
+    
+    <div class="row justify-content-center no-gutters">
     
       <div class="col-md-12 col-xl-6 text_wrappper">
         <h3>読んだ内容やアイデアは</br>テキストメモに整理！</h3>
@@ -133,12 +137,12 @@
 <!-- Shelfでできること-->   
   <section id="what_can_do_with_shelf" class="white_on_blue">
     
-    <div class="row justify-content-center">
+    <div class="row justify-content-center no-gutters">
       <h3><span class="logo">Shelf</span> が解決できること</h3>
     </div>
     
-    <div class="row justify-content-center">
-    
+    <div class="row justify-content-center no-gutters">
+      
       <div class="col-md-12 col-xl-6 offset-xl-2 text_wrappper no-gutters">
           <ul class="list">
             <li>欲しい本リストを簡単に作成</li>
@@ -157,7 +161,7 @@
       
       </div>
       
-      <div class="row justify-content-center">
+      <div class="row justify-content-center no-gutters">
         <%= link_to "無料で新規登録", signup_path, id: "btn_to_signup", class: "btn btn_white btn_signup_free" %>
       </div>
         

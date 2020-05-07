@@ -20,6 +20,15 @@
 
 
 
+/*=========================
+         Debug
+=========================*/
+
+$(function(){
+  var ws = window.innerWidth;
+  console.log(ws)
+})
+
 
 /*=========================
         Universal
@@ -29,7 +38,6 @@
 $(function(){
   setTimeout("$('.notice').fadeOut('slow')", 1500);
 })
-
 
 /*=========================
          Button
@@ -373,6 +381,7 @@ $(function() {
     tagsRow();
     displayRow();
     adjustCardMemoHeight();
+    mobileOr();
 })
 
 //ウィンドウサイズ変更時に更新
@@ -430,5 +439,64 @@ function displayRow(){
         }else{
             $('.for_display_col').addClass("col-12");
         }
+    }
+}
+
+/*=========================
+         Mobile
+=========================*/
+
+function mobileOr() {
+    var ua = navigator.userAgent;
+    if ((ua.indexOf('iPhone') > 0 || ua.indexOf('Android') || ua.indexOf('iPad') > 0) && ua.indexOf('Mobile') > 0) {
+        
+        // books index のみ
+        $('.card_books').addClass("for_mobile_size");
+        $('.search_field').addClass("for_mobile_size");
+        $('.sort_btns').addClass("for_mobile_size");
+        $('#btn_plus_book').addClass("for_mobile_size");
+        $('.sort_window').addClass("for_mobile_size");
+        $('.search_btn').addClass("for_mobile_size");
+        
+        $('.for_display_row').addClass("for_display_row_mb");
+        $('.for_display_row').addClass("gallery_mb");
+        $('#btn_plus_book').addClass("btn_plus_book_mb");
+        $('.sort_area').addClass("sort_area_mb");
+        $('.search_btn').addClass("search_btn_mb");
+        $('.guess_wrapper > .btn_wrapper').addClass("btn_wrapper_mb");
+        
+  
+        // side menu
+        $('.icon_close_menu').addClass("for_mobile_size");
+        $('.icon_close_menu').addClass("icon_close_menu_mb");
+        $('.menu_list').addClass("for_mobile_size");
+        
+        
+        // tag ページ
+        
+        $('#tag_page').addClass("tag_page_mb");
+        $('.tag_col > .tag_wrapper').addClass("tag_wrapper_mb");
+        $('.tag_col > .tag_wrapper').removeClass("tag_wrapper");
+        
+        
+        // tag index
+        $('.tags_area > .tags_label').addClass("tags_label_mb");
+        $('.tags_container > label').removeClass("tags_label");
+        $('.tags_container > label').addClass("tags_label_mb");
+        
+        
+        // new
+        
+        //$('.tag_section > .row >.tag').addClass("tag_mb");
+        
+        
+        //details
+        
+        $('.tag_wrapper_details >.tags_container > .tag_field').addClass("tag_field_mb");
+        $('.tag_wrapper_details >.tags_container > .tag_field_mb').removeClass("tag_field");
+        
+    } else {
+        // PC
+    
     }
 }

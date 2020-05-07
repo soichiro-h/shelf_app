@@ -2,10 +2,12 @@
 <html>
  
   <head>
-    <title>Shelf</title>
+    <title>Shelf | 自分だけの本棚アプリ</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=520">
     
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <%= favicon_link_tag('favicon.ico') %>
     
     <%= render 'layouts/webfont' %>
     <%= include_gon %>
@@ -15,7 +17,7 @@
   
   <body class="<%= 'bg_white' unless user_signed_in? %>">
   
-  <div id="contents_wrapper">
+  <div id="contents_wrapper" class="container-fluid">
   
   
     <%= render 'layouts/side_menu' %>
@@ -35,16 +37,17 @@
     
     <%= yield %>
   
+  
+    <!-- footer -->  
+    
+    <footer class="footer">
+      <div class="row justify-content-center <%= yield(:footer) %>">
+        <p class="copyrights">Copyrights &copy; 2020 Shelf All Rights Reserved</p>
+      </div>
+    </footer>
+  
   </div>
-  
-  <!-- footer -->  
-  
-  <footer class="footer">
-    <div class="row justify-content-center <%= yield(:footer) %>">
-      <p class="copyrights">Copyrights &copy; 2020 Shelf All Rights Reserved</p>
-    </div>
-  </footer>
-  
+
   </body>
   
 </html>
