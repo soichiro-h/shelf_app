@@ -24,9 +24,14 @@
             <div class="row justify-content-center row_plus_btn">
               <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
                 <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
-                  <%= image_tag 'plus_btn.png' %>
+                  
+                  <% if request.from_smartphone? %>
+                    <i class="fas fa-plus fa-lg"></i>
+                  <% else %>
+                    <i class="fas fa-plus fa-lg"></i>
+                  <% end %>
+                  
                 </button>
-                
               </div>
             </div>
     

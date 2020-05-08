@@ -234,12 +234,10 @@ h5 {
 }
 
 .btn-plus{
-  margin: 0 0 15px 0;
-  width: 40px;
-  height: 40px;
   border: none;
   outline: none !important;
-  background: white;
+  color: $SkyBlue;
+  font-size: 22px;
 }
 
 /*=========================
@@ -497,8 +495,8 @@ h5 {
 }
 
 .icon_open_menu{
-  width: 30px;
-  margin-right: 10px;
+  width: 50px;
+  margin-right: -10px;
   color: $SteelGrey;
   &:hover{
     cursor: pointer;
@@ -950,7 +948,7 @@ h5 {
 #btn_plus_tag{
   background: $Lavender;
   margin: 5px 0 0 10px;
-  
+  font-size: 20px;
 }
 
 .modal-footer{
@@ -1168,9 +1166,12 @@ text-decoration: none;
 
 #btn_plus_book{
   position: relative;
-  margin: 15px 0 -10px 0 ;
+  margin: 22px 0 -10px 0 ;
   background: $Lavender !important;
   z-index: 10;
+  padding: 0 !important;
+  color: $SkyBlue;
+  font-size: 22px;
 }
 
 /* sort area */
@@ -1187,7 +1188,7 @@ text-decoration: none;
 }
 .sort_btns{
     position: absolute;
-    width: 125px !important;
+    width: 148px !important;
     width: 350px;
     right: 50px;
     top: 20px;
@@ -1199,6 +1200,9 @@ text-decoration: none;
   background: $Lavender;
   &:focus{
     outline: none;
+  }
+  i {
+    margin-left: 8px;
   }
 }
 
@@ -1522,7 +1526,7 @@ text-decoration: none;
   }
   .tag{
     margin-top: 10px;
-    height: 220px;
+    height: 200px;
     width: 380px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -1540,7 +1544,7 @@ text-decoration: none;
   margin-top: 20px;
 }
 .section_title{
-  margin-left: 15px;
+  margin-left: 22px;
 }
 
 .book_image{
@@ -1592,7 +1596,9 @@ text-decoration: none;
 }
 
 #btn_plus_video{
- margin-top: -13px;
+  margin: -7px 0 0 6px;
+  background: white;
+  font-size: 15px;
 }
 
 .video_url_field{
@@ -1889,6 +1895,11 @@ text-decoration: none;
   font-size: 16px;
 }
 
+/* book new(edit) */
+.video_url{
+  width: 335px;
+}
+
 @media screen and (min-width:576px) {
  
  /* universal */
@@ -1916,14 +1927,15 @@ text-decoration: none;
     margin: 4px;
     font-size: 14px;
   }
-  /*
-  .btn_sort_sbm{
-    margin: 0; 
-  }
-  */
+ 
   /* HOME */
   #pile_of_books{
     background-position: bottom -100px center;
+  }
+  
+  /* book new(edit) */
+  .video_url{
+    width: 350px;
   }
 }
 
@@ -2036,6 +2048,11 @@ text-decoration: none;
 
 /* books (index) */
 
+.search_field_mb{
+  width: 420px !important;
+  height: 38px !important;
+}
+
 .tags_area .tags_label_mb {
     margin-left: -10px;
     font-size: 14px;
@@ -2122,12 +2139,6 @@ text-decoration: none;
 }
 
 /* new */
-
-/*
-.tag_section .tag_mb{
- margin-left: 20px !important; 
-}
-*/
 
 /* details */
 

@@ -169,8 +169,10 @@ module BooksHelper
   
   def extract_video_id(url)
     vid = url[/\?v=([^&]+)/]
-    vid.slice!(0..2)
-    return vid
+    if !vid.nil?
+      vid.slice!(0..2)
+      return vid
+    end
   end
   
   

@@ -46,7 +46,8 @@ class BooksController < ApplicationController
       
       #videos_id を抽出
       params[:videos].each { |key, value|
-          videos.push(extract_video_id(value)) if !value.empty?
+          vid = extract_video_id(value) 
+          videos.push(vid) if !vid.nil?
       }
       
       #ceate video
