@@ -10,12 +10,14 @@
     <input type="hidden" name="user_id" value="<%= @book.id %>">
     
     <div class="row">
-      <div class="col-3">  
+      <div class="col-3 book_image">  
         <!--image-->
         <% if !@book.image.url.nil? %>
-          <%= image_tag @book.image.url, class:"book_image" %>
+          <%= image_tag @book.image.url %>
+        <% elsif @book.videos.count > 0 %>
+          <%= image_tag "http://img.youtube.com/vi/#{@book.videos.first.video_id}/mqdefault.jpg" %>
         <% else%>
-          <%= image_tag 'no_img_book.png', class:"book_image" %> 
+          <%= image_tag 'no_img_book.png' %> 
         <% end %>
       </div>
       

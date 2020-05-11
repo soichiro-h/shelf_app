@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: sou
-  password: password
+  username: root
+  password: 
   host: localhost
 
 development:
@@ -56,5 +56,5 @@ test:
 production:
   <<: *default
   database: shelf_app_production
-  username: soichiro
-  password: P@ssw0rd
+  username: root
+  password: 

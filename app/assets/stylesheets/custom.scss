@@ -844,6 +844,7 @@ h5 {
       right: 70px;
       bottom: 30px;
       display: none;
+      font-size: 30px !important;
   }
   &:hover{
     .edit_prf{
@@ -947,7 +948,7 @@ h5 {
 
 #btn_plus_tag{
   background: $Lavender;
-  margin: 5px 0 0 10px;
+  margin: 0px 0 0 10px;
   font-size: 20px;
 }
 
@@ -1463,7 +1464,7 @@ text-decoration: none;
   margin: 8px 0 0 30px;
 }
 
-.image_card_books{
+.image_card_books img{
   padding-left: -15px;
   width: 70px;  /* 75→70 */
   height: 96px;
@@ -1471,7 +1472,7 @@ text-decoration: none;
   margin-left: 10px;  /* 5→10 */
   object-fit: contain;
 }
-.img_for_gallery{
+.img_for_gallery img{
   margin-left: 5px! important;
 }
 
@@ -1480,9 +1481,14 @@ text-decoration: none;
     position: absolute;
     right: 10px;
     bottom: 10px;
+    /* font-size: 18px;  3 icons */
   }
-  i:first-child{
-    right: 38px;
+  i:nth-last-child(3){
+    display: none;
+    right: 63px;  /* 55px→63px */
+  }
+  i:nth-last-child(2){
+    right: 38px;  /* 34px→38px */
   }
 }
 
@@ -1497,6 +1503,11 @@ text-decoration: none;
 .icon_own_active{
   color: $SkyBlue;
 }
+
+.icon_yt_active{
+  color: $SteelGrey;
+}
+
 
 .no_display{
   display: none !important;
@@ -1547,7 +1558,7 @@ text-decoration: none;
   margin-left: 22px;
 }
 
-.book_image{
+.book_image img{
   width: 90px;
   height: 120px;
   object-fit: contain;
@@ -1596,7 +1607,7 @@ text-decoration: none;
 }
 
 #btn_plus_video{
-  margin: -7px 0 0 6px;
+  margin: -8px 0 0 6px;
   background: white;
   font-size: 15px;
 }
@@ -1897,7 +1908,8 @@ text-decoration: none;
 
 /* book new(edit) */
 .video_url{
-  width: 335px;
+  padding: 6px 10px;
+  width: 340px;
 }
 
 @media screen and (min-width:576px) {
@@ -1935,6 +1947,7 @@ text-decoration: none;
   
   /* book new(edit) */
   .video_url{
+    padding: 3px 10px;
     width: 350px;
   }
 }

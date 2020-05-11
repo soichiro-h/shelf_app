@@ -198,11 +198,13 @@
                 <a href="/details/<%= b.id %>">
                 <div class="">
                 <div id="book_<%= i %>" class="row card_books justify-content-start">
-                  <div class="">
+                  <div class="image_card_books">
                     <% if b.image? %>
-                      <%= image_tag b.image.url, class:"image_card_books" %> 
+                      <%= image_tag b.image.url %> 
+                    <% elsif b.videos.count > 0 %>
+                      <%= image_tag "http://img.youtube.com/vi/#{b.videos.first.video_id}/mqdefault.jpg" %>
                     <% else %>
-                      <%= image_tag 'no_img_book.png', class:"image_card_books" %>
+                      <%= image_tag 'no_img_book.png' %>
                     <% end %>
                   
                   </div>
@@ -219,7 +221,15 @@
                         <p class="price_card_books">¥ <%= b.price %></p>
                       <% end %>
                       <div class="row icons_card_books">
-                    
+                        
+                        
+                        
+                        <% if b.videos.count > 0 %>
+                          <i class="fab fa-youtube fa-lg icon_yt_active"></i>
+                        <% else %>
+                          <i class="fab fa-youtube fa-lg icon_inactive"></i>
+                        <% end %>
+                        
                         <% if b.own %>
                           <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
                         <% else %>
