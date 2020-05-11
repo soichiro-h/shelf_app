@@ -7,13 +7,13 @@
     <%= f.hidden_field :purchase_url, :value => yield(:purchase_url) %>
    
   <div class="row">
-    <div class="col-3">  
+    <div class="col-3 book_image">  
       <!--image-->
       <% if !yield(:image).blank? %>
-        <%= image_tag yield(:image), class:"book_image" %> 
+        <%= image_tag yield(:image) %> 
         <%= f.hidden_field :image, :value => yield(:image) %>
       <% else %>
-        <%= image_tag 'no_img_book.png', class:"book_image" %> 
+        <%= image_tag 'no_img_book.png' %> 
       <% end %>
     </div>
     

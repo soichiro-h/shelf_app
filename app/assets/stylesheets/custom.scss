@@ -1911,6 +1911,9 @@ text-decoration: none;
   padding: 6px 10px;
   width: 340px;
 }
+.delete_video{
+  top: 3px;
+}
 
 @media screen and (min-width:576px) {
  
@@ -1950,6 +1953,9 @@ text-decoration: none;
     padding: 3px 10px;
     width: 350px;
   }
+  .delete_video{
+  top: 0;
+}
 }
 
 @media screen and (min-width:1200px) {
