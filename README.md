@@ -1,24 +1,48 @@
-# README
+# Shelf
+書籍情報管理アプリです。 
+本のタイトルを入力すると、外部APIにより書籍情報を取得し、保存できます。 
+登録と同時にYouTube上を検索し、関連動画があれば合わせてリンクを保存します。 
+インフラにAWSを使用しています。 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![demo](https://user-images.githubusercontent.com/50736375/81693526-01d80f00-949b-11ea-9acd-1a17edd32159.gif)
 
-Things you may want to cover:
+## 制作背景
+書籍情報を簡単に管理できるアプリがあればとの想いで、制作しました。 
 
-* Ruby version
+YouTubeで配信されている"本のまとめ動画"とも関連づけできるように、また本を読んで思いついたことやアイデア等もまとめて管理できるように、機能構成を考えました。 
+とにかく使いやすく、簡単な操作で本を登録できるようなUIを意識しました。 
+書籍での購入が必要となった場合も、すぐに購入画面へ遷移できます。 
 
-* System dependencies
+今後、タイムラインやお気に入り書籍シェア機能などを追加していきたいと考えています。 
+よろしくお願い致します。 
 
-* Configuration
+## URL
+http://shelf.fun/ <br>
+ログインページから、テストユーザとして簡単ログインできます。
 
-* Database creation
+## 使用技術
+- Ruby 2.6.3, Rails 5.1.6
+- MySQL 5.7.30
+- Nginx, Unicorn
+- AWS（VPC, EC2, Route 53, S3 ）
+- Sass, Bootstrap, jQuery, Javascript
 
-* Database initialization
+## 機能一覧
+- ユーザー機能
+  - deviseを使用
+  - 新規登録、ログイン、ログアウト機能
+  - 画像投稿機能（アップロードにCarrierWaveを使用）
+  - マイページ、登録情報編集機能
+  - コメント登録、編集、削除機能
+- タグ関係
+    - タグ一覧表示、登録、編集、削除機能
+    - 書籍との関係付け機能
+- 書籍関係
+    - 書籍登録（タイトル、価格、画像、メモ、内容要約、関連動画、購入URL）編集、削除機能
+    - 一覧表示切り替え機能（カード表示、サムネイル表示）
+    - ソート機能（タイトル、作成日、更新日）
+    - フィルター機能（関連タグ、お気に入り、入手済み）
+    - 登録書籍キーワード検索機能
+    - 関連動画検索機能（YouTube API）
+    - 書籍検索機能（楽天API）
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
