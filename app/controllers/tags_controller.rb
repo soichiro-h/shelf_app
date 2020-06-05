@@ -1,33 +1,31 @@
+# frozen_string_literal: true
+
 class TagsController < ApplicationController
   include TagsHelper
-  before_action :authenticate_user!, only: [:index ]
-  
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @user = current_user
     @tags = @user.tags
     flash.now[:notice] = @user.flash if @user.flash
     @user.update_attributes(flash: nil)
-    
   end
-  
+
   def create
-    @tag =Tag.new(user_id: "#{params[:user_id]}", tag_title: "#{params[:new_tag_title]}")
+    @tag = Tag.new(user_id: params[:user_id].to_s, tag_title: params[:new_tag_title].to_s)
     tag_has_errors?
-    
   end
-  
-  
+
   def destroy
     tag = Tag.find(params[:id])
     tag.update(deleted_at: Time.now)
     tag.destroy
     @user = User.find(tag.user_id)
-    @user.update_attributes(flash: "削除しました")
-    
+    @user.update_attributes(flash: '削除しました')
+
     redirect_to tags_path
-    
   end
-  
+
   def update
     @user = User.find(params[:user_id])
     @tags = @user.tags
@@ -36,5 +34,4 @@ class TagsController < ApplicationController
     end
     redirect_to tags_path
   end
-  
 end
