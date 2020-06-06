@@ -318,7 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (~> 4.4.1)
-  bootstrap-sass
+  bootstrap-sass (~> 3.4.1)
   byebug
   carrierwave
   coffee-rails (= 4.2.2)

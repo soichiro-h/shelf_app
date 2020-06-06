@@ -14,9 +14,9 @@ class RegistrationsController < Devise::RegistrationsController
   # デフォルトtag の生成
   def add_default_tags
     tags = %w[ビジネス 自己啓発 語学 フィクション アート 娯楽 健康 テクノロジー 社会 教育]
-    tags.each { |t|
+    tags.each do |t|
       Tag.create!(tag_title: t, user_id: @user.id)
-    }
+    end
   end
 
   # デフォルトコメント の登録

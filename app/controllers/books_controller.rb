@@ -30,9 +30,9 @@ class BooksController < ApplicationController
     unless params[:tags].nil?
       tag_relations = params[:tags].keys
 
-      tag_relations.each { |rel|
+      tag_relations.each do |rel|
         @book.related_tags.create(tag_id: rel)
-      }
+      end
     end
   end
 
@@ -42,15 +42,15 @@ class BooksController < ApplicationController
       videos = []
 
       # videos_id を抽出
-      params[:videos].each { |_key, value|
+      params[:videos].each do |_key, value|
         vid = extract_video_id(value)
         videos.push(vid) unless vid.nil?
-      }
+      end
 
       # ceate video
-      videos.each { |v|
+      videos.each do |v|
         Video.create(video_id: v, book_id: @book.id)
-      }
+      end
 
     end
   end

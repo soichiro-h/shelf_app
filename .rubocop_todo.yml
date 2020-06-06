@@ -343,55 +343,64 @@
 
 # Offense count: 9
 # Configuration parameters: IgnoredMethods.
-Metrics/AbcSize:
-  Max: 42
+
+# Metrics/AbcSize:
+#   Max: 42
 
 # Offense count: 4
 # Configuration parameters: CountComments, ExcludedMethods.
 # ExcludedMethods: refine
-Metrics/BlockLength:
-  Max: 72
+
+# Metrics/BlockLength:
+#   Max: 72
 
 # Offense count: 1
 # Configuration parameters: CountComments.
-Metrics/ClassLength:
-  Max: 109
+
+# Metrics/ClassLength:
+#   Max: 109
 
 # Offense count: 2
 # Configuration parameters: IgnoredMethods.
-Metrics/CyclomaticComplexity:
-  Max: 8
+
+#Metrics/CyclomaticComplexity:
+#  Max: 8
 
 # Offense count: 11
 # Configuration parameters: CountComments, ExcludedMethods.
-Metrics/MethodLength:
-  Max: 28
+
+# Metrics/MethodLength:
+#   Max: 28
 
 # Offense count: 1
 # Configuration parameters: CountComments.
-Metrics/ModuleLength:
-  Max: 171
+
+# Metrics/ModuleLength:
+#   Max: 171
 
 # Offense count: 2
 # Configuration parameters: IgnoredMethods.
-Metrics/PerceivedComplexity:
-  Max: 9
+
+# Metrics/PerceivedComplexity:
+#   Max: 9
 
 # Offense count: 1
-Naming/AccessorMethodName:
-  Exclude:
-    - 'app/helpers/books_helper.rb'
+
+# Naming/AccessorMethodName:
+#   Exclude:
+#     - 'app/helpers/books_helper.rb'
 
 # Offense count: 16
 # Configuration parameters: AllowedChars.
-Style/AsciiComments:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
-    - 'app/controllers/registrations_controller.rb'
-    - 'app/controllers/users/registrations_controller.rb'
-    - 'app/helpers/books_helper.rb'
-    - 'config/initializers/carrierwave.rb'
-    - 'config/unicorn.conf.rb'
+
+# Style/AsciiComments:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
+#     - 'app/controllers/registrations_controller.rb'
+#     - 'app/controllers/users/registrations_controller.rb'
+#     - 'app/helpers/books_helper.rb'
+#     - 'config/initializers/carrierwave.rb'
+#     - 'config/unicorn.conf.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -408,11 +417,11 @@ Style/AsciiComments:
 # FunctionalMethods: let, let!, subject, watch
 # IgnoredMethods: lambda, proc, it
 
-Style/BlockDelimiters:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
-    - 'app/controllers/registrations_controller.rb'
-    - 'app/helpers/books_helper.rb'
+# Style/BlockDelimiters:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
+#     - 'app/controllers/registrations_controller.rb'
+#     - 'app/helpers/books_helper.rb'
 
 # Offense count: 7
 # Cop supports --auto-correct.
@@ -430,9 +439,9 @@ Style/BlockDelimiters:
 #     - 'test/test_helper.rb'
 
 # Offense count: 1
-Style/CommentedKeyword:
-  Exclude:
-    - 'app/helpers/books_helper.rb'
+# Style/CommentedKeyword:
+#   Exclude:
+#     - 'app/helpers/books_helper.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -445,8 +454,9 @@ Style/CommentedKeyword:
 #     - 'app/helpers/tags_helper.rb'
 
 # Offense count: 37
-Style/Documentation:
-  Enabled: false
+
+# Style/Documentation:
+#   Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -479,16 +489,18 @@ Style/Documentation:
 
 # Offense count: 16
 # Configuration parameters: AllowedVariables.
-Style/GlobalVars:
-  Exclude:
-    - 'config/unicorn.conf.rb'
+
+# Style/GlobalVars:
+#   Exclude:
+#     - 'config/unicorn.conf.rb'
 
 # Offense count: 6
 # Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
-    - 'app/helpers/books_helper.rb'
+
+# Style/GuardClause:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
+#     - 'app/helpers/books_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -501,16 +513,18 @@ Style/GuardClause:
 
 # Offense count: 2
 # Configuration parameters: AllowIfModifier.
-Style/IfInsideElse:
-  Exclude:
-    - 'app/helpers/books_helper.rb'
-    - 'app/helpers/tags_helper.rb'
+
+# Style/IfInsideElse:
+#   Exclude:
+#     - 'app/helpers/books_helper.rb'
+#     - 'app/helpers/tags_helper.rb'
 
 # Offense count: 2
-Style/MixinUsage:
-  Exclude:
-    - 'bin/setup'
-    - 'bin/update'
+
+# Style/MixinUsage:
+#   Exclude:
+#     - 'bin/setup'
+#     - 'bin/update'
 
 # Offense count: 3
 # Cop supports --auto-correct.

@@ -29,15 +29,15 @@ module BooksHelper
       @selected_tags = []
 
       tags = params[:tags].keys
-      tags.each { |t|
+      tags.each do |t|
         @selected_tags.push(Tag.find(t))
-      }
+      end
 
       # タグに関連づいた本抽出
       @tagged_books = []
-      @selected_tags.each { |t|
+      @selected_tags.each do |t|
         @tagged_books.push(t.books)
-      }
+      end
 
       @books = @tagged_books.flatten.uniq
 
@@ -208,24 +208,24 @@ module BooksHelper
     if keyword.include?('　')
       inspection = keyword.split('　')
 
-      inspection.each { |i|
+      inspection.each do |i|
         splited_words << i unless i.blank?
-      }
+      end
 
-      splited_words.each { |s|
+      splited_words.each do |s|
         return false if s.length == 1
-      }
+      end
 
     elsif keyword.include?(' ')
       inspection = keyword.split
 
-      inspection.each { |i|
+      inspection.each do |i|
         splited_words << i unless i.blank?
-      }
+      end
 
-      splited_words.each { |s|
+      splited_words.each do |s|
         return false if s.length == 1
-      }
+      end
     else
       keyword.length != 1
     end
