@@ -1,0 +1,40 @@
+<div class="row justify-content-center row_plus_btn">
+  <div id="tooltip_add_book" data-toggle="tooltip" data-html="true" data-placement="top" title='<span>本の追加</span>'>
+    <button type="button" id="btn_plus_book" class="btn-plus" data-toggle="modal" data-target="#create_book"  >
+      
+      <% if request.from_smartphone? %>
+        <i class="fas fa-plus fa-lg"></i>
+      <% else %>
+        <i class="fas fa-plus fa-lg"></i>
+      <% end %>
+      
+    </button>
+  </div>
+</div>
+
+
+<div class="modal fade" id="create_book" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title default_title" id="exampleModalLabel">タイトル</h5>
+        
+      </div>
+      <div class="modal-body popup_new_tag">
+        
+        <form role="form" action="/guess" method="get">
+        <input type="hidden" name="user_id" value="<%= @user.id %>">
+        <input type="text" class="new_book_title modal_field" name="new_book_title" placeholder="本のタイトルを入力" size="40">
+        
+      </div>
+      <div class="modal-footer">
+        
+        <p class="error_modal"><%= @error_msg %></p>
+        
+        <button type="button" class="btn btn-secondary btn_modal" data-dismiss="modal" onclick="cxlTooltip()">戻る</button>
+        <button type="submit" class="btn btn_skyblue btn_modal" onclick="displayGuess()" >検索</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

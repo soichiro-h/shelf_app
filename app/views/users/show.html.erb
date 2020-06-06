@@ -1,73 +1,52 @@
-
-
 <div id="profile_page" class="container">
-  
-  <div class="row justify-content-center">
-    <div class="card">
-    
-    <div class="row edit_wrapper">
-      <div class="col-4">
-        <% if !@user.avatar.url.nil? %>
-          <%= image_tag @user.avatar.url, class:"prf-img" %> 
-        <% else %>
-          <%= image_tag 'prf_img.jpg', class:"prf-img" %>
-        <% end %>
-      </div>
-      <div class="col-8">
-        <div class="row name_email_wrapper">
-          <span class="col-12 nickname"><%= @user.nickname %></span>
-          <span class="col-12 email"><%= @user.email %></span>
-        </div>
-      </div>
-      
-      <i><%= link_to "", profile_edit_path,  class: "fas fa-edit fa-lg btn_icon_bayoux edit_prf" %></i>
-      
-    </div>
-    
-    <div class="line"></div>
-    
-    <div class="row justify-content-center edit_wrapper">
-      <div class="col-8 introduce-comment">
-        <div id="display_comment">
-          <% if @user.introduce_comment %>
-            <%= @user.introduce_comment %>
-          <% end %>
-        </div>
-          
-        <div id="edit_comment" class="no_display">
-          <%= form_tag('/comment', method: :post, id: "comment_form", name:"comment_form") do %>
-          <%= text_area_tag :comment_area, value="#{@user.introduce_comment}", maxlength: "64" %>
-          <input type="hidden" name="user_id" value="<%= @user.id %>">
-          <% end %>
-        </div>
-      </div>
-      
-      
-        <i class="fas fa-edit fa-lg btn_icon_bayoux edit_comment edit_prf" onclick="editComment()"></i>
-        <i class="fas fa-check-circle fa-lg btn_icon_bayoux save_comment edit_prf no_display" onclick="saveComment()"></i>
-      
-      
-    </div>
-    
-    <div class="line"></div>
-    
     <div class="row justify-content-center">
-      <div class="col-4 num-books">
-        <p><i class="fas fa-book"></i><%= @user.books.count %></p>
-      </div>
+        <div class="card">
+            <div class="row edit_wrapper">
+                <div class="col-4">
+                    <% if !@user.avatar.url.nil? %> <%= image_tag @user.avatar.url, class:"prf-img" %> <% else %> <%= image_tag 'prf_img.jpg', class:"prf-img" %> <% end %>
+                </div>
+                <div class="col-8">
+                    <div class="row name_email_wrapper">
+                        <span class="col-12 nickname"><%= @user.nickname %></span>
+                        <span class="col-12 email"><%= @user.email %></span>
+                    </div>
+                </div>
+
+                <i><%= link_to "", profile_edit_path, class: "fas fa-edit fa-lg btn_icon_bayoux edit_prf" %></i>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="row justify-content-center edit_wrapper">
+                <div class="col-8 introduce-comment">
+                    <div id="display_comment">
+                        <% if @user.introduce_comment %> <%= @user.introduce_comment %> <% end %>
+                    </div>
+
+                    <div id="edit_comment" class="no_display">
+                        <%= form_tag('/comment', method: :post, id: "comment_form", name:"comment_form") do %> <%= text_area_tag :comment_area, value="#{@user.introduce_comment}", maxlength: "64" %>
+                        <input type="hidden" name="user_id" value="<%= @user.id %>" />
+                        <% end %>
+                    </div>
+                </div>
+
+                <i class="fas fa-edit fa-lg btn_icon_bayoux edit_comment edit_prf" onclick="editComment()"></i>
+                <i class="fas fa-check-circle fa-lg btn_icon_bayoux save_comment edit_prf no_display" onclick="saveComment()"></i>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="row justify-content-center">
+                <div class="col-4 num-books">
+                    <p><i class="fas fa-book"></i><%= @user.books.count %></p>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+    <div class="row justify-content-center">
+        <div class="wrapper_banner">
+            <%= link_to "シェルフを見る", books_path, class: "banner_to_shelf" %>
+        </div>
     </div>
-  
-  </div>
-  
-  <div class="row justify-content-center">
-    <div class="wrapper_banner">
-      <%= link_to "シェルフを見る", books_path, class: "banner_to_shelf" %>
-    </div>
-  </div>
-  
 </div>
-
-
-

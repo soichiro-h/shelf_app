@@ -1,0 +1,43 @@
+<div id="sort_section" class="row justify-content-end">
+    <div class="col-6 sort_btns">
+        <button class="sort_btn" data-toggle="collapse" href="#collapse_sort_area" role="button" aria-expanded="false" aria-controls="collapse_sort_area" onclick="openTagsArea()">
+            <i id="sort_icon_tag" class="fas fa-tags"></i>
+        </button>
+        <button class="sort_btn" type="button" data-toggle="collapse" data-target="#collapse_sort_area" aria-expanded="false" aria-controls="collapse_sort_area" onclick="openOrderArea()">
+            <i id="sort_icon_sort" class="fas fa-sort-amount-down"></i>
+        </button>
+
+        <button type="button" id="switch_to_gallery" class="sort_btn" onclick="switchToGallery()">
+            <i class="fas fa-th"></i>
+        </button>
+        <button type="button" id="switch_to_thumb" class="sort_btn no_display" onclick="switchToThumb()">
+            <i class="fas fa-th-list"></i>
+        </button>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="sort_window">
+        <div class="collapse" id="collapse_sort_area">
+            <div class="card card-body sort_area">
+                <%= form_tag('/sort_by',method: :post, id: "sort_by", name:"sort_form") do %>
+                <input type="hidden" name="user_id" value="<%= @user.id %>" />
+
+                <div id="tags_area" class="tags_area">
+                    <%= render 'books/tags_index' %>
+                </div>
+
+                <div id="order_area" class="order_area">
+                    <%= render 'books/sort_order' %>
+                </div>
+
+                <div class="row justify-content-end btns">
+                    <button type="button" class="btn btn_bayoux btn_modal" onclick="orderReset()"><i class="fas fa-undo-alt fa-lg"></i></button>
+                    <button type="button" class="btn btn_skyblue btn_modal" onclick="sortBy()"><i class="fas fa-random fa-lg"></i></button>
+                </div>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

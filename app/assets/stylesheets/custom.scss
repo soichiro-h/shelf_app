@@ -1,352 +1,345 @@
-
 @import "bootstrap";
-
 
 /*=========================
       color theme
 =========================*/
 
-
-$Lavender       : #F9FBFE;
-$Gainsboro      : #E4E4E4;
-$Bayoux         : #64707B;
-$SteelGrey      : #41464B;
-$SkyBlue        : #26B1DB;
-$CerisePink     : #E13D6D;
-$Alert          : #ED404C;
-
-
+$Lavender: #f9fbfe;
+$Gainsboro: #e4e4e4;
+$Bayoux: #64707b;
+$SteelGrey: #41464b;
+$SkyBlue: #26b1db;
+$CerisePink: #e13d6d;
+$Alert: #ed404c;
 
 /*=========================
         Universal
 =========================*/
 
-
-body{
-  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
-  background-color: $Lavender;
-  width: 100%;
-  height: 100%;
+body {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+    background-color: $Lavender;
+    width: 100%;
+    height: 100%;
 }
 
-#contents_wrapper{
-  min-height: calc(100% - 50px);
+#contents_wrapper {
+    min-height: calc(100% - 50px);
 }
 
-.bg_white{
-  background-color: white;
+.bg_white {
+    background-color: white;
 }
 
-a{
-  color: $SteelGrey;
-  &:hover{
+a {
     color: $SteelGrey;
-    text-decoration: none!important;
-  }
+    &:hover {
+        color: $SteelGrey;
+        text-decoration: none !important;
+    }
 }
 
-.container-fluid{
-  padding: 0!important;
-  overflow: hidden;
+.container-fluid {
+    padding: 0 !important;
+    overflow: hidden;
 }
 
-.modal-dialog{
-  z-index: 200;
+.modal-dialog {
+    z-index: 200;
 }
 
 /* HOME */
-h3{
-  font-family: 'Kosugi Maru', ;
-  font-size: 36px;
-  text-align: center;
-  margin: 60px 0;
+h3 {
+    font-family: "Kosugi Maru";
+    font-size: 36px;
+    text-align: center;
+    margin: 60px 0;
 }
 
 /*タグ*/
 h5 {
-    font-family: 'Kosugi Maru', ;
+    font-family: "Kosugi Maru";
     font-size: 16px;
-    i{
-      color: $Bayoux ;
+    i {
+        color: $Bayoux;
     }
-  }
-
-#page_container{
 }
 
-.logo{
-  font-family: 'Patua One',sans-serif ;
+#page_container {
 }
 
-.default_title{
-  margin: 0;
-  font-family: 'Kosugi Maru', ;
-  color: $SteelGrey ;
+.logo {
+    font-family: "Patua One", sans-serif;
 }
 
-.notice{
-  position: absolute;
-  top: 62px;
-  color: white;
-  background: $SkyBlue;
-  padding: 20px 40px;
-  z-index: 3;
-  border-radius: 5px;
-  display: block
+.default_title {
+    margin: 0;
+    font-family: "Kosugi Maru";
+    color: $SteelGrey;
 }
 
-.alert{
-  display: none;
+.notice {
+    position: absolute;
+    top: 62px;
+    color: white;
+    background: $SkyBlue;
+    padding: 20px 40px;
+    z-index: 3;
+    border-radius: 5px;
+    display: block;
 }
 
-.card{
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
-  border-style: none;
-  max-width: 450px ;
-  margin-bottom: 50px;
+.alert {
+    display: none;
 }
 
-.line{
-  border-top: solid 1px $Gainsboro ;
-  width: 200px ;
-  margin:0 auto;
+.card {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    border-style: none;
+    max-width: 450px;
+    margin-bottom: 50px;
 }
 
-.wrapper{
-  position: relative;
+.line {
+    border-top: solid 1px $Gainsboro;
+    width: 200px;
+    margin: 0 auto;
 }
 
-#error_explanation{
-  display: none;
+.wrapper {
+    position: relative;
+}
+
+#error_explanation {
+    display: none;
 }
 
 /* footer */
 
-.copyrights{
-  margin-top: 10px;
-  padding: 5px;
-  font-size: 12px;
-  color: $SteelGrey;
+.copyrights {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 12px;
+    color: $SteelGrey;
 }
 
-.home_page{
-  background: $SkyBlue;
-  margin-top: -20px;
-  margin-right: 0x;
-  padding-left: 0;
-  p{
-    color: white;
-  }
+.home_page {
+    background: $SkyBlue;
+    margin-top: -20px;
+    margin-right: 0x;
+    padding-left: 0;
+    p {
+        color: white;
+    }
 }
 
 /*=========================
           Button
 =========================*/
 
-.btn{
-  font-size: 14px;
-  outline: none !important;
-  &:hover{
-    opacity: .8;
-    color: white;
-  }
-  &:focus-visible{
-    opacity: .5;
-    outline: none;
-  }
-  &:focus{
-    outline :none;
-  }
+.btn {
+    font-size: 14px;
+    outline: none !important;
+    &:hover {
+        opacity: 0.8;
+        color: white;
+    }
+    &:focus-visible {
+        opacity: 0.5;
+        outline: none;
+    }
+    &:focus {
+        outline: none;
+    }
 }
 
-.btn_text{
-  color: $SteelGrey;
-  &:hover{
+.btn_text {
     color: $SteelGrey;
-    background: $Gainsboro;
-  }
+    &:hover {
+        color: $SteelGrey;
+        background: $Gainsboro;
+    }
 }
-.btn_text_white{
-  color: white;
-  &:hover{
+.btn_text_white {
     color: white;
-    background: $Bayoux;
-  }
+    &:hover {
+        color: white;
+        background: $Bayoux;
+    }
 }
 
-.btn_skyblue{
-  color: white ;
-  background-color: $SkyBlue;
+.btn_skyblue {
+    color: white;
+    background-color: $SkyBlue;
 }
 
-.btn_bayoux{
-  color: white ;
-  background-color: $Bayoux;
+.btn_bayoux {
+    color: white;
+    background-color: $Bayoux;
 }
 
-.btn_steelgray{
-  color: white ;
-  background-color: $SteelGrey;
+.btn_steelgray {
+    color: white;
+    background-color: $SteelGrey;
 }
 
-.btn_white{
-  color:  $SkyBlue;
-  background-color: white;
-  &:hover{
-    color:  $SkyBlue;
+.btn_white {
+    color: $SkyBlue;
     background-color: white;
-    opacity: 1;
-    transform: scale(1.2,1.2);
-  }
+    &:hover {
+        color: $SkyBlue;
+        background-color: white;
+        opacity: 1;
+        transform: scale(1.2, 1.2);
+    }
 }
 
-.bottom_btn{
-  margin-left: 10px;
+.bottom_btn {
+    margin-left: 10px;
 }
 
 /* profile */
 /* Tags */
-.btn_bayouxx{
-  width: 36px ;
-  height: 32px ;
-  color: $Bayoux ;
-}
-
-
-.btn_icon_bayoux{
-  color: $Bayoux;
-  &:hover{
+.btn_bayouxx {
+    width: 36px;
+    height: 32px;
     color: $Bayoux;
-    text-decoration: none;
-    opacity: .7;
-    cursor: pointer;
+}
+
+.btn_icon_bayoux {
+    color: $Bayoux;
+    &:hover {
+        color: $Bayoux;
+        text-decoration: none;
+        opacity: 0.7;
+        cursor: pointer;
     }
 }
 
-.btn_icon_steelgray{
-  color: $SteelGrey;
-  &:hover{
+.btn_icon_steelgray {
     color: $SteelGrey;
-    text-decoration: none;
-    opacity: .7;
-    cursor: pointer;
+    &:hover {
+        color: $SteelGrey;
+        text-decoration: none;
+        opacity: 0.7;
+        cursor: pointer;
     }
 }
 
-.btn-plus{
-  border: none;
-  outline: none !important;
-  color: $SkyBlue;
-  font-size: 22px;
+.btn-plus {
+    border: none;
+    outline: none !important;
+    color: $SkyBlue;
+    font-size: 22px;
 }
 
 /*=========================
           Form
 =========================*/
 
-.field{
-  position: relative;
+.field {
+    position: relative;
 }
 
-.standard_form{
-  color: $SteelGrey;
-  padding: 5px 10px;
-  border: solid 1px $Bayoux;
-  border-radius: 5px;
-  outline: none;
-  background: white !important;
-  width: 380px;
-  resize: none;
-  white-space: pre-wrap;
-  &:hover{
-    border: solid 1px black;
-  }
-  &:focus{
-    border: solid 2px $Bayoux;
-    margin: -1px 0;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    color: $SteelGrey !important;
-  }
-}
-.standard_form_label{
-  font-size: 12px;
-  padding: 0 5px;
-  color:$Bayoux;
-  background: white;
-  position: absolute;
-  top: 15px;
-  left: 10px;
-  z-index: 3;
-}
-
-.underlined_form{
-  color: $SteelGrey;
-  padding: 3px 10px;
-  text-decoration: underline $SteelGrey;
-  border: none;
-  outline: none;
-  background: white !important;
-  width: 280px;
-  &:hover{
-    text-decoration: underline black;
-  }
-  &:focus{
-    text-decoration: underline black;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    color: $SteelGrey !important;
-  }
-}
-
-.form_textarea{
-  height: 120px;
-  &:focus{
-    margin: 0 !important;
-  }
-}
-
-.form_notitle{
-  display: none;
-}
-
-.btn_form_submit{
-  margin-top: 15px;
-  width: 380px;
-  outline: none;
-}
-
-.wrapper_form_aux{
-  margin-top: 50px;
-  color: $SteelGrey;
-  a{
+.standard_form {
     color: $SteelGrey;
-    &:hover{
-      text-decoration: none;
+    padding: 5px 10px;
+    border: solid 1px $Bayoux;
+    border-radius: 5px;
+    outline: none;
+    background: white !important;
+    width: 380px;
+    resize: none;
+    white-space: pre-wrap;
+    &:hover {
+        border: solid 1px black;
     }
-  }
+    &:focus {
+        border: solid 2px $Bayoux;
+        margin: -1px 0;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        color: $SteelGrey !important;
+    }
 }
-.wrapper_bottom_btns{
-  width: 380px;
-  .btn{
-    margin-left: 10px;
-  }
+.standard_form_label {
+    font-size: 12px;
+    padding: 0 5px;
+    color: $Bayoux;
+    background: white;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 3;
 }
 
-.modal_field{
-  margin-left: 15px;
-  height: 30px;
-  line-height: 30px;
-  border: none;
-  &:focus{
+.underlined_form {
+    color: $SteelGrey;
+    padding: 3px 10px;
+    text-decoration: underline $SteelGrey;
+    border: none;
     outline: none;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    color: $SteelGrey !important;
-  }
+    background: white !important;
+    width: 280px;
+    &:hover {
+        text-decoration: underline black;
+    }
+    &:focus {
+        text-decoration: underline black;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        color: $SteelGrey !important;
+    }
+}
+
+.form_textarea {
+    height: 120px;
+    &:focus {
+        margin: 0 !important;
+    }
+}
+
+.form_notitle {
+    display: none;
+}
+
+.btn_form_submit {
+    margin-top: 15px;
+    width: 380px;
+    outline: none;
+}
+
+.wrapper_form_aux {
+    margin-top: 50px;
+    color: $SteelGrey;
+    a {
+        color: $SteelGrey;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+.wrapper_bottom_btns {
+    width: 380px;
+    .btn {
+        margin-left: 10px;
+    }
+}
+
+.modal_field {
+    margin-left: 15px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        color: $SteelGrey !important;
+    }
 }
 
 /* uploader*/
@@ -360,457 +353,445 @@ h5 {
     padding: 2px 10px;
     display: inline-block;
 }
-#filename{
-  color: $SteelGrey;
-  width: 200px;
+#filename {
+    color: $SteelGrey;
+    width: 200px;
 }
 
-.uploader{
-  color: $SteelGrey;
-  font-size: 12px;
-  background: none;
-  box-shadow: none;
-  border: none;
-  outline: none;
+.uploader {
+    color: $SteelGrey;
+    font-size: 12px;
+    background: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
 }
 
-.uploader_info{
-  color: $SteelGrey;
-  font-size: 12px;
+.uploader_info {
+    color: $SteelGrey;
+    font-size: 12px;
 }
 
 /* Error */
 
-.has_error{
-  .standard_form{
-  padding: 5px 10px;
-  border: solid 2px $Alert !important;
-  margin: -1px 0;
-  border-radius: 5px;
-  outline: none;
-  background: white !important;
-  width: 380px;
-  resize: none;
-  white-space: pre-wrap;
-    &:hover{
-      border: solid 1px $Alert;
+.has_error {
+    .standard_form {
+        padding: 5px 10px;
+        border: solid 2px $Alert !important;
+        margin: -1px 0;
+        border-radius: 5px;
+        outline: none;
+        background: white !important;
+        width: 380px;
+        resize: none;
+        white-space: pre-wrap;
+        &:hover {
+            border: solid 1px $Alert;
+        }
+        &:focus {
+            border: solid 2px $Alert !important;
+        }
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+            color: $SteelGrey !important;
+        }
     }
-    &:focus{
-      border: solid 2px $Alert !important;
-      
+    .standard_form_label {
+        font-size: 12px;
+        padding: 0 5px;
+        color: $Alert !important;
+        background: white;
+        position: absolute;
+        top: 15px;
+        left: 10px;
     }
-    &:-webkit-autofill{
-      -webkit-box-shadow: 0 0 0px 1000px white inset;
-      color: $SteelGrey !important;
+    p {
+        margin: 15px 0 -7px 10px !important;
+        font-size: 14px;
+        color: $Alert;
     }
-  }
-  .standard_form_label{
-    font-size: 12px;
-    padding: 0 5px;
-    color: $Alert !important;
-    background: white;
-    position: absolute;
-    top: 15px;
-    left: 10px;
-  }
-  p{
-    margin: 15px 0 -7px 10px !important;
-    font-size: 14px;
-    color: $Alert;
-  }
 }
-
-
-
 
 /*=========================
       Navigation
 =========================*/
 
-.navbar-brand{
-  margin-left: 0!important;
+.navbar-brand {
+    margin-left: 0 !important;
 }
 
-#logo_icon{
-  color: $SkyBlue;
-  margin-right: 3px ;
-  font-size: 24px;
+#logo_icon {
+    color: $SkyBlue;
+    margin-right: 3px;
+    font-size: 24px;
 }
-#logo{
-  font-family: 'Patua One',sans-serif ;
-  color: $SteelGrey;
-  font-size: 24px;
-    &:hover{
-      text-decoration-line: none;
+#logo {
+    font-family: "Patua One", sans-serif;
+    color: $SteelGrey;
+    font-size: 24px;
+    &:hover {
+        text-decoration-line: none;
     }
-  }
-
-.navbar{
-  background: $Lavender !important;
 }
 
-.fixed-top{
-  border-bottom: 1px solid $Gainsboro;
+.navbar {
+    background: $Lavender !important;
 }
 
-.navbar_shadow{
+.fixed-top {
+    border-bottom: 1px solid $Gainsboro;
+}
+
+.navbar_shadow {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.nav-white{
-  background: white !important;
+.nav-white {
+    background: white !important;
 }
 
-.btn_nav{
-  font-family: 'Kosugi Maru', ;
-  padding: 7px 15px;
-  border-radius: 10px;
+.btn_nav {
+    font-family: "Kosugi Maru";
+    padding: 7px 15px;
+    border-radius: 10px;
 }
 
-#btn_to_login{
+#btn_to_login {
 }
 
-#btn_to_signup{
-  margin-right: -3px;
+#btn_to_signup {
+    margin-right: -3px;
 }
 
 /*=========================
        Menu Drawer
 =========================*/
 
-
-.layer{
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .4);
-  z-index: 1050;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .4s;
+.layer {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s;
 }
 
-.icon_open_menu{
-  width: 50px;
-  margin-right: -10px;
-  color: $SteelGrey;
-  &:hover{
-    cursor: pointer;
-  }
-}
-
-.icon_close_menu{
-  margin-left: 182px;
-  margin-top: -42px;
-  color: $Bayoux;
-  width : 22px;
-  &:hover{
-    cursor: pointer;
-  }
-  i{
-    font-size: 22px;
-  }
-}
-.menu_side_area{
-  padding-top: 62px;
-  position: fixed;
-  width: 230px;
-  height: 100%;
-  top: 0;
-  right: 0;
-  background: $SteelGrey;
-  z-index: 1050;
-  visibility: visible;
-  transform: translate(230px);
-  transition: all .4s;
-}
-
-.menu_list{
-  margin-top: 20px;
-  list-style: none;
-  a{
-    font-family: 'Kosugi Maru', ;
-    font-size: 16px;
-    color: white;
-    width: 150px;
-    text-shadow: 1px 1px 2px $SteelGrey;
-    &:hover{
-      text-decoration: none;
-      border-radius: 10px;
+.icon_open_menu {
+    width: 50px;
+    margin-right: -10px;
+    color: $SteelGrey;
+    &:hover {
+        cursor: pointer;
     }
-  }
 }
 
+.icon_close_menu {
+    margin-left: 182px;
+    margin-top: -42px;
+    color: $Bayoux;
+    width: 22px;
+    &:hover {
+        cursor: pointer;
+    }
+    i {
+        font-size: 22px;
+    }
+}
+.menu_side_area {
+    padding-top: 62px;
+    position: fixed;
+    width: 230px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: $SteelGrey;
+    z-index: 1050;
+    visibility: visible;
+    transform: translate(230px);
+    transition: all 0.4s;
+}
 
+.menu_list {
+    margin-top: 20px;
+    list-style: none;
+    a {
+        font-family: "Kosugi Maru";
+        font-size: 16px;
+        color: white;
+        width: 150px;
+        text-shadow: 1px 1px 2px $SteelGrey;
+        &:hover {
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    }
+}
 
 /*=========================
            Home
 =========================*/
 
-.btn_signup_free{
-  width: 220px;
-  height: 50px;
-  font-size: 18px;
-  padding-top: 11px;
+.btn_signup_free {
+    width: 220px;
+    height: 50px;
+    font-size: 18px;
+    padding-top: 11px;
 }
 
-.gray_on_white{
-  color: $SteelGrey;
-  background: white;
+.gray_on_white {
+    color: $SteelGrey;
+    background: white;
 }
 
-.white_on_blue{
-  color: white;
-  background: $SkyBlue;
+.white_on_blue {
+    color: white;
+    background: $SkyBlue;
 }
 
-.list{
-  margin: 0 auto;
-  font-size: 24px;
-  line-height: 42px;
-  span{
-    margin: 0 5px;
-    font-family: 'Kosugi Maru', ;
-    font-weight: bold;
-  }
-}
-
-.row_arrow{
-  position: absolute;
-  width: calc( 100% + 30px );
-  bottom: 0;
-}
-
-.arrow_white{
-  margin-top: -1px;
-}
-
-.white_space{
-  background: white;
-  width: calc(((100% - 100px) / 2 ) + 1px );
-  height: 45px;
-  margin-bottom: -1px;
-}
-
-.ws_left{
-  margin-right: -1px;
-}
-.ws_right{
-  margin-left: -1px;
-}
-
-.white_space_line{
-  width: 100vw;
-  height: 3px;
-  position: absolute;
-  background: white;
-  top: -1px;
-}
-
-#book_shelf{
-  margin-top: 62px;
-  position: relative;
-  width: auto;
-  height: 580px;
-  background-image: url("/images/book_shelf.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#introduce_shelf{
-  width: auto;
-  height: 1010px;
-  position: relative;
-  .list{
-    width: 398px;
-  }
-  img{
-    margin-top: 50px;
-    margin-left: calc(((100% - 422px) / 2) + 10px);
-  }
-}
-
-
-#put_books_in{
-  width: auto;
-  height: 945px;
-  .list{
-    width: 510px;
-  }
-  .pc_mobile_image{
-    margin-left: calc(((100% - 492px) / 2) + 10px);
-  }
-  .btn_signup_free{
+.list {
     margin: 0 auto;
-    margin-left: calc(((100% - 220px) / 2) + 0px);
-  }
+    font-size: 24px;
+    line-height: 42px;
+    span {
+        margin: 0 5px;
+        font-family: "Kosugi Maru";
+        font-weight: bold;
+    }
 }
 
-#tsundoku{
-  width: auto;
-  height: 700px;
-  .list{
-    width: 520px;
-  }
-  .youtube_image{
-    margin-top: 70px;
-    margin-left: calc(((100% - 191px) / 2) + 0px);
-  }
+.row_arrow {
+    position: absolute;
+    width: calc(100% + 30px);
+    bottom: 0;
 }
 
-#pile_of_books{
-  position: relative;
-  width: auto;
-  height: 600px;
-  background-image: url("/images/pile_of_books.jpg");
-  background-position: bottom 20px center;
-  background-size: cover;
+.arrow_white {
+    margin-top: -1px;
 }
 
-#note_down_ideas{
-  width: auto;
-  height: 640px;
-  position: relative;
-  .list{
-    width: 500px;
-  }
-  .ideas_image{
-    margin-top: 35px;
-    margin-left: calc(((100% - 293px) / 2) + 0px);
-  }
+.white_space {
+    background: white;
+    width: calc(((100% - 100px) / 2) + 1px);
+    height: 45px;
+    margin-bottom: -1px;
 }
 
-#what_can_do_with_shelf{
-  width: auto;
-  height: 680px;
-  .list{
-    width: 400px;
-  }
-  .shelf_image{
-    width: 196px;
-    height: 147px;
-    margin-top: 20px;
-    margin-left: calc(((100% - 196px) / 2) + -35px);
-  }
-  .btn_signup_free{
-   margin-top: 40px;
-   /*
+.ws_left {
+    margin-right: -1px;
+}
+.ws_right {
+    margin-left: -1px;
+}
+
+.white_space_line {
+    width: 100vw;
+    height: 3px;
+    position: absolute;
+    background: white;
+    top: -1px;
+}
+
+#book_shelf {
+    margin-top: 62px;
+    position: relative;
+    width: auto;
+    height: 580px;
+    background-image: url("/images/book_shelf.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#introduce_shelf {
+    width: auto;
+    height: 1010px;
+    position: relative;
+    .list {
+        width: 398px;
+    }
+    img {
+        margin-top: 50px;
+        margin-left: calc(((100% - 422px) / 2) + 10px);
+    }
+}
+
+#put_books_in {
+    width: auto;
+    height: 945px;
+    .list {
+        width: 510px;
+    }
+    .pc_mobile_image {
+        margin-left: calc(((100% - 492px) / 2) + 10px);
+    }
+    .btn_signup_free {
+        margin: 0 auto;
+        margin-left: calc(((100% - 220px) / 2) + 0px);
+    }
+}
+
+#tsundoku {
+    width: auto;
+    height: 700px;
+    .list {
+        width: 520px;
+    }
+    .youtube_image {
+        margin-top: 70px;
+        margin-left: calc(((100% - 191px) / 2) + 0px);
+    }
+}
+
+#pile_of_books {
+    position: relative;
+    width: auto;
+    height: 600px;
+    background-image: url("/images/pile_of_books.jpg");
+    background-position: bottom 20px center;
+    background-size: cover;
+}
+
+#note_down_ideas {
+    width: auto;
+    height: 640px;
+    position: relative;
+    .list {
+        width: 500px;
+    }
+    .ideas_image {
+        margin-top: 35px;
+        margin-left: calc(((100% - 293px) / 2) + 0px);
+    }
+}
+
+#what_can_do_with_shelf {
+    width: auto;
+    height: 680px;
+    .list {
+        width: 400px;
+    }
+    .shelf_image {
+        width: 196px;
+        height: 147px;
+        margin-top: 20px;
+        margin-left: calc(((100% - 196px) / 2) + -35px);
+    }
+    .btn_signup_free {
+        margin-top: 40px;
+        /*
     margin-left: calc(((100% - 220px) / 2)  - 0px);
     */
-  }
+    }
 }
 
 /*=========================
           Signup
 =========================*/
 
-#signup_page{
-  margin-bottom: 30px;
-  .row{
-    margin-top: 15px;
-  }
-  div:nth-child(2){
-    margin-top: 24px;
-  }
+#signup_page {
+    margin-bottom: 30px;
+    .row {
+        margin-top: 15px;
+    }
+    div:nth-child(2) {
+        margin-top: 24px;
+    }
 }
-
 
 /*=========================
           Login
 =========================*/
 
-
-#login_page{
-  margin-bottom: 30px;
- .row{
-  margin-top: 15px;
-  }
+#login_page {
+    margin-bottom: 30px;
+    .row {
+        margin-top: 15px;
+    }
 }
 
-#login_page .standard_form{
-  background: white;
+#login_page .standard_form {
+    background: white;
 }
-
 
 /*=========================
           Forget
 =========================*/
 
-#forget_page{
-  margin-bottom: 30px;
-  .row{
-    margin-top: 15px;
-  }
-  div:nth-child(2){
-    margin-top: 24px;
-  }
+#forget_page {
+    margin-bottom: 30px;
+    .row {
+        margin-top: 15px;
+    }
+    div:nth-child(2) {
+        margin-top: 24px;
+    }
 }
-
 
 /*=========================
        Profile
 =========================*/
 
-#profile_page{
-  margin-top: 0px;  
+#profile_page {
+    margin-top: 0px;
 }
 
-.prf-img{
-  border-radius:100px ;
-  margin: 65px 0 0 75px;
-  width: 100px;
-  height: 100px;
+.prf-img {
+    border-radius: 100px;
+    margin: 65px 0 0 75px;
+    width: 100px;
+    height: 100px;
 }
 
-.name_email_wrapper{
-  height: 200px ;
-  margin: 10px 0 0 25px;
-  min-width: 255px ;
+.name_email_wrapper {
+    height: 200px;
+    margin: 10px 0 0 25px;
+    min-width: 255px;
 }
 
-.nickname{
-  font-size: 16px ; 
-  color: $SteelGrey ;
-  font-weight: bold;
-  margin-top: 80px;
+.nickname {
+    font-size: 16px;
+    color: $SteelGrey;
+    font-weight: bold;
+    margin-top: 80px;
 }
-.email{
-  font-size: 14px;
-  color: $Bayoux ;
-  font-weight: bold;
-  margin-top: -40px;
-}
-
-.introduce-comment{
-  position: relative;
-  font-size: 14px ; 
-  color: $SteelGrey ;
-  font-weight: bold;
-  height: 120px ;
-  min-width: 255px ;
-  white-space: pre-line;
-}
-#display_comment{
-  position: absolute;
-  top: -3px;
-  left: 40px;
-  max-height: 105px;
-  width: 250px;
-  overflow: hidden;
-  padding :1px;
+.email {
+    font-size: 14px;
+    color: $Bayoux;
+    font-weight: bold;
+    margin-top: -40px;
 }
 
-#comment_area{
+.introduce-comment {
+    position: relative;
+    font-size: 14px;
+    color: $SteelGrey;
+    font-weight: bold;
+    height: 120px;
+    min-width: 255px;
+    white-space: pre-line;
+}
+#display_comment {
+    position: absolute;
+    top: -3px;
+    left: 40px;
+    max-height: 105px;
+    width: 250px;
+    overflow: hidden;
+    padding: 1px;
+}
+
+#comment_area {
     position: absolute;
     top: 16px;
     left: 38px;
     font-size: 14px;
-    color: $SteelGrey ;
-    font-weight: bold; 
+    color: $SteelGrey;
+    font-weight: bold;
     width: 252px;
     height: 90px;
     border: none;
@@ -820,225 +801,225 @@ h5 {
     resize: none;
 }
 
-.num-books{
-  font-size: 22px;
-  font-weight: nomarl;
-  color: $SteelGrey ;
-  height: 160px ;
-  line-height: 160px ;
-  min-width: 105px ;
-  p{
-    display: table;
-    margin: 0 auto;
-  }
-  i{
-    color: $SkyBlue;
-    margin-right: 7px ;
-  }
-}
-
-.edit_wrapper{
-  position: relative;
-  .edit_prf{
-      position: absolute;
-      right: 70px;
-      bottom: 30px;
-      display: none;
-      font-size: 30px !important;
-  }
-  &:hover{
-    .edit_prf{
-      display: block;
+.num-books {
+    font-size: 22px;
+    font-weight: nomarl;
+    color: $SteelGrey;
+    height: 160px;
+    line-height: 160px;
+    min-width: 105px;
+    p {
+        display: table;
+        margin: 0 auto;
     }
-  }
+    i {
+        color: $SkyBlue;
+        margin-right: 7px;
+    }
 }
 
-.wrapper_banner{
-  margin-top: 10px;
-  margin-bottom: 50px;
+.edit_wrapper {
+    position: relative;
+    .edit_prf {
+        position: absolute;
+        right: 70px;
+        bottom: 30px;
+        display: none;
+        font-size: 30px !important;
+    }
+    &:hover {
+        .edit_prf {
+            display: block;
+        }
+    }
 }
 
-.banner_to_shelf{
-  padding: 22px 30px;
-  background: white;
-  color: $SteelGrey!important;
-  font-family: 'Kosugi Maru', !important;
-  font-size: 16px;
-  &:hover{
-      color: $SteelGrey;
-      text-decoration: none!important;
-      background: $Gainsboro;
+.wrapper_banner {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.banner_to_shelf {
+    padding: 22px 30px;
+    background: white;
+    color: $SteelGrey !important;
+    font-family: "Kosugi Maru" !important;
+    font-size: 16px;
+    &:hover {
+        color: $SteelGrey;
+        text-decoration: none !important;
+        background: $Gainsboro;
     }
 }
 
 /*=========================
        Profile Edit
 =========================*/
-#prof_edit_page{
-  padding: 0;
-  .row{
-    margin-top: 15px;
-  }
-  .top-row{
-    position: relative;
-    margin-top: 0!important;
-    .prf-img{
-      margin: 45px 0 0 45px;
+#prof_edit_page {
+    padding: 0;
+    .row {
+        margin-top: 15px;
     }
-  }
-  #btn_file_uploader{
-    margin-left: 35px;
-  }
- padding-bottom: 25px;
+    .top-row {
+        position: relative;
+        margin-top: 0 !important;
+        .prf-img {
+            margin: 45px 0 0 45px;
+        }
+    }
+    #btn_file_uploader {
+        margin-left: 35px;
+    }
+    padding-bottom: 25px;
 }
 
-.wrapper_uploader_prof_edit{
+.wrapper_uploader_prof_edit {
     top: 0;
     right: 0;
-  }
-
-#user_avatar{
-  position : absolute;
-  top : -9999px;
 }
 
-.current_avatar{
-  width: 100px;
-  height: 100px;
-  border-radius: 75px;
-  margin-left: -19px;
+#user_avatar {
+    position: absolute;
+    top: -9999px;
 }
 
-.wrapper_uploader_prof_edit{
-  .field{
-    color: $SteelGrey;
-    font-size: 12px;
-    margin-left: -40px;
-  }
-  .uploader_info{
-    margin: 0 0 0 40px;
-  }
+.current_avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 75px;
+    margin-left: -19px;
+}
+
+.wrapper_uploader_prof_edit {
+    .field {
+        color: $SteelGrey;
+        font-size: 12px;
+        margin-left: -40px;
+    }
+    .uploader_info {
+        margin: 0 0 0 40px;
+    }
 }
 
 /*=========================
           Tags
 =========================*/
 
-#tag_page{
-  margin-top: 93px;
-  margin-bottom: 50px;
+#tag_page {
+    margin-top: 93px;
+    margin-bottom: 50px;
 }
 
-.card_tag{
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
-  border-style: none;
-  outline: none;
+.card_tag {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    border-style: none;
+    outline: none;
 }
 
-.page_title_card{
-  padding: 12px 20px;
-  background: white;
-  h4{
-    font-size: 20px;
-    i{
-      color: $Bayoux; 
+.page_title_card {
+    padding: 12px 20px;
+    background: white;
+    h4 {
+        font-size: 20px;
+        i {
+            color: $Bayoux;
+        }
     }
-  }
 }
 
-#btn_plus_tag{
-  background: $Lavender;
-  margin: 0px 0 0 10px;
-  font-size: 20px;
+#btn_plus_tag {
+    background: $Lavender;
+    margin: 0px 0 0 10px;
+    font-size: 20px;
 }
 
-.modal-footer{
-  position: relative;
+.modal-footer {
+    position: relative;
 }
 
-.error_modal{
-  position: absolute;
-  top: 16px;
-  left: 28px;
-  color: $Alert;
+.error_modal {
+    position: absolute;
+    top: 16px;
+    left: 28px;
+    color: $Alert;
 }
 
-#tags_card{
-  margin-top: 30px;
-  margin-left: -30px;
+#tags_card {
+    margin-top: 30px;
+    margin-left: -30px;
 }
 
 #tags {
-  .tag li {
-display: inline-block;
-  }
-  .tag_wrapper {
-line-height: 44px;
-position: relative;
-display: inline-block;
-width: 180px;
-height: 44px;
-margin: 5px 50px 10px 10px;
-padding: 0 20px 0 23px;
--webkit-transition: color 0.2s;
-       transition: color 0.2s;
-text-decoration: none;
-   
-    &:hover {
-    opacity: 0.8;
+    .tag li {
+        display: inline-block;
     }
-    .delete_tag{
-        color: $SteelGrey;
-        position: absolute;
-        z-index: 5;
-        right: -32px;
-        top: 5px;
-        display: none;
-        &:hover{
-          color: $Alert;
-          text-decoration: none;
+    .tag_wrapper {
+        line-height: 44px;
+        position: relative;
+        display: inline-block;
+        width: 180px;
+        height: 44px;
+        margin: 5px 50px 10px 10px;
+        padding: 0 20px 0 23px;
+        -webkit-transition: color 0.2s;
+        transition: color 0.2s;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.8;
+        }
+        .delete_tag {
+            color: $SteelGrey;
+            position: absolute;
+            z-index: 5;
+            right: -32px;
+            top: 5px;
+            display: none;
+            &:hover {
+                color: $Alert;
+                text-decoration: none;
+            }
+        }
+        &:hover {
+            .delete_tag {
+                display: block;
+            }
         }
     }
-    &:hover{
-      .delete_tag{
-        display: block;
-      }
-    }
-  }
 }
 
-.tag_form{
- position: relative;
+.tag_form {
+    position: relative;
 }
 
-.tag_field{
-  position: relative;
-  z-index: 3;
-  margin: 2px 0 0 30px;
-  width: 135px;
-  font-family: 'Kosugi Maru', ;
-  font-size: 16px;
-  font-weight: bold;
-  color: $SteelGrey;
-  background: $Gainsboro;
-  height: 44px ;
-  border: none;
-  outline: none ;
-  line-height: 16px;
-  padding: 14px 3px;
-  &:focus{
+.tag_field {
+    position: relative;
+    z-index: 3;
+    margin: 2px 0 0 30px;
+    width: 135px;
+    font-family: "Kosugi Maru";
+    font-size: 16px;
+    font-weight: bold;
+    color: $SteelGrey;
+    background: $Gainsboro;
+    height: 44px;
+    border: none;
     outline: none;
-  }
-  &:hover{
-    cursor: default;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px $Gainsboro inset;
-    color: $SteelGrey !important;
-  }
+    line-height: 16px;
+    padding: 14px 3px;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        cursor: default;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $Gainsboro inset;
+        color: $SteelGrey !important;
+    }
 }
 
-.tag_wrapper:after{
+.tag_wrapper:after {
     content: "";
     width: 180px;
     height: 47px;
@@ -1053,232 +1034,232 @@ text-decoration: none;
     left: 15px;
 }
 
-#submit_form_tags{
-  display: none;
+#submit_form_tags {
+    display: none;
 }
 
 /*=========================
        Books (index)
 =========================*/
 
-#books_page{
-  margin-top: 62px;
+#books_page {
+    margin-top: 62px;
 }
 
-#guess_area{
-  margin: 20px 0;
-  p{
-  }
+#guess_area {
+    margin: 20px 0;
+    p {
+    }
 }
 
-.guessed_book{
-  cursor: pointer;
-  img{
-    margin: 0 auto;
-  }
+.guessed_book {
+    cursor: pointer;
+    img {
+        margin: 0 auto;
+    }
 }
 
-.guess_wrapper{
-  position: relative;
-  width: 500px;
-  margin-top: 60px;
-  padding-left: 15px;
-  .info{
-    margin: -10px -10px -10px -25px ;
-    font-family: 'Kosugi Maru',sans-serif,  ;
-    color: $SteelGrey;
-   }
-   .btn_wrapper{
-      margin-top: 30px; 
-   }
+.guess_wrapper {
+    position: relative;
+    width: 500px;
+    margin-top: 60px;
+    padding-left: 15px;
+    .info {
+        margin: -10px -10px -10px -25px;
+        font-family: "Kosugi Maru", sans-serif;
+        color: $SteelGrey;
+    }
+    .btn_wrapper {
+        margin-top: 30px;
+    }
 }
 
 /* tooltips */
-.tooltip{
-  z-index: 100;
+.tooltip {
+    z-index: 100;
 }
 .tooltip .tooltip-inner {
- color: white;
- background-color: $SteelGrey;
-  span{
-  }
+    color: white;
+    background-color: $SteelGrey;
+    span {
+    }
 }
-.tooltip-auto[x-placement^=top] .arrow::before, 
+.tooltip-auto[x-placement^="top"] .arrow::before,
 .tooltip .arrow::before {
- border-top-color: $SteelGrey !important; 
+    border-top-color: $SteelGrey !important;
 }
 
-#tooltip_add_book{
-  margin: 0px;
+#tooltip_add_book {
+    margin: 0px;
 }
 
 /* serch & plus btn*/
 
-.row_search_field{
-  /*width: 350px;
+.row_search_field {
+    /*width: 350px;
   margin-top: 20px;
   padding-left: 30px;*/
 }
 
-.search_filed_wrapper{
-  position: relative; 
-  margin-left: -10px;
-  margin-right: 10px;
-  width: 350px;
+.search_filed_wrapper {
+    position: relative;
+    margin-left: -10px;
+    margin-right: 10px;
+    width: 350px;
 }
-.search_field{
-  border: 1px solid $Gainsboro;
-  border-radius: 7px;
-  margin-left: 10px;
-  padding-left: 10px;
-  color: $SteelGrey;
-  font-size: 14px;
-  width: 350px;
-  height: 32px;
-  &:focus{
-    outline :none;
-  }
-  &:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    color: $SteelGrey !important;
-  }
-}
-
-.row_plus_btn{
- height: 20px !important; 
+.search_field {
+    border: 1px solid $Gainsboro;
+    border-radius: 7px;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: $SteelGrey;
+    font-size: 14px;
+    width: 350px;
+    height: 32px;
+    &:focus {
+        outline: none;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+        color: $SteelGrey !important;
+    }
 }
 
-.search_btn{
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  color: $SteelGrey;
-  background: white;
-  border: none !important;
-  top: 7px;
-  right: 3px;
+.row_plus_btn {
+    height: 20px !important;
 }
 
-.search_books_submit{
-  position: absolute;
-  right: 4px;
-  opacity: 0;
+.search_btn {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    color: $SteelGrey;
+    background: white;
+    border: none !important;
+    top: 7px;
+    right: 3px;
 }
 
-#btn_plus_book{
-  position: relative;
-  margin: 22px 0 -10px 0 ;
-  background: $Lavender !important;
-  z-index: 10;
-  padding: 0 !important;
-  color: $SkyBlue;
-  font-size: 22px;
+.search_books_submit {
+    position: absolute;
+    right: 4px;
+    opacity: 0;
+}
+
+#btn_plus_book {
+    position: relative;
+    margin: 22px 0 -10px 0;
+    background: $Lavender !important;
+    z-index: 10;
+    padding: 0 !important;
+    color: $SkyBlue;
+    font-size: 22px;
 }
 
 /* sort area */
 
-#sort_section{
-  position: relative;
-  margin: 0px 0;
-  button{
-    padding: 0 5px !important;
-  }
-   i{
-    color: $Bayoux;
-  }
+#sort_section {
+    position: relative;
+    margin: 0px 0;
+    button {
+        padding: 0 5px !important;
+    }
+    i {
+        color: $Bayoux;
+    }
 }
-.sort_btns{
+.sort_btns {
     position: absolute;
     width: 148px !important;
     width: 350px;
     right: 50px;
     top: 20px;
-    Z-index: 10;
-  }
-
-.sort_btn{
-  border: none;
-  background: $Lavender;
-  &:focus{
-    outline: none;
-  }
-  i {
-    margin-left: 8px;
-  }
+    z-index: 10;
 }
 
-.sort_window{
-  margin: 50px 0 20px 0;
-  .card-body{
-    margin-top: 10px;
-    padding: 20px 15px 20px 0;
-  }
+.sort_btn {
+    border: none;
+    background: $Lavender;
+    &:focus {
+        outline: none;
+    }
+    i {
+        margin-left: 8px;
+    }
 }
 
-.sort_area{
+.sort_window {
+    margin: 50px 0 20px 0;
+    .card-body {
+        margin-top: 10px;
+        padding: 20px 15px 20px 0;
+    }
+}
+
+.sort_area {
     box-shadow: none;
     width: 350px;
     margin-bottom: 0 !important;
-    .btns{
-      margin-right: 0px;
+    .btns {
+        margin-right: 0px;
     }
-    button{
-      margin-left: 10px;
+    button {
+        margin-left: 10px;
     }
 }
 
-.tags_area{
-  max-height: 215px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  margin-bottom: 15px;
-  .tag_index_row{
-  }
-  .tag_index{
-    width: 140px;
-    padding: 0!important;
-  }
-  .tags_label{
-    margin-left: -10px;
-    width: 140px;
-    font-size: 12px;
-    padding: 14px 0 14px 35px;
-  }
-  .tags_label:after{
-    background-image: url("/images/tag_inactive_140.png");
-    width: 140px;
-    left: -10px;
-  }
-  .tags_checkbox{
-    &:checked + .tags_label:after{
-      background-image: url("/images/tag_active_140.png");
+.tags_area {
+    max-height: 215px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+    .tag_index_row {
     }
-  }
-  .tag_index_row{
-    margin-left: 5px;
-    div:nth-child(2){
-    margin-left: 20px;
+    .tag_index {
+        width: 140px;
+        padding: 0 !important;
     }
-  }
+    .tags_label {
+        margin-left: -10px;
+        width: 140px;
+        font-size: 12px;
+        padding: 14px 0 14px 35px;
+    }
+    .tags_label:after {
+        background-image: url("/images/tag_inactive_140.png");
+        width: 140px;
+        left: -10px;
+    }
+    .tags_checkbox {
+        &:checked + .tags_label:after {
+            background-image: url("/images/tag_active_140.png");
+        }
+    }
+    .tag_index_row {
+        margin-left: 5px;
+        div:nth-child(2) {
+            margin-left: 20px;
+        }
+    }
 }
 
 /* sort order */
 
-.sort_order{
-  padding: 10px 10px 0 10px;
+.sort_order {
+    padding: 10px 10px 0 10px;
 }
 
-.sort_order_by{
-  display: none;
-  &:checked + .sort_labels:after{
-      background-image: url("/images/sort_order/checked.png");
+.sort_order_by {
+    display: none;
+    &:checked + .sort_labels:after {
+        background-image: url("/images/sort_order/checked.png");
     }
-  &:checked + .sort_order_option{
-    opacity: 0.1;
-  }
+    &:checked + .sort_order_option {
+        opacity: 0.1;
+    }
 }
 
-.sort_labels:after{
+.sort_labels:after {
     content: "";
     width: 22px;
     height: 17px;
@@ -1291,25 +1272,25 @@ text-decoration: none;
     left: 0px;
 }
 
-.sort_labels{
-  cursor: pointer;
-  margin-left: 20px;
+.sort_labels {
+    cursor: pointer;
+    margin-left: 20px;
 }
 
 /* sort order ASC/DESC */
 
-.sort_row{
-  margin: 10px 0;
+.sort_row {
+    margin: 10px 0;
 }
 
-.sort_order_asc{
-  display: none;
-  &:checked + .asc_labels:after{
-      background-image: url("/images/sort_order/sort-asc-int-active.png");
+.sort_order_asc {
+    display: none;
+    &:checked + .asc_labels:after {
+        background-image: url("/images/sort_order/sort-asc-int-active.png");
     }
 }
 
-.asc_labels:after{
+.asc_labels:after {
     content: "";
     width: 17px;
     height: 18px;
@@ -1322,14 +1303,14 @@ text-decoration: none;
     left: 50px;
 }
 
-.sort_order_desc{
-  display: none;
-  &:checked + .desc_labels:after{
-      background-image: url("/images/sort_order/sort-desc-int-active.png");
+.sort_order_desc {
+    display: none;
+    &:checked + .desc_labels:after {
+        background-image: url("/images/sort_order/sort-desc-int-active.png");
     }
 }
 
-.desc_labels:after{
+.desc_labels:after {
     content: "";
     width: 17px;
     height: 18px;
@@ -1342,14 +1323,14 @@ text-decoration: none;
     left: 0;
 }
 
-.sort_order_str_asc{
-  display: none;
-  &:checked + .asc_str_labels:after{
-      background-image: url("/images/sort_order/sort-asc-str-active.png");
+.sort_order_str_asc {
+    display: none;
+    &:checked + .asc_str_labels:after {
+        background-image: url("/images/sort_order/sort-asc-str-active.png");
     }
 }
 
-.asc_str_labels:after{
+.asc_str_labels:after {
     content: "";
     width: 17px;
     height: 18px;
@@ -1362,14 +1343,14 @@ text-decoration: none;
     left: 0;
 }
 
-.sort_order_str_desc{
-  display: none;
-  &:checked + .desc_str_labels:after{
-      background-image: url("/images/sort_order/sort-desc-str-active.png");
+.sort_order_str_desc {
+    display: none;
+    &:checked + .desc_str_labels:after {
+        background-image: url("/images/sort_order/sort-desc-str-active.png");
     }
 }
 
-.desc_str_labels:after{
+.desc_str_labels:after {
     content: "";
     width: 17px;
     height: 18px;
@@ -1382,307 +1363,303 @@ text-decoration: none;
     left: 50px;
 }
 
-.sort_order_row{
-  margin-left: 35px;
-  position: relative;
+.sort_order_row {
+    margin-left: 35px;
+    position: relative;
 }
-.sort_order_option{
-  position: absolute;
-  top: 3px;
-  left: 130px;
-}
-
-.sort_ownfav_row{
-  margin-left: 20px;
+.sort_order_option {
+    position: absolute;
+    top: 3px;
+    left: 130px;
 }
 
-.sort_order_labels{
-  cursor: pointer;
-  width: 30px;
-  height: 20x;
+.sort_ownfav_row {
+    margin-left: 20px;
 }
 
+.sort_order_labels {
+    cursor: pointer;
+    width: 30px;
+    height: 20x;
+}
 
 /* books area */
 
-#books_area{
-  margin-bottom: 50px;
+#books_area {
+    margin-bottom: 50px;
 }
 
-.card_books_row{
-  width: 100%;
+.card_books_row {
+    width: 100%;
 }
 
 /* books card */
 
-.card_books{
-  position: relative;
-  background: white;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-  border-style: none;
-  width: 350px; 
-  height: 110px;
-  margin: 7px auto 0;
-  padding: 5px;
-  
+.card_books {
+    position: relative;
+    background: white;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-style: none;
+    width: 350px;
+    height: 110px;
+    margin: 7px auto 0;
+    padding: 5px;
 }
-.for_gallery{
-  width: 80px !important;
-  padding: 5px 0!important;
-}
-
-.for_display_col{
-  padding: 0 !important;
+.for_gallery {
+    width: 80px !important;
+    padding: 5px 0 !important;
 }
 
-.books_card_wrapper_center{
-  padding: 0 0 0 12px !important;
+.for_display_col {
+    padding: 0 !important;
 }
 
-.title_card_books{
-  font-family: 'Open Sans','Kosugi Maru',sans-serif,  ;
-  font-size: 14px;
-  color: $SteelGrey;
-  margin-top: 8px;
-  margin-bottom: 2px !important;
-  max-height: 32px;
-  overflow: hidden;
+.books_card_wrapper_center {
+    padding: 0 0 0 12px !important;
 }
 
-.memo_card_books{
-  font-size: 12px;
-  color: $Bayoux;
-  margin-top: 5px;
-  line-height: 16px;
-  max-height: 64px;
-  overflow: hidden;
-  white-space: pre-wrap;
+.title_card_books {
+    font-family: "Open Sans", "Kosugi Maru", sans-serif;
+    font-size: 14px;
+    color: $SteelGrey;
+    margin-top: 8px;
+    margin-bottom: 2px !important;
+    max-height: 32px;
+    overflow: hidden;
 }
 
-.price_card_books{
-  font-size: 10px;
-  margin: 8px 0 0 30px;
+.memo_card_books {
+    font-size: 12px;
+    color: $Bayoux;
+    margin-top: 5px;
+    line-height: 16px;
+    max-height: 64px;
+    overflow: hidden;
+    white-space: pre-wrap;
 }
 
-.image_card_books img{
-  padding-left: -15px;
-  width: 70px;  /* 75→70 */
-  height: 96px;
-  margin-top: 2px;
-  margin-left: 10px;  /* 5→10 */
-  object-fit: contain;
-}
-.img_for_gallery img{
-  margin-left: 5px! important;
+.price_card_books {
+    font-size: 10px;
+    margin: 8px 0 0 30px;
 }
 
-.icons_card_books{
-  i{
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    /* font-size: 18px;  3 icons */
-  }
-  i:nth-last-child(3){
-    display: none;
-    right: 63px;  /* 55px→63px */
-  }
-  i:nth-last-child(2){
-    right: 38px;  /* 34px→38px */
-  }
+.image_card_books img {
+    padding-left: -15px;
+    width: 70px; /* 75→70 */
+    height: 96px;
+    margin-top: 2px;
+    margin-left: 10px; /* 5→10 */
+    object-fit: contain;
+}
+.img_for_gallery img {
+    margin-left: 5px !important;
 }
 
-.icon_inactive{
-  color: $Gainsboro;
+.icons_card_books {
+    i {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        /* font-size: 18px;  3 icons */
+    }
+    i:nth-last-child(3) {
+        display: none;
+        right: 63px; /* 55px→63px */
+    }
+    i:nth-last-child(2) {
+        right: 38px; /* 34px→38px */
+    }
 }
 
-.icon_fav_active{
-  color: $CerisePink;
+.icon_inactive {
+    color: $Gainsboro;
 }
 
-.icon_own_active{
-  color: $SkyBlue;
+.icon_fav_active {
+    color: $CerisePink;
 }
 
-.icon_yt_active{
-  color: $SteelGrey;
+.icon_own_active {
+    color: $SkyBlue;
 }
 
+.icon_yt_active {
+    color: $SteelGrey;
+}
 
-.no_display{
-  display: none !important;
+.no_display {
+    display: none !important;
 }
 
 /* col-1.5 */
-.col-1-5{
-  position: relative;
-  min-height: 1px;
-  margin: 0 27px ;
-  padding-right: 20px;
-  padding-left: 15px;
-  width: 12.5% !important;
-  max-width: 84px;
-  padding: 0 15px;
-  float: left;
+.col-1-5 {
+    position: relative;
+    min-height: 1px;
+    margin: 0 27px;
+    padding-right: 20px;
+    padding-left: 15px;
+    width: 12.5% !important;
+    max-width: 84px;
+    padding: 0 15px;
+    float: left;
 }
 
 /*=========================
         Books new
 =========================*/
 
-#book_new_page{
-  margin-top: 93px;
-  .row{
-    margin-top: 10px;
-  }
-  .tag{
-    margin-top: 10px;
-    height: 200px;
-    width: 380px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    .tag_field{
+#book_new_page {
+    margin-top: 93px;
+    .row {
+        margin-top: 10px;
+    }
+    .tag {
+        margin-top: 10px;
+        height: 200px;
+        width: 380px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        .tag_field {
+            font-size: 14px;
+        }
+    }
+    .btn_wrapper {
+        margin: 0px 20px 25px 0;
+        padding-top: 15px;
+    }
+}
+
+.section {
+    margin-top: 20px;
+}
+.section_title {
+    margin-left: 22px;
+}
+
+.book_image img {
+    width: 90px;
+    height: 120px;
+    object-fit: contain;
+}
+
+#book_title {
+    font-family: "Roboto", "Kosugi Maru", sans-serif;
+    width: 195px;
+}
+
+#book_price {
+    margin-right: 20px;
+}
+
+.price_label {
+    position: absolute;
+    left: -15px;
+    top: 2px;
+}
+
+.price_field {
+    position: absolute;
+    left: 0px;
+    width: 95px;
+}
+
+#book_proper_title {
+    margin-left: 15px;
+}
+#book_author {
+    margin-left: 15px;
+}
+
+#book_image {
+    position: absolute;
+    top: -9999px;
+}
+
+.book_img_uploader {
+    margin: 0 0 0 10px;
+    padding-top: 3px;
+    .uploader_info {
+        margin: 0 0 0 15px;
+    }
+}
+
+#btn_plus_video {
+    margin: -8px 0 0 6px;
+    background: white;
+    font-size: 15px;
+}
+
+.video_url_field {
+    margin-left: 40px;
+    margin-bottom: 10px;
+    position: relative;
+    &:hover {
+        .delete_video {
+            display: block;
+        }
+    }
+}
+
+.video_url {
+    padding: 3px 10px;
+    color: $SteelGrey;
     font-size: 14px;
+    overflow: hidden;
+    width: 350px;
+    border: none;
+    border-radius: 5px;
+    background: $Gainsboro;
+    &:focus {
+        outline: none;
     }
-  }
-  .btn_wrapper{
-    margin: 0px 20px 25px 0;
-    padding-top: 15px;
-  }
 }
 
-.section{
-  margin-top: 20px;
-}
-.section_title{
-  margin-left: 22px;
-}
-
-.book_image img{
-  width: 90px;
-  height: 120px;
-  object-fit: contain;
-}
-
-
-#book_title{
-  font-family: 'Roboto','Kosugi Maru',sans-serif,  ;
-  width: 195px;
-}
-
-#book_price{
-  margin-right: 20px;
-}
-
-.price_label{
-  position: absolute;
-  left: -15px;
-  top: 2px;
-}
-
-.price_field{
-  position: absolute;
-  left: 0px;
-  width: 95px;
-}
-
-#book_proper_title{
-  margin-left: 15px;
-}
-#book_author{
-  margin-left: 15px;
-}
-
-#book_image{
-  position : absolute;
-  top : -9999px;
-}
-
-.book_img_uploader{
-  margin: 0 0 0 10px;
-  padding-top: 3px;
-  .uploader_info{
-  margin: 0 0 0 15px;
-  }
-}
-
-#btn_plus_video{
-  margin: -8px 0 0 6px;
-  background: white;
-  font-size: 15px;
-}
-
-.video_url_field{
-  margin-left: 40px;
-  margin-bottom: 10px;
-  position: relative;
-  &:hover{
-    .delete_video{
-    display: block;
+.delete_video {
+    color: $SteelGrey;
+    background: white;
+    border: none;
+    display: none;
+    position: absolute;
+    right: 52px;
+    top: 0;
+    &:focus {
+        outline: none;
     }
-  }
+    &:hover {
+        color: $Alert;
+    }
 }
 
-.video_url{
-  padding: 3px 10px;
-  color: $SteelGrey ;
-  font-size: 14px;
-  overflow: hidden;
-  width: 350px;
-  border: none;
-  border-radius: 5px;
-  background: $Gainsboro ;
-   &:focus{
-    outline: none;
-  }
+.youtube_thumb {
+    width: 50px;
 }
 
-.delete_video{
-  color: $SteelGrey ;
-  background: white;
-  border: none;
-  display: none;
-  position: absolute;
-  right: 52px;
-  top: 0;
-  &:focus{
-    outline: none;
-  }
-  &:hover{
-    color: $Alert ;
-  }
+.tags_checkbox {
+    display: none;
+    &:checked + .tags_label {
+        color: white;
+        background: $Bayoux;
+    }
+    &:checked + .tags_label_mb {
+        color: white;
+        background: $Bayoux;
+    }
+    &:checked + .tags_label:after {
+        background-image: url("/images/tag_active.png");
+    }
 }
 
-.youtube_thumb{
-  width: 50px;
+.tags_label {
+    font-family: "Open Sans", "Kosugi Maru", sans-serif;
+    font-size: 14px;
+    width: 160px;
+    height: 100%;
+    padding: 13px 0 13px 38px;
+    background: $Gainsboro;
+    cursor: pointer;
 }
 
-.tags_checkbox{
-  display: none;
-  &:checked + .tags_label{
-    color: white;
-    background: $Bayoux;
-  }
-  &:checked + .tags_label_mb{
-    color: white;
-    background: $Bayoux;
-  }
-  &:checked + .tags_label:after{
-    background-image: url("/images/tag_active.png");
-  }
-}
-
-.tags_label{
-  font-family: 'Open Sans','Kosugi Maru',sans-serif,  ;
-  font-size: 14px;
-  width: 160px;
-  height: 100%;
-  padding: 13px 0 13px 38px;
-  background: $Gainsboro ;
-  cursor: pointer;
-}
-
-.tags_label:after{
+.tags_label:after {
     content: "";
     width: 160px;
     height: 47px;
@@ -1695,29 +1672,29 @@ text-decoration: none;
     left: 15px;
 }
 
-.tag_index_row  div:nth-child(2){
+.tag_index_row div:nth-child(2) {
     margin-left: -20px;
 }
 
-.section_own-fav{
- margin: 30px 0 0 20px !important; 
+.section_own-fav {
+    margin: 30px 0 0 20px !important;
 }
 
-.labels{
-  color: $SteelGrey;
-  font-size: 14px;
-  margin: 15px 20px 0 30px;
-  cursor: pointer;
+.labels {
+    color: $SteelGrey;
+    font-size: 14px;
+    margin: 15px 20px 0 30px;
+    cursor: pointer;
 }
 
-#own_checkbox{
-  display: none;
-  &:checked + .own_label:after{
-      background-image: url("/images/own_active.png");
+#own_checkbox {
+    display: none;
+    &:checked + .own_label:after {
+        background-image: url("/images/own_active.png");
     }
 }
 
-.own_label:after{
+.own_label:after {
     content: "";
     width: 24px;
     height: 33px;
@@ -1730,14 +1707,14 @@ text-decoration: none;
     left: 0px;
 }
 
-#fav_checkbox{
-  display: none;
-  &:checked + .fav_label:after{
-      background-image: url("/images/fav_active.png");
+#fav_checkbox {
+    display: none;
+    &:checked + .fav_label:after {
+        background-image: url("/images/fav_active.png");
     }
 }
 
-.fav_label:after{
+.fav_label:after {
     content: "";
     width: 27px;
     height: 24px;
@@ -1750,326 +1727,322 @@ text-decoration: none;
     left: 0;
 }
 
-
 /*=========================
     Details (Books show)
 =========================*/
 
-#details_page{
-  margin-top: 93px;
-  .row{
-    margin-top: 10px;
-  }
-  .standard_form{
-    padding: 10px;
-  }
-  .underlined_form{
-    text-decoration: none;
-  }
-  .tags_details{
+#details_page {
+    margin-top: 93px;
+    .row {
+        margin-top: 10px;
+    }
+    .standard_form {
+        padding: 10px;
+    }
+    .underlined_form {
+        text-decoration: none;
+    }
+    .tags_details {
+        padding: 0;
+        margin-left: 0px;
+        width: 420px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        .tag_wrapper_details {
+            padding: 0 !important;
+        }
+        .row {
+            margin-left: 0 !important;
+        }
+        .tag_field {
+            padding-left: 33px;
+            position: relative;
+            width: 160px;
+            height: 47px;
+            font-size: 14px;
+            color: white;
+            background: $Bayoux;
+            &:after {
+                content: "";
+                width: 160px;
+                height: 47px;
+                background-image: url("/images/tag_active.png");
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            p {
+                margin: 2px 0 0 5px;
+            }
+        }
+    }
+    .btn_wrapper {
+        position: relative;
+        width: 450px;
+        margin: -20px 0 60px 0;
+        button {
+            position: absolute;
+            right: 0;
+            padding: 6px 12px;
+        }
+    }
+}
+
+.book_title {
+    font-family: "Open Sans", "Kosugi Maru", sans-serif;
+    font-weight: bold;
     padding: 0;
-    margin-left: 0px;
-    width: 420px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    .tag_wrapper_details{
-      padding: 0 !important;
+    p {
+        width: 250px !important;
     }
-    .row{
-      margin-left: 0 !important;
-    }
-    .tag_field{
-    padding-left: 33px;
-    position: relative;
-    width: 160px;
-    height: 47px;
+}
+
+.book_price {
     font-size: 14px;
-    color: white;
-    background: $Bayoux ;
-      &:after{
-        content: "";
-        width: 160px;
-        height: 47px;
-        background-image: url("/images/tag_active.png");
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      p{
-        margin: 2px 0 0 5px;
-      }
-      
+}
+
+.book_proper_title {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: -10px;
+}
+
+.book_author {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: -10px;
+}
+
+.book_related_videos {
+    h5 {
+        color: $SteelGrey;
     }
-  }
-  .btn_wrapper{
-    position: relative;
-    width: 450px;
-    margin: -20px 0 60px 0;
-    button{
-      position: absolute;
-      right: 0;
-      padding: 6px 12px;
-    }
-  }
 }
 
-.book_title{
-  font-family: 'Open Sans', 'Kosugi Maru', sans-serif; ;
-  font-weight: bold;
-  padding: 0;
-  p{
-    width: 250px !important;
-  }
-}
-
-.book_price{
-  font-size: 14px;
-}
-
-.book_proper_title{
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: -10px;
-}
-
-.book_author{
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: -10px;
-}
-
-.book_related_videos{
-  h5{
-    color: $SteelGrey;
-  }
-}
-
-.tags_row_details  div:nth-child(2){
+.tags_row_details div:nth-child(2) {
     margin-left: -25px;
-  }
-
-.icons_row{
-  padding-top: 25px;
 }
 
-.icons{
-  margin: 0 30px 30px 35px;
-  i{
-    margin-right: 3px;
-  }
+.icons_row {
+    padding-top: 25px;
 }
 
-.dates{
-  color: $SteelGrey;
-  font-size: 12px;
-  p{
-    margin: 0;
-  }
+.icons {
+    margin: 0 30px 30px 35px;
+    i {
+        margin-right: 3px;
+    }
+}
+
+.dates {
+    color: $SteelGrey;
+    font-size: 12px;
+    p {
+        margin: 0;
+    }
 }
 
 /*=========================
         Books edit
 =========================*/
 
-
 /*=========================
       Responsive
 =========================*/
 
- /* universal */
- 
-.standard_form{
-  min-height: 45px;
+/* universal */
+
+.standard_form {
+    min-height: 45px;
 }
 
-.form_textarea{
-  padding: 10px 15px;
+.form_textarea {
+    padding: 10px 15px;
 }
-.btn_rspnsv{
-  height: 45px;
-}
-
-.btn_back_save{
-  margin-top: 10px;
-  height: 45px;
-  padding: 6px 20px!important;
-  margin-left: 20px !important;
-  font-size: 16px;
-  line-height: 32px;
+.btn_rspnsv {
+    height: 45px;
 }
 
-.btn_modal{
-  margin-top: 10px;
-  height: 40px;
-  padding: 6px 15px!important;
-  margin-left: 15px !important;
-  font-size: 16px;
+.btn_back_save {
+    margin-top: 10px;
+    height: 45px;
+    padding: 6px 20px !important;
+    margin-left: 20px !important;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.btn_modal {
+    margin-top: 10px;
+    height: 40px;
+    padding: 6px 15px !important;
+    margin-left: 15px !important;
+    font-size: 16px;
 }
 
 /* book new(edit) */
-.video_url{
-  padding: 6px 10px;
-  width: 340px;
+.video_url {
+    padding: 6px 10px;
+    width: 340px;
 }
-.delete_video{
-  top: 3px;
-}
-
-@media screen and (min-width:576px) {
- 
- /* universal */
- 
-  .standard_form{
-    min-height: 36px;
-  }
-  .btn_rspnsv{
-    height: 36px;
-  }
-  .form_textarea{
-    padding: 5px 10px;
-  }
-  .btn_back_save{
-    height: 36px;
-    padding: 6px 12px!important;
-    margin-left: 10px !important;
-    font-size: 14px;
-    line-height: 24px;
-  }
-  .btn_modal{
-    margin-left: 4px !important;
-    height: 36px;
-    padding: 6px 12px !important;
-    margin: 4px;
-    font-size: 14px;
-  }
- 
-  /* HOME */
-  #pile_of_books{
-    background-position: bottom -100px center;
-  }
-  
-  /* book new(edit) */
-  .video_url{
-    padding: 3px 10px;
-    width: 350px;
-  }
-  .delete_video{
-  top: 0;
-}
+.delete_video {
+    top: 3px;
 }
 
-@media screen and (min-width:1200px) {
-  /* Home */
+@media screen and (min-width: 576px) {
+    /* universal */
 
- #introduce_shelf{
-  height: 650px;
-  .text_wrappper{
-   padding-top: 90px; 
-  }
-  .list{
-    width: 398px;
-  }
-  img{
-    margin-top: 50px;
-    margin-left: calc(((100% - 422px) / 2) - 30% + 20px);
+    .standard_form {
+        min-height: 36px;
     }
-  }
-  
-  #put_books_in{
-    position: relative;
-    height: 630px;
-    .pc_mobile_image{
-      position: absolute;
-      top: 60px;
-      left: -550px;
+    .btn_rspnsv {
+        height: 36px;
     }
-    .btn_signup_free{
-      margin-top: 90px;
+    .form_textarea {
+        padding: 5px 10px;
     }
-  }
-  
-  #tsundoku{
-    padding-top: 50px;
-    height: 550px;
-    .list{
-     margin-top: 85px;
+    .btn_back_save {
+        height: 36px;
+        padding: 6px 12px !important;
+        margin-left: 10px !important;
+        font-size: 14px;
+        line-height: 24px;
     }
-    .youtube_image{
-      margin-top: 120px;
-      margin-left: 100px;
+    .btn_modal {
+        margin-left: 4px !important;
+        height: 36px;
+        padding: 6px 12px !important;
+        margin: 4px;
+        font-size: 14px;
     }
-  }
-  #note_down_ideas{
-    padding-top: 30px;
-    height: 540px;
-    .list{
-      margin-top: 90px;
-      }
-    .ideas_image{
-      margin-top: 110px;
-      margin-left: 0px;
+
+    /* HOME */
+    #pile_of_books {
+        background-position: bottom -100px center;
     }
-  }
-  #what_can_do_with_shelf{
-    padding-top: 20px;
-    position: relative;
-    height: 560px;
-    .list{
+
+    /* book new(edit) */
+    .video_url {
+        padding: 3px 10px;
+        width: 350px;
     }
-    .shelf_image{
-      position: absolute;
-      top: 5px;
-      /*left: -310px;*/
-      left: -335px ;
-      }
-    .btn_signup_free{
-      margin: 0 auto;
-      margin-top: 70px;
+    .delete_video {
+        top: 0;
     }
-  }
-  #pile_of_books{
-    background-position: bottom -240px center;
-  }
-  
-  /* Books */
-  .gallery{
-    padding-left: 1.5%;
-  }
+}
+
+@media screen and (min-width: 1200px) {
+    /* Home */
+
+    #introduce_shelf {
+        height: 650px;
+        .text_wrappper {
+            padding-top: 90px;
+        }
+        .list {
+            width: 398px;
+        }
+        img {
+            margin-top: 50px;
+            margin-left: calc(((100% - 422px) / 2) - 30% + 20px);
+        }
+    }
+
+    #put_books_in {
+        position: relative;
+        height: 630px;
+        .pc_mobile_image {
+            position: absolute;
+            top: 60px;
+            left: -550px;
+        }
+        .btn_signup_free {
+            margin-top: 90px;
+        }
+    }
+
+    #tsundoku {
+        padding-top: 50px;
+        height: 550px;
+        .list {
+            margin-top: 85px;
+        }
+        .youtube_image {
+            margin-top: 120px;
+            margin-left: 100px;
+        }
+    }
+    #note_down_ideas {
+        padding-top: 30px;
+        height: 540px;
+        .list {
+            margin-top: 90px;
+        }
+        .ideas_image {
+            margin-top: 110px;
+            margin-left: 0px;
+        }
+    }
+    #what_can_do_with_shelf {
+        padding-top: 20px;
+        position: relative;
+        height: 560px;
+        .list {
+        }
+        .shelf_image {
+            position: absolute;
+            top: 5px;
+            /*left: -310px;*/
+            left: -335px;
+        }
+        .btn_signup_free {
+            margin: 0 auto;
+            margin-top: 70px;
+        }
+    }
+    #pile_of_books {
+        background-position: bottom -240px center;
+    }
+
+    /* Books */
+    .gallery {
+        padding-left: 1.5%;
+    }
 }
 
 /*=========================
       　 Mobile
 =========================*/
 
-.for_mobile_size{
-  transform: scale(1.2,1.2);
-  margin-top: 40px;
+.for_mobile_size {
+    transform: scale(1.2, 1.2);
+    margin-top: 40px;
 }
 
 /* tag_index*/
 
 .tags_label_mb {
-  font-family: "Open Sans", "Kosugi Maru", sans-serif;
-  font-size: 14px;
-  width: 155px;
-  height: 46px;
-  padding: 12px 0 12px 18px;
-  background: $Gainsboro ;
-  cursor: pointer;
-  border-radius: 16px;
+    font-family: "Open Sans", "Kosugi Maru", sans-serif;
+    font-size: 14px;
+    width: 155px;
+    height: 46px;
+    padding: 12px 0 12px 18px;
+    background: $Gainsboro;
+    cursor: pointer;
+    border-radius: 16px;
 }
 
 /*side menu*/
 
-.icon_close_menu_mb{
-  margin-top: -32px;
+.icon_close_menu_mb {
+    margin-top: -32px;
 }
 
 /* books (index) */
 
-.search_field_mb{
-  width: 420px !important;
-  height: 38px !important;
+.search_field_mb {
+    width: 420px !important;
+    height: 38px !important;
 }
 
 .tags_area .tags_label_mb {
@@ -2078,98 +2051,98 @@ text-decoration: none;
     width: 140px;
     padding: 13px 0 13px 15px;
 }
-.sort_area_mb{
-  margin-top: 90px!important;
+.sort_area_mb {
+    margin-top: 90px !important;
 }
 
-.btn_plus_book_mb{
-  margin-top: 30px !important;
+.btn_plus_book_mb {
+    margin-top: 30px !important;
 }
 
-.for_display_row_mb{
-  margin-top: 30px!important;
+.for_display_row_mb {
+    margin-top: 30px !important;
 }
 
-.gallery_mb{
-  padding: 0 20px!important;
+.gallery_mb {
+    padding: 0 20px !important;
 }
 
-.search_btn_mb{
-  right: -20px!important;
+.search_btn_mb {
+    right: -20px !important;
 }
 
-.btn_wrapper_mb{
-  width: 470px !important;
+.btn_wrapper_mb {
+    width: 470px !important;
 }
 
 /* tag page */
-.tag_page_mb{
-  padding: 10px 40px !important;
+.tag_page_mb {
+    padding: 10px 40px !important;
 }
 
 .tag_wrapper_mb {
-  line-height: 44px;
-  position: relative;
-  display: inline-block;
-  width: 180px;
-  height: 44px;
-  margin: 15px 50px 10px 5px;
-  padding: 0 20px 0 23px;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
-  text-decoration: none;
-  &:hover {
-    opacity: 0.8;
-  }
-  .delete_tag{
-    color: $SteelGrey;
-    position: absolute;
-    z-index: 5;
-    right: -35px;
-    top: 10px;
-    display: none;
-    &:hover{
-      color: $Alert;
-      text-decoration: none;
+    line-height: 44px;
+    position: relative;
+    display: inline-block;
+    width: 180px;
+    height: 44px;
+    margin: 15px 50px 10px 5px;
+    padding: 0 20px 0 23px;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+    text-decoration: none;
+    &:hover {
+        opacity: 0.8;
     }
-  }
-  &:hover{
-    .delete_tag{
-      display: block;
+    .delete_tag {
+        color: $SteelGrey;
+        position: absolute;
+        z-index: 5;
+        right: -35px;
+        top: 10px;
+        display: none;
+        &:hover {
+            color: $Alert;
+            text-decoration: none;
+        }
     }
-  }
+    &:hover {
+        .delete_tag {
+            display: block;
+        }
+    }
 }
-.tag_wrapper_mb .tag_field{
-  position: relative;
-  z-index: 3;
-  margin: 2px 0 0 0px;
-  width: 180px;
-  font-family: "Kosugi Maru";
-  font-size: 16px;
-  font-weight: bold;
-  color: $SteelGrey;
-  background: $Gainsboro;
-  height: 50px;
-  border: none;
-  outline: none;
-  line-height: 16px;
-  padding: 0 16px 0 20px;
-  border-radius: 16px;
+.tag_wrapper_mb .tag_field {
+    position: relative;
+    z-index: 3;
+    margin: 2px 0 0 0px;
+    width: 180px;
+    font-family: "Kosugi Maru";
+    font-size: 16px;
+    font-weight: bold;
+    color: $SteelGrey;
+    background: $Gainsboro;
+    height: 50px;
+    border: none;
+    outline: none;
+    line-height: 16px;
+    padding: 0 16px 0 20px;
+    border-radius: 16px;
 }
 
 /* new */
 
 /* details */
 
-.tag_field_mb{
-  font-family: "Open Sans", "Kosugi Maru", sans-serif;
-  padding: 12px 16px;
-  border-radius: 16px;
-  position: relative;
-  width: 155px;
-  height: 45px;
-  font-size: 15px;
-  color: white;
-  background: #64707B;
-  margin-left: 33px;
+.tag_field_mb {
+    font-family: "Open Sans", "Kosugi Maru", sans-serif;
+    padding: 12px 16px;
+    border-radius: 16px;
+    position: relative;
+    width: 155px;
+    height: 45px;
+    font-size: 15px;
+    color: white;
+    background: #64707b;
+    margin-left: 33px;
 }

@@ -1,0 +1,77 @@
+<div id="books_area" class="">
+    
+    <div class="for_display_row row justify-content-center">
+      
+      <div class="row justify-content-start no-gutters card_books_row">
+    
+        <% @books.each.with_index(1) do |b, i| %>
+          
+          <input type="hidden" name="book_id" value="<%= b.id %>">
+          
+         
+            <div class="for_display_col col">
+              <div class="justify-content-center row_card_books"><!-- row_card_books -->
+                
+                <a href="/details/<%= b.id %>">
+                <div class="">
+                <div id="book_<%= i %>" class="row card_books justify-content-start">
+                  <div class="image_card_books">
+                    <% if b.image? %>
+                      <%= image_tag b.image.url %> 
+                    <% elsif b.videos.count > 0 %>
+                      <%= image_tag "http://img.youtube.com/vi/#{b.videos.first.video_id}/mqdefault.jpg" %>
+                    <% else %>
+                      <%= image_tag 'no_img_book.png' %>
+                    <% end %>
+                  
+                  </div>
+                  
+                  
+                  
+                    <div class="col-6 books_card_wrapper_center">
+                      <h6 class="title_card_books"><%= b.title %></h6>
+                      <p class="memo_card_books"><%= b.memo %></p>
+                    </div>
+                    
+                    <div class="books_card_wrapper_right">
+                      <% if b.price%>
+                        <p class="price_card_books">¥ <%= b.price %></p>
+                      <% end %>
+                      <div class="row icons_card_books">
+                        
+                        
+                        
+                        <% if b.videos.count > 0 %>
+                          <i class="fab fa-youtube fa-lg icon_yt_active"></i>
+                        <% else %>
+                          <i class="fab fa-youtube fa-lg icon_inactive"></i>
+                        <% end %>
+                        
+                        <% if b.own %>
+                          <i class="fas fa-fist-raised fa-lg icon_own_active"></i>
+                        <% else %>
+                          <i class="fas fa-fist-raised fa-lg icon_inactive"></i>
+                        <% end %>
+                        
+                        <% if b.favorite %>
+                          <i class="fas fa-heart fa-lg icon_fav_active"></i>
+                        <% else %>
+                          <i class="fas fa-heart fa-lg icon_inactive"></i>
+                        <% end %>
+                        
+                      </div>
+                    </div>
+             
+                  </div>
+                  </div>
+                </a>
+              
+              </div><!-- row_card_books -->
+              
+            </div><!-- gallery_col -->
+
+        <% end %>
+    
+      </div>
+    </div>
+  </div>

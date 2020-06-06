@@ -1,0 +1,43 @@
+<% if !@guess.nil? %>
+<div id="guess_area" class="container">
+    <div class="row justify-content-center">
+        <div class="guess_wrapper">
+            <% if !@guess.empty? %>
+
+            <div class="row justify-content-center">
+                <% @guess.each.with_index do |g,i| %>
+
+                <div class="col-3">
+                    <form id="guessed_book_form" action="/book-new" method="post">
+                        <input type="hidden" name="user_id" value="<%= @user.id %>" />
+                        <div class="guessed_book" onclick="submitGuessBook(this)">
+                            <input type="hidden" name="[book][title]" value="<%= g.title %>" />
+                            <input type="hidden" name="[book][price]" value="<%= g.item_price %>" />
+                            <input type="hidden" name="[book][proper_title]" value="<%= g.sub_title %>" />
+                            <input type="hidden" name="[book][author]" value="<%= g.author %>" />
+                            <input type="hidden" name="[book][image]" value="<%= g.medium_image_url %>" />
+                            <input type="hidden" name="[book][purchase_url]" value="<%= g.affiliate_url %>" />
+                            <%= image_tag g.medium_image_url, class:"" %>
+                        </div>
+                    </form>
+                </div>
+                <% end %>
+            </div>
+            <% else %>
+            <div class="row justify-content-center">
+                <p class="info">候補がありません</p>
+            </div>
+            <% end %>
+
+            <div class="row justify-content-end btn_wrapper">
+                <form role="form" action="/book-new" method="post">
+                    <input type="hidden" name="user_id" value="<%= @user.id %>" />
+                    <input type="hidden" name="[book][title]" value="<%= @book_title %>" />
+                    <button type="button" class="btn btn-secondary btn_modal" onclick="toBackPage()">戻る</button>
+                    <button type="submit" class="btn btn-secondary btn_modal" onclick="">候補から選ばない</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

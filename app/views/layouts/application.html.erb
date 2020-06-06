@@ -1,54 +1,43 @@
 <!DOCTYPE html>
 <html>
- 
-  <head>
-    <title>Shelf | 自分だけの本棚アプリ</title>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=520">
-    
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <%= favicon_link_tag('favicon.ico') %>
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
-    
-    <%= render 'layouts/webfont' %>
-    <%= include_gon %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-  
-  <body class="<%= 'bg_white' unless user_signed_in? %>">
-  
-  <div id="contents_wrapper" class="container-fluid">
-  
-  
-    <%= render 'layouts/side_menu' %>
- 
-    <%= render 'layouts/nav' %>
-    
-    
-    <!-- flash -->  
-    
-    <div class="row justify-content-center">
-      
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-        
-    </div>
-    
-    <%= yield %>
-  
-  
-    <!-- footer -->  
-    
-    <footer class="footer">
-      <div class="row justify-content-center <%= yield(:footer) %>">
-        <p class="copyrights">Copyrights &copy; 2020 Shelf All Rights Reserved</p>
-      </div>
-    </footer>
-  
-  </div>
+    <head>
+        <title>Shelf | 自分だけの本棚アプリ</title>
+        <%= csrf_meta_tags %>
+        <meta name="viewport" content="width=520" />
 
-  </body>
-  
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+        <%= favicon_link_tag('favicon.ico') %>
+        <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180" />
+
+        <%= render 'layouts/webfont' %> 
+        <%= include_gon %> 
+        <%= stylesheet_link_tag 'application', media: 'all' %> 
+        <%= javascript_include_tag 'application' %>
+    </head>
+
+    <body class="<%= 'bg_white' unless user_signed_in? %>">
+        <div id="contents_wrapper" class="container-fluid">
+            <%= render 'layouts/side_menu' %> 
+            <%= render 'layouts/nav' %>
+
+            <!-- flash -->
+
+            <div class="row justify-content-center">
+                <% if notice %>
+                <p class="notice">
+                  <%= notice %></p>
+                <% end %>
+            </div>
+
+            <%= yield %>
+
+            <!-- footer -->
+
+            <footer class="footer">
+                <div class="row justify-content-center <%= yield(:footer) %>">
+                    <p class="copyrights">Copyrights &copy; 2020 Shelf All Rights Reserved</p>
+                </div>
+            </footer>
+        </div>
+    </body>
 </html>

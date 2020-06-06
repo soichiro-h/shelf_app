@@ -1,0 +1,8 @@
+<div class="row justify-content-center row_search_field">
+    <div class="search_filed_wrapper">
+        <%= form_tag(serach_books_path,:method => 'get') do %> <%= text_field_tag :search_books, "", class:"search_field" %>
+        <input type="hidden" name="user_id" value="<%= @user.id %>" />
+        <i class="fas fa-search search_btn"><%= submit_tag '', :name => nil, class: "search_books_submit" %></i>
+    </div>
+    <% end %>
+</div>

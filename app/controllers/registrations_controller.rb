@@ -8,7 +8,6 @@ class RegistrationsController < Devise::RegistrationsController
     @user = current_user
     add_default_tags
     add_default_comment
-    # debugger
   end
 
   # デフォルトtag の生成
