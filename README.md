@@ -34,7 +34,7 @@ http://shelf.fun/ <br>
 
 
 ## AWS構成図
-![aws](https://user-images.githubusercontent.com/50736375/89258095-6baf2180-d662-11ea-9ec4-5a585643f20e.png)
+![aws](https://user-images.githubusercontent.com/50736375/89258612-6c948300-d663-11ea-90d4-9220d30a04f0.png)
 
 
 ## 機能一覧
