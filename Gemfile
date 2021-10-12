@@ -9,7 +9,7 @@ end
 
 gem 'rails', '5.1.6'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem 'puma', '3.9.1'
+gem 'puma', '4.3.9'
 gem 'bootstrap', '~> 4.4.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sass-rails', '~> 5.0.6'
